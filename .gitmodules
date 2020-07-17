@@ -1,0 +1,4 @@
+[submodule "ulfy-lib"]
+	path = ulfy-lib
+	url = https://github.com/ulfyyang/UlfyAndroidLibrary.git
+	branch = master
