@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/showBT"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="显示" />
+
+        <Button
+            android:id="@+id/hideBT"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="隐藏" />
+
+    </LinearLayout>
+
+    <!-- 需要指定子View的位置和动画的方向，动画方向默认为bottom-->
+    <!-- DialogLayout可以是包裹内容，子View实在容器中移动的 -->
+    <com.ulfy.android.views.DialogLayout
+        android:id="@+id/dialogDL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:direction="bottom">
+
+        <!-- 只能包含一个View，且必须制定layout_gravity-->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="bottom"
+            android:background="#F00"
+            android:visibility="gone">
+
+        </FrameLayout>
+
+    </com.ulfy.android.views.DialogLayout>
+
+</FrameLayout>

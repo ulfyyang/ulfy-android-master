@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.ulfy.android.views.ShapeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        app:layout_shape="circle"
+        app:shape_background="#F2F2F2">
+
+        <ImageView
+            android:id="@+id/avatarIV"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:scaleType="centerCrop"
+            android:src="#F2F2F2" />
+
+    </com.ulfy.android.views.ShapeLayout>
+
+</FrameLayout>

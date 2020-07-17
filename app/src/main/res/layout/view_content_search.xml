@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 页面内容 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- 顶部搜索栏 -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#161824"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/shape_content_search"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_content_search" />
+
+                    <EditText
+                        android:id="@+id/searchET"
+                        style="@style/EditText"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:hint="输入关键词查找"
+                        android:imeOptions="actionSearch"
+                        android:inputType="text"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="6dp"
+                        android:singleLine="true"
+                        android:textColor="#ffffff"
+                        android:textColorHint="#474b62"
+                        android:textSize="15sp" />
+
+                    <ImageView
+                        android:id="@+id/searchClearIV"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center"
+                        android:padding="6dp"
+                        android:src="@drawable/ic_content_search_clear" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/searchCancelTV"
+                    android:layout_width="60dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="取消"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!-- 搜索结果：有数据、无数据 -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- 历史记录 -->
+            <LinearLayout
+                android:id="@+id/searchHistoryLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="历史记录"
+                        android:textColor="#323232"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/searchHistoryClearIV"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:padding="3dp"
+                        android:src="@drawable/ic_content_search_delete" />
+
+                </LinearLayout>
+
+                <com.ulfy.android.views.FlowLayout
+                    android:id="@+id/searchHistoryFL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" />
+
+            </LinearLayout>
+
+            <!-- 有结果 -->
+            <LinearLayout
+                android:id="@+id/searchResultLL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.scwang.smartrefresh.layout.SmartRefreshLayout
+                    android:id="@+id/searchResultSRL"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:paddingTop="10dp">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/searchResultRV"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" />
+
+                </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+            </LinearLayout>
+
+            <!-- 无结果 -->
+            <FrameLayout
+                android:id="@+id/searchResultEmptyFL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="暂无搜索结果" />
+
+            </FrameLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

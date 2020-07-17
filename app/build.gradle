@@ -1,0 +1,173 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion externalCompileSdkVersion
+    buildToolsVersion externalBuildToolsVersion
+
+    signingConfigs {
+        release {
+            storeFile file('android.keystore')
+            keyAlias 'alias'
+            keyPassword 'abc123'
+            storePassword 'abc123'
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    defaultConfig {
+        applicationId "com.ulfy.master"
+        minSdkVersion externalMinSdkVersion
+        targetSdkVersion externalTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        testInstrumentationRunner externalRunner
+
+        // 定制字段 -- 多域名选择器
+        buildConfigField("String[]", "HTTP_BASES", 'new String[] {"http://www.baidu.com", "http://www.google.com"}')
+        // 定制字段 -- 服务器接口根路径
+        buildConfigField("String", "HTTP_BASE", '"https://easymock.ulfy.net/mock/5ef3422b55860000205af51d/ulfy-android-demo"')
+    }
+
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.release
+        }
+        release {
+            signingConfig signingConfigs.release
+            zipAlignEnabled true
+            shrinkResources true
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
+
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.2'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    /*
+    基础库
+     */
+    implementation externalAndroidAppCompatV7           // 组件支持库
+    implementation externalAndroidDesign                // material design 库
+    implementation externalAppBarLayoutBehavior         // 解决AppBarLayout上拉回弹问题
+    implementation externalAppBarLayout                 // 官方AppBarLayout升级版
+    implementation externalAndroidCardView              // 卡片布局
+    implementation externalConstraintLayout             // 约束布局
+
+    /*
+    源码依赖
+     */
+    implementation project(':ulfy-lib:ulfy-cache')                       // 对象缓存
+    implementation project(':ulfy-lib:ulfy-bus')                         // 事件总线
+    implementation project(':ulfy-lib:ulfy-task')                        // 任务引擎
+    implementation project(':ulfy-lib:ulfy-task-extension')              // 任务扩展包
+    implementation project(':ulfy-lib:ulfy-mvvm')                        // MVVM协议规范
+    implementation project(':ulfy-lib:ulfy-ui-injection')                // 界面注入
+    implementation project(':ulfy-lib:ulfy-ui-linkage')                  // 界面联动
+    implementation project(':ulfy-lib:ulfy-task-transponder')            // 任务响应器
+    implementation project(':ulfy-lib:ulfy-task-transponder-smart')      // Smart下拉刷新响应器
+    implementation project(':ulfy-lib:ulfy-adapter')                     // 编辑适配器
+    implementation project(':ulfy-lib:ulfy-time')                        // 时间跟踪
+    implementation project(':ulfy-lib:ulfy-download-manager')            // 下载管理器
+    implementation project(':ulfy-lib:ulfy-multi-domain-picker')         // 多域名选择器
+    implementation project(':ulfy-lib:ulfy-data-pre-loader')             // 数据预加载
+    implementation project(':ulfy-lib:ulfy-views')                       // 自定义控件
+    implementation project(':ulfy-lib:ulfy-dialog')                      // 弹出框
+    implementation project(':ulfy-lib:ulfy-image')                       // 图片处理
+    implementation project(':ulfy-lib:ulfy-system')                      // 系统综合工具
+    implementation project(':ulfy-lib:ulfy-okhttp')                      // 网络访问工具
+    implementation project(':ulfy-lib:ulfy-utils')                       // 工具处理集合
+    implementation project(':ulfy-lib:ulfy-resource')                    // 公共资源
+    implementation project(':ulfy-lib:ulfy-umeng')                       // 友盟统计
+    implementation project(':ulfy-lib:ulfy-agentweb')                    // 网页加载
+
+    /*
+    远程依赖
+     */
+//    implementation externalUlfyCache                    // 对象缓存框架
+//    implementation externalUlfyBus                      // 事件总线框架
+//    implementation externalUlfyTask                     // 任务引擎框架
+//    implementation externalUlfyTaskExtension            // 任务扩展包
+//    implementation externalUlfyMVVM                     // mvvm规范
+//    implementation externalUlfyUiInjection              // 界面注入框架
+//    implementation externalUlfyUiLinkage                // 界面联动框架
+//    implementation externalUlfyTaskTransponder          // 任务响应器
+//    implementation externalUlfyTaskTransponderSmart     // Smart下拉刷新支持
+//    implementation externalUlfyAdapter                  // 适配器
+//    implementation externalUlfyTime                     // 时间工具包
+//    implementation externalUlfyDownloadManager          // 文件下载管理器
+//    implementation externalMultiDomainPicker            // 多域名选择框架
+//    implementation externalDataPreLoader                // 数据预加载框架
+//    implementation externalUlfyViews                    // 自定义控件
+//    implementation externalUlfyDialog                   // 弹出框框架
+//    implementation externalUlfyImage                    // 图片处理
+//    implementation externalUlfySystem                   // 系统模块
+//    implementation externalUlfyOkHttp                   // 网络模块
+//    implementation externalUlfyUtils                    // 工具模块
+//    implementation externalUlfyResource                 // 公共资源
+//    implementation externalUlfyUmeng                    // 友盟分享封装
+//    implementation externalUlfyAgentweb                 // Agentweb封装
+
+    /*
+    三方库
+     */
+    implementation externalGifDrawable                          // GIF图片加载控件
+    implementation externalPtrLoadMore                          // 下拉刷新（已过时不建议）
+    implementation externalSmartRefreshLayout                   // 下拉刷新
+    implementation externalSmartRefreshHeader                   // 下拉刷新样式
+    implementation externalMagicIndicator                       // ViewPager指示器
+    debugImplementation externalDebugLeakcanary                 // 内存溢出分析
+    releaseImplementation externalReleaseLeakcanary             // 内存溢出分析
+    implementation externalOKHTTP                               // 网络访问库
+    implementation externalFastJson                             // JSON解析库
+    implementation externalJodaTime                             // 时间处理库
+    implementation externalTinyPinyin                           // 汉字转拼音
+    implementation externalGuava                                // 基础工具包
+    implementation externalAndroidMultiDex                      // 分包打包库
+    implementation externalGlide                                // Glide图片加载
+    implementation externalViewAnimation                        // 动画操作框架
+    implementation externalZXing                                // 二维码扫描
+    implementation externalXBanner                              // 轮播图
+    implementation externalQuickSlideBar                        // 列表索引列表
+    implementation project(':wave')                             // 波浪索引选择器
+    implementation externalGifDrawable                          // GIF图片加载控件
+    implementation externalAppBarLayoutBehavior                 // AppBarLayout回弹问题
+    implementation 'com.github.dueeeke.dkplayer:dkplayer-java:3.0.2'        // DK视频播放器
+
+    /*
+    测试库
+     */
+    testImplementation externalJunit
+    testImplementation externalHamcrestLibrary
+    testImplementation externalMockito
+    androidTestImplementation externalMockitoAndroid
+    testImplementation externalRobolectic
+    androidTestImplementation externalAndroidTestRunner
+    androidTestImplementation externalAndroidTestRules
+    androidTestImplementation externalAndroidTestEspresso
+    androidTestImplementation externalAndroidTestSupport
+    debugImplementation externalAndroidTestSupportExtra
+    androidTestImplementation externalAndroidTestUiAutomator
+}

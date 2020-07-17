@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/contentSRL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- app:elevation="0dp" 去除阴影 -->
+        <!-- app:layout_scrollFlags="scroll" 跟随滚动模式 -->
+        <android.support.design.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <io.github.iamyours.flingappbarlayout.AppBarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                app:elevation="0dp">
+
+                <!-- header部分，会随着滚动而消失 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    app:layout_scrollFlags="scroll">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:gravity="center"
+                        android:text="头部部分" />
+
+                </LinearLayout>
+
+                <!-- 置顶部分，当header消失后会留下这里的内容 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:gravity="center"
+                        android:text="暂停部分：不需要可以不写" />
+
+                </LinearLayout>
+
+            </io.github.iamyours.flingappbarlayout.AppBarLayout>
+
+            <!-- 可滚动的组件，可以是ViewPager、NestedScrollView或RecyclerView -->
+            <!-- app:layout_behavior="@string/fling_behavior" 滚动联动设置 -->
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/contentRV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/fling_behavior" />
+
+        </android.support.design.widget.CoordinatorLayout>
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+</FrameLayout>

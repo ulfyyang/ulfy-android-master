@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 标签容器 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/type1LL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/type1TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="类型一"
+                android:textColor="#DA1C36" />
+
+            <View
+                android:id="@+id/type1V"
+                style="@style/HLine"
+                android:layout_height="0.5dp"
+                android:background="#DA1C36" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/type2LL"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/type2TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="类型二"
+                android:textColor="#DA1C36" />
+
+            <View
+                android:id="@+id/type2V"
+                style="@style/HLine"
+                android:layout_height="0.5dp"
+                android:background="#DA1C36" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 内容容器 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/page1FL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="页面一" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/page2FL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="页面二" />
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

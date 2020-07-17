@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/categoryBar"
+        android:layout_marginTop="2dp"
+        android:text="输入框联动：输入框清空、输入框字数统计、多输入框非空、密码可见性" />
+
+    <TextView
+        android:id="@+id/editTextClearLinkageTV"
+        style="@style/TipButton"
+        android:layout_marginTop="2dp"
+        android:text="输入框清空：EditTextClearLinkageActivity" />
+
+    <TextView
+        android:id="@+id/editTextWordCountLinkageTV"
+        style="@style/TipButton"
+        android:text="输入框字数统计：EditTextWordCountLinkageActivity" />
+
+    <TextView
+        android:id="@+id/multiEditTextNotEmptyLinkageTV"
+        style="@style/TipButton"
+        android:text="多输入框非空：MultiEditTextNotEmptyLinkageActivity" />
+
+    <TextView
+        android:id="@+id/passwordShowHideLinkageTV"
+        style="@style/TipButton"
+        android:text="密码可见性：PasswordShowHideLinkageActivity" />
+
+    <TextView
+        style="@style/categoryBar"
+        android:text="滚动性联动：滚动透明度变化、滚动可见性变化" />
+
+    <TextView
+        android:id="@+id/scrollAlphaLinkageTV"
+        style="@style/TipButton"
+        android:layout_marginTop="2dp"
+        android:text="滚动透明度：ScrollAlphaLinkageActivity" />
+
+    <TextView
+        android:id="@+id/scrollShowLinkageTV"
+        style="@style/TipButton"
+        android:text="滚动可见性：ScrollShowLinkageActivity" />
+
+</LinearLayout>

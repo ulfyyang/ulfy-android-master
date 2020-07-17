@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 不自动贴边 -->
+    <com.ulfy.android.views.FingerFollowLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="-60dp"
+        android:layout_marginRight="15dp"
+        app:action_mode="position_fixed">
+
+        <FrameLayout
+            android:id="@+id/content1FL"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/shape_shadow">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="跟随手指\n不自动贴边" />
+
+        </FrameLayout>
+
+    </com.ulfy.android.views.FingerFollowLayout>
+
+    <!-- 自动贴边 -->
+    <com.ulfy.android.views.FingerFollowLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center_vertical"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="15dp"
+        app:action_mode="auto_attach_side">
+
+        <FrameLayout
+            android:id="@+id/content2FL"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/shape_shadow">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="跟随手指\n自动贴边" />
+
+        </FrameLayout>
+
+    </com.ulfy.android.views.FingerFollowLayout>
+
+</FrameLayout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.ulfy.android.views.FlowLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="2dp"
+        app:child_margin="2dp">
+
+        <TextView
+            android:id="@+id/normalDialogTV"
+            style="@style/TipButton"
+            android:text="普通弹出框:NormalDialogActivity" />
+
+        <TextView
+            android:id="@+id/popupDialogTV"
+            style="@style/TipButton"
+            android:text="锚点弹出框:PopuplDialogActivity" />
+
+        <TextView
+            android:id="@+id/alertDialogTV"
+            style="@style/TipButton"
+            android:text="提示弹出框:AlertDialogActivity" />
+
+        <TextView
+            android:id="@+id/progressDialogTV"
+            style="@style/TipButton"
+            android:text="进度弹出框:ProgressDialogActivity" />
+
+        <TextView
+            android:id="@+id/disableTouchTV"
+            style="@style/TipButton"
+            android:text="禁用触摸:DisableTouchActivity" />
+
+        <TextView
+            android:id="@+id/quickPickTV"
+            style="@style/TipButton"
+            android:text="快速选择弹窗:QuickPickActivity" />
+
+    </com.ulfy.android.views.FlowLayout>
+
+</FrameLayout>

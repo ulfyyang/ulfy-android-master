@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 用于存放显示标签的容器 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <!-- 如果支持滑动，则使用该容器 -->
+        <android.support.v4.view.ViewPager
+            android:id="@+id/containerVP"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- 如果不支持滑动，则使用该容器 -->
+        <FrameLayout
+            android:id="@+id/containerFL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+    <!-- 底部容器 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--
+            配置底部标签显示的容器，该容器可增加点击光晕扩散效果：theme 属性发挥的作用
+            如何是黑色背景使用：@style/ThemeOverlay.AppCompat.Dark.ActionBar
+            如果是白色背景使用：@style/ThemeOverlay.AppCompat.Light
+            修改色调需要修改 TabLayout 和下方 LinearLayout 的背景色
+        -->
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <!-- 该容器用于管理具体的点击Tab组件 -->
+            <!-- tabIndicatorHeight用于指定下方滑动条的高度 -->
+            <!-- tabMode用于指定容器的宽度是否等于屏幕的长度 -->
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabTL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#000"
+                app:borderWidth="0dp"
+                app:tabGravity="fill"
+                app:tabIndicatorHeight="0dp"
+                app:tabMode="fixed" />
+
+        </android.support.design.widget.AppBarLayout>
+
+        <!-- 分别指定底部Tab容器的各个子Tab，这些Tab会在代码中最终添加到容器中 -->
+        <!-- 子Tab容器的宽度必须要是match_parent，否则会无法显示出来 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            tools:background="#000000">
+
+            <LinearLayout
+                android:id="@+id/homeLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/homeIV"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/selector_tab_home" />
+
+                <TextView
+                    android:id="@+id/homeTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="模块展示"
+                    android:textColor="@color/selector_main_tab_text_color"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/chargeLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/chargeIV"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/selector_tab_charge" />
+
+                <TextView
+                    android:id="@+id/chargeTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="三方框架"
+                    android:textColor="@color/selector_main_tab_text_color"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/findLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/findIV"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/selector_tab_find" />
+
+                <TextView
+                    android:id="@+id/findTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="场景"
+                    android:textColor="@color/selector_main_tab_text_color"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/controlsLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/controlsIV"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/selector_tab_activity" />
+
+                <TextView
+                    android:id="@+id/controlsTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="控件"
+                    android:textColor="@color/selector_main_tab_text_color"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/meLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <ImageView
+                    android:id="@+id/meIV"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/selector_tab_me" />
+
+                <TextView
+                    android:id="@+id/meTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="占位"
+                    android:textColor="@color/selector_main_tab_text_color"
+                    android:textSize="10sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--
+        pointsVisibility 用于控制是否显示指示器；
+        这里的图片中已经包含的指示器，因此就隐藏了指示器；
+    -->
+    <com.stx.xhb.xbanner.XBanner
+        android:id="@+id/guideXB"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:isAutoPlay="false"
+        app:isShowIndicatorOnlyOne="true"
+        app:pageChangeDuration="800"
+        app:pointsPosition="CENTER"
+        app:pointsVisibility="false" />
+
+    <Button
+        android:id="@+id/enterBT"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="100dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="进入"
+        android:textColor="#AB304F" />
+
+</FrameLayout>

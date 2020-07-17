@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 标签容器 -->
+    <LinearLayout
+        android:id="@+id/titleLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:id="@+id/recommendLL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/recommendTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="13dp"
+                android:paddingRight="13dp"
+                android:text="推荐"
+                android:textColor="@color/color_pager_linkage"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/focusLL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/focusTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="13dp"
+                android:paddingRight="13dp"
+                android:text="关注"
+                android:textColor="@color/color_pager_linkage"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 标签页容器 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 存放标签的容器 -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible">
+
+            <!-- 如果支持滑动，则使用该容器 -->
+            <android.support.v4.view.ViewPager
+                android:id="@+id/containerVP"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <!-- 如果不支持滑动，则使用该容器 -->
+            <FrameLayout
+                android:id="@+id/containerFL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <!-- 标签页一 -->
+        <FrameLayout
+            android:id="@+id/page1FL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="标签页一" />
+
+        </FrameLayout>
+
+        <!-- 标签页二 -->
+        <FrameLayout
+            android:id="@+id/page2FL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="标签页二" />
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

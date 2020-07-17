@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#CCCCCC">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="顶部内容" />
+
+    </FrameLayout>
+
+    <!-- 用来显示加载效果的占位符，必须单独作为一个容器存在，且内部只能存在一个子View -->
+    <FrameLayout
+        android:id="@+id/containerFL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 加载完成后被渲染的视图 -->
+        <TextView
+            android:id="@+id/insideTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="文本文本" />
+
+    </FrameLayout>
+
+</LinearLayout>

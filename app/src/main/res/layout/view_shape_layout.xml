@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0f0"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/categoryBar"
+        android:text="圆形裁切：图片边框 -> 绘制图片背景，内边距 5dp 绘制内容 -> 内容覆盖部分背景得到边框" />
+
+    <com.ulfy.android.views.ShapeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:layout_shape="circle"
+        app:shape_background="@drawable/meinv">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="80dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/meinv" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="#f2f2f2"
+                android:gravity="center"
+                android:text="测试文本"
+                android:textColor="#ff0000"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </com.ulfy.android.views.ShapeLayout>
+
+    <TextView
+        style="@style/categoryBar"
+        android:text="矩形裁切：红色边框 -> 绘制红色背景，内边距 5dp 绘制内容 -> 内容覆盖部分背景得到边框" />
+
+    <com.ulfy.android.views.ShapeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="5dp"
+        app:layout_shape="rect"
+        app:rect_radius="10dp"
+        app:rect_radius_left_top="30dp"
+        app:rect_radius_right_top="30dp"
+        app:shape_background="#ff0000">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="80dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/meinv" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="#f2f2f2"
+                android:gravity="center"
+                android:text="测试文本"
+                android:textColor="#ff0000"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </com.ulfy.android.views.ShapeLayout>
+
+    <TextView
+        style="@style/categoryBar"
+        android:text="动态矩形：通过定时器来动态改变四个圆角的大小" />
+
+    <com.ulfy.android.views.ShapeLayout
+        android:id="@+id/shapeSL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:padding="1dp"
+        app:shape_background="#ff000000">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="80dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/meinv" />
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:background="#f2f2f2"
+                android:gravity="center"
+                android:text="测试文本"
+                android:textColor="#ff0000"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </com.ulfy.android.views.ShapeLayout>
+
+    <TextView
+        style="@style/categoryBar"
+        android:text="无边框示例：左侧为圆形 -- 右侧为矩形" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.ulfy.android.views.ShapeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="10dp"
+                app:layout_shape="circle">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/meinv" />
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:background="#f2f2f2"
+                        android:gravity="center"
+                        android:text="测试文本"
+                        android:textColor="#ff0000"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </com.ulfy.android.views.ShapeLayout>
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <com.ulfy.android.views.ShapeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                app:layout_shape="rect"
+                app:rect_radius="10dp">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="80dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/meinv" />
+
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:background="#f2f2f2"
+                        android:gravity="center"
+                        android:text="测试文本"
+                        android:textColor="#ff0000"
+                        android:textSize="16sp" />
+
+                </LinearLayout>
+
+            </com.ulfy.android.views.ShapeLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/splashUpdateBT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="启动页更新" />
+
+    <Button
+        android:id="@+id/provideBT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="其它地方获取" />
+
+    <TextView
+        android:id="@+id/deviceIdTV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="设备标识" />
+
+</LinearLayout>

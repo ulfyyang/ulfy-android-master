@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/categoryBar"
+        android:layout_marginTop="8dp"
+        android:text="常规使用方式：左侧为默认指示器、右侧是定制指示器" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp">
+
+        <!-- 默认样式 -->
+        <com.stx.xhb.xbanner.XBanner
+            android:id="@+id/normal1XB"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="4dp"
+            android:layout_weight="1" />
+
+        <!-- 定义播放速度和间隔时间、选中取消的点、指示器位置 -->
+        <com.stx.xhb.xbanner.XBanner
+            android:id="@+id/normal2XB"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            app:AutoPlayTime="3000"
+            app:pageChangeDuration="800"
+            app:pointNormal="@drawable/shape_point_false"
+            app:pointSelect="@drawable/shape_point_true"
+            app:pointsPosition="RIGHT" />
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/categoryBar"
+        android:layout_marginTop="8dp"
+        android:text="3D 默认样式" />
+
+    <!-- 3D默认样式 -->
+    <com.stx.xhb.xbanner.XBanner
+        android:id="@+id/clip1XB"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        app:isClipChildrenMode="true" />
+
+    <TextView
+        style="@style/categoryBar"
+        android:layout_marginTop="8dp"
+        android:text="3D 定制样式：使用自定义的布局" />
+
+    <!-- 定制显示样式 -->
+    <com.stx.xhb.xbanner.XBanner
+        android:id="@+id/clip2XB"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="8dp"
+        app:AutoPlayTime="3000"
+        app:bannerBottomMargin="25dp"
+        app:isClipChildrenMode="true"
+        app:pageChangeDuration="800" />
+
+</LinearLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/ratio21BT"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="切换比例 --> 2:1" />
+
+        <Button
+            android:id="@+id/ratio11BT"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="切换比例 --> 1:1" />
+
+    </LinearLayout>
+
+    <TextView
+        style="@style/categoryBar"
+        android:layout_marginTop="5dp"
+        android:text="宽度是确定的、高度是不确定的 -> 高度根据宽度来计算" />
+
+    <com.ulfy.android.views.RatioLayout
+        android:id="@+id/ratioRL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:ratio_height="1"
+        app:ratio_width="1">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FF0000"
+            android:gravity="center"
+            android:text="显示内容"
+            android:textColor="#FFFFFF" />
+
+    </com.ulfy.android.views.RatioLayout>
+
+</LinearLayout>

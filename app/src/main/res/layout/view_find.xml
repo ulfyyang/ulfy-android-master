@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/splashIV"
+                    style="@style/TipButton"
+                    android:layout_weight="1"
+                    android:text="A2.01 - 编写启动页" />
+
+                <View style="@style/VLine" />
+
+                <TextView
+                    android:id="@+id/guideIV"
+                    style="@style/TipButton"
+                    android:layout_weight="1"
+                    android:text="A2.02 - 编写引导页" />
+
+            </LinearLayout>
+
+            <View style="@style/HLine" />
+
+            <TextView
+                android:id="@+id/tabPagerTV"
+                style="@style/TipButton"
+                android:gravity="center"
+                android:text="A2.03 - 标签页分页" />
+
+            <View style="@style/HLine" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/detailsTV"
+                    style="@style/TipButton"
+                    android:layout_weight="1"
+                    android:text="A2.04 - 编写详情页" />
+
+                <View style="@style/VLine" />
+
+                <TextView
+                    android:id="@+id/listTV"
+                    style="@style/TipButton"
+                    android:layout_weight="1"
+                    android:text="A2.05 - 编写列表页" />
+
+            </LinearLayout>
+
+            <View style="@style/HLine" />
+
+            <TextView
+                android:id="@+id/contentSearchTV"
+                style="@style/TipButton"
+                android:gravity="center"
+                android:text="A2.05 - 编写搜索页：ContentSearchActivity" />
+
+            <View style="@style/HLine" />
+
+            <TextView
+                android:id="@+id/netInfoTV"
+                style="@style/TipButton"
+                android:gravity="center"
+                android:text="获取网络信息：NetInfoActivity" />
+
+            <View style="@style/HLine" />
+
+            <TextView
+                android:id="@+id/failRollbackTV"
+                style="@style/TipButton"
+                android:text="失败回退:FailRollbackActivity" />
+
+            <View style="@style/HLine" />
+
+            <TextView
+                android:id="@+id/deviceIdTV"
+                style="@style/TipButton"
+                android:text="设备标识:DeviceIdActivity" />
+
+            <View style="@style/HLine" />
+
+            <TextView
+                android:id="@+id/upgradeCheckTV"
+                style="@style/TipButton"
+                android:text="升级检测:UpgradeCheckActivity" />
+
+            <View style="@style/HLine" />
+
+            <TextView
+                android:id="@+id/commentEditTextTV"
+                style="@style/TipButton"
+                android:text="评论输入框:CommentEditTextActivity" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</FrameLayout>

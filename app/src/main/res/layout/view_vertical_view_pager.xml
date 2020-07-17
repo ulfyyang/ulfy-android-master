@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.ulfy.android.views.VerticalViewPager
+        android:id="@+id/contentVVP"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/page1TV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FF0000"
+        android:gravity="center"
+        android:text="页一"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/page2TV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FF0000"
+        android:gravity="center"
+        android:text="页二"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/page3TV"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FF0000"
+        android:gravity="center"
+        android:text="页三"
+        android:textColor="#FFFFFF" />
+
+</FrameLayout>

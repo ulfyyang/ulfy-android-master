@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--
+        将指示器设置为居中，宽的模式不同时会有不同的表现形式
+            1. 宽度为填充模式，则标签页按钮会在左侧开始排列
+            2. 宽度为包裹模式，则标签页按钮会居中显示
+    -->
+    <net.lucode.hackware.magicindicator.MagicIndicator
+        android:id="@+id/tabsMI"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal" />
+
+    <!-- 标签页显示容器 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 存放标签的容器 -->
+        <!-- ViewPager容器必须和具体的标签分开排放，否则会崩溃 -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- 如果支持滑动，则使用该容器 -->
+            <android.support.v4.view.ViewPager
+                android:id="@+id/containerVP"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <!-- 如果不支持滑动，则使用该容器 -->
+            <FrameLayout
+                android:id="@+id/containerFL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </FrameLayout>
+
+        <!-- 具体的标签 -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/page1FL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="页1" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/page2FL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="页2" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:id="@+id/page3FL"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="页3" />
+
+            </FrameLayout>
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

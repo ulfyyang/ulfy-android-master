@@ -1,0 +1,37 @@
+package com.ulfy.master.ui.cell;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.widget.TextView;
+
+import com.ulfy.android.mvvm.IViewModel;
+import com.ulfy.android.ui_injection.Layout;
+import com.ulfy.android.ui_injection.ViewById;
+import com.ulfy.master.R;
+import com.ulfy.master.application.cm.ListViewLayoutCM;
+import com.ulfy.master.ui.base.BaseCell;
+
+@Layout(id = R.layout.cell_list_view_layout)
+public class ListViewLayoutCell extends BaseCell {
+    @ViewById(id = R.id.contentTV) private TextView contentTV;
+    private ListViewLayoutCM cm;
+
+    public ListViewLayoutCell(Context context) {
+        super(context);
+        init(context, null);
+    }
+
+    public ListViewLayoutCell(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init(context, attrs);
+    }
+
+    private void init(Context context, AttributeSet attrs) {
+
+    }
+
+    @Override public void bind(IViewModel model) {
+        cm = (ListViewLayoutCM) model;
+        contentTV.setText(cm.content);
+    }
+}

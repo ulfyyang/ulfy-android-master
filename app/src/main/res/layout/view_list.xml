@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/list1TV"
+        style="@style/TipButton"
+        android:text="A2.05 - 编写列表页 - 1：List1Activity" />
+
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/list2TV"
+        style="@style/TipButton"
+        android:text="A2.05 - 编写列表页 - 2：List2Activity" />
+
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/list3TV"
+        style="@style/TipButton"
+        android:text="A2.05 - 编写列表页 - 3：List3Activity" />
+
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/list4TV"
+        style="@style/TipButton"
+        android:text="A2.05 - 编写列表页 - 4：List4Activity" />
+
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/list5TV"
+        style="@style/TipButton"
+        android:text="A2.05 - 编写列表页 - 5：List5Activity" />
+
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/list6TV"
+        style="@style/TipButton"
+        android:text="A2.05 - 编写列表页 - 6：CountryCodeActivity" />
+
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/list7TV"
+        style="@style/TipButton"
+        android:text="A2.05 - 编写列表页 - 7：ContactBookActivity" />
+
+</LinearLayout>

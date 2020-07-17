@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.ulfy.master.ui.custom.CircleProgressView
+        android:id="@+id/circleCPV"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        app:lineStrokeColor="#F00"
+        app:lineStrokeWidth="2dp"
+        app:maxProgress="1000"
+        app:progress="50"
+        app:showBackgroundCircle="true"
+        app:showTextBottom="true"
+        app:showTextPercent="true"
+        app:showTextTop="true"
+        app:textBottom="底部文字"
+        app:textTop="顶部文字" />
+
+</FrameLayout>

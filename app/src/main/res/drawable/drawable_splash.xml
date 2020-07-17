@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 绘制白色背景 -->
+    <item>
+        <color android:color="#ffffff" />
+    </item>
+
+    <!-- 在底部防止 logo 图标 -->
+    <item android:bottom="40dp">
+        <bitmap
+            android:gravity="bottom|center_horizontal"
+            android:src="@drawable/ic_splash_logo" />
+    </item>
+
+</layer-list>

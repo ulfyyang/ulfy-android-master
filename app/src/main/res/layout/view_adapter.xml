@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/pagerViewAdapterTV"
+        style="@style/TipButton"
+        android:text="PagerView 适配器：PagerViewAdapterActivity" />
+
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/pagerFragmentAdapterTV"
+        style="@style/TipButton"
+        android:text="PagerFragment 适配器：PagerFragmentAdapterActivity" />
+
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/pagerAdapterTV"
+        style="@style/TipButton"
+        android:text="Pager 适配器：PagerAdapterActivity" />
+
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/listAdapterTV"
+        style="@style/TipButton"
+        android:text="List适 配器：ListAdapterActivity" />
+
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/recyclerAdapterTV"
+        style="@style/TipButton"
+        android:text="Recycler 适配器：RecyclerAdapterActivity" />
+
+</LinearLayout>

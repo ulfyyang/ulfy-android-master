@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- 页面内容 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/openCommentBT"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="打开输入框" />
+
+            <Button
+                android:id="@+id/replyCommentBT"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="回复输入框" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="页面内容" />
+
+    </LinearLayout>
+
+    <!-- 弹窗布局必须放到一个空间无限制的布局中，如：帧布局、相对布局 -->
+    <!-- 所属的 Activity 中需要配置 android:configChanges="keyboardHidden|orientation|screenSize" -->
+    <LinearLayout
+        android:id="@+id/sendLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="7dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_send_message"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/replyLL"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="11dp"
+                    android:text="回复"
+                    android:textColor="#acb4da" />
+
+                <TextView
+                    android:id="@+id/replyNameTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="心心向西："
+                    android:textColor="#47538d" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/messageET"
+                style="@style/EditText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:paddingTop="8dp"
+                android:paddingRight="5dp"
+                android:paddingBottom="8dp" />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/sendTV"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:lines="1"
+            android:text="发送"
+            app:autoSizeMaxTextSize="18sp"
+            app:autoSizeMinTextSize="8sp"
+            app:autoSizeTextType="uniform" />
+
+    </LinearLayout>
+
+</FrameLayout>

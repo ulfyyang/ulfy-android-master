@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/categoryBar"
+        android:layout_marginTop="5dp"
+        android:text="通过位移动画实现的横向滚动，支持任意控件" />
+
+    <com.ulfy.android.views.AutoScrollNewsLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:text="滚动的文本滚动的文本滚动的文本滚动的文本滚动的文本" />
+
+    </com.ulfy.android.views.AutoScrollNewsLayout>
+
+    <TextView
+        style="@style/categoryBar"
+        android:layout_marginTop="5dp"
+        android:text="通过修改原生实现的横向滚动，只支持文本\n必须单行显示、内容必须超出控件大小" />
+
+    <com.ulfy.android.views.MarqueeTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:singleLine="true"
+        android:text="滚动的文本滚动的文本滚动的文本滚动的文本滚动的文本滚动的文本滚动的文本滚动的文本滚动的文本滚动的文本" />
+
+</LinearLayout>

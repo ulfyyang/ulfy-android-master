@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 引入顶部标题 -->
+    <include
+        android:id="@+id/titleFL"
+        layout="@layout/view_title_normal" />
+
+    <!-- 显示内容的容器 -->
+    <FrameLayout
+        android:id="@+id/contentFL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

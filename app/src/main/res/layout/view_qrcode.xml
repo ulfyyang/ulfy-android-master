@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/cameroScanBT"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="相机扫描" />
+
+        <Button
+            android:id="@+id/scanBT"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="直接扫描" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/scanCodeTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="扫描结果" />
+
+    <Button
+        android:id="@+id/generateBT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="生成二维码" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <com.ulfy.android.views.RatioLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            app:ratio_height="1"
+            app:ratio_width="1">
+
+            <ImageView
+                android:id="@+id/qrCodeIV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="#F2F2F2" />
+
+        </com.ulfy.android.views.RatioLayout>
+
+        <com.ulfy.android.views.RatioLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            app:ratio_height="1"
+            app:ratio_width="1">
+
+            <ImageView
+                android:id="@+id/qrCodeLogo1IV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="#F2F2F2" />
+
+        </com.ulfy.android.views.RatioLayout>
+
+        <com.ulfy.android.views.RatioLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            app:ratio_height="1"
+            app:ratio_width="1">
+
+            <ImageView
+                android:id="@+id/qrCodeLogo2ContentIV"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="#F2F2F2" />
+
+            <com.ulfy.android.views.ShapeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="1.5dp"
+                app:layout_shape="rect"
+                app:rect_radius="3dp"
+                app:shape_background="#ffffff">
+
+                <ImageView
+                    android:id="@+id/qrCodeLogo2LogoIV"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="#F2F2F2" />
+
+            </com.ulfy.android.views.ShapeLayout>
+
+        </com.ulfy.android.views.RatioLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

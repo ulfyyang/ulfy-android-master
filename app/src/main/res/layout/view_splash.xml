@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/splash1TV"
+        style="@style/TipButton"
+        android:text="A2.01 - 编写启动页 - 1：Splash1Activity" />
+
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/splash2TV"
+        style="@style/TipButton"
+        android:text="A2.01 - 编写启动页 - 2：Splash2Activity" />
+
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/splash3TV"
+        style="@style/TipButton"
+        android:text="A2.01 - 编写启动页 - 3：Splash3Activity" />
+
+</LinearLayout>

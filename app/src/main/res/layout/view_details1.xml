@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 顶部容器，在加载数据的过程中这里不会被隐藏 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="#cccccc">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="顶部内容" />
+
+    </FrameLayout>
+
+    <!-- 用来显示加载效果的占位符，必须单独作为一个容器存在，且内部只能存在一个子 View -->
+    <!-- 在加载中：会移除 containerFL 的子 View，放入占位 View -->
+    <!-- 加载完成：会移除 containerFL 的子 View，放入原来 insideFL -->
+    <FrameLayout
+        android:id="@+id/containerFL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 加载完成后被渲染的视图 -->
+        <FrameLayout
+            android:id="@+id/insideFL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="数据加载完成" />
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+</LinearLayout>

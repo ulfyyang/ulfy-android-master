@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+
+    <!-- 滚动容器 -->
+    <android.support.v4.view.ViewPager
+        android:id="@+id/guideVP"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- 第 1 页 -->
+    <FrameLayout
+        android:id="@+id/guide1FL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/guide1IV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_guide1" />
+
+        <TextView
+            android:id="@+id/guide1TV"
+            android:layout_width="60dp"
+            android:layout_height="27dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="跳过"
+            android:textColor="#ff999999"
+            android:textSize="11sp" />
+
+    </FrameLayout>
+
+    <!-- 第 2 页 -->
+    <FrameLayout
+        android:id="@+id/guide2FL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/guide2IV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_guide2" />
+
+        <TextView
+            android:id="@+id/guide2TV"
+            android:layout_width="60dp"
+            android:layout_height="27dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="跳过"
+            android:textColor="#ff999999"
+            android:textSize="11sp" />
+
+    </FrameLayout>
+
+    <!-- 第 3 页 -->
+    <FrameLayout
+        android:id="@+id/guide3FL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/guide3IV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_guide3" />
+
+        <TextView
+            android:id="@+id/guide3TV"
+            android:layout_width="60dp"
+            android:layout_height="27dp"
+            android:layout_gravity="right"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:gravity="center"
+            android:text="跳过"
+            android:textColor="#ff999999"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/enterTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|bottom"
+            android:layout_marginBottom="40dp"
+            android:gravity="center"
+            android:paddingLeft="60dp"
+            android:paddingTop="8dp"
+            android:paddingRight="60dp"
+            android:paddingBottom="8dp"
+            android:text="进入"
+            android:textColor="#ff3cb46d"
+            android:textSize="17sp" />
+
+    </FrameLayout>
+
+</FrameLayout>

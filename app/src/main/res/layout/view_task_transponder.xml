@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.ulfy.android.views.FlowLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="2dp"
+        app:child_margin="2dp">
+
+        <TextView
+            android:id="@+id/contentDataInsideLoaderTV"
+            style="@style/TipButton"
+            android:text="内部容器加载:ContentDataInsideLoaderActivity" />
+
+        <TextView
+            android:id="@+id/contentDataLoaderTV"
+            style="@style/TipButton"
+            android:text="内容加载:ContentDataLoaderActivity" />
+
+        <TextView
+            android:id="@+id/contentDataRefreshTV"
+            style="@style/TipButton"
+            android:text="内部容器刷新:ContentDataRefreshActivity" />
+
+        <TextView
+            android:id="@+id/dialogProcesserTV"
+            style="@style/TipButton"
+            android:text="弹出框处理器:DialogProcesserActivity" />
+
+        <TextView
+            android:id="@+id/silentProcesserTV"
+            style="@style/TipButton"
+            android:text="静默处理器:SilentProcesserActivity" />
+
+        <TextView
+            android:id="@+id/listViewLoaderTV"
+            style="@style/TipButton"
+            android:text="ListView上拉加载:ListViewLoaderActivity" />
+
+        <TextView
+            android:id="@+id/recyclerViewLoaderTV"
+            style="@style/TipButton"
+            android:text="RecyclerView上拉加载:RecyclerViewLoaderActivity" />
+
+    </com.ulfy.android.views.FlowLayout>
+
+</LinearLayout>

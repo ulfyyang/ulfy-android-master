@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 圆形进度条 -->
+    <declare-styleable name="CircleProgressView">
+        <!-- 圆弧线条宽度-->
+        <attr name="lineStrokeWidth" format="dimension" />
+        <!-- 圆弧线条颜色 -->
+        <attr name="lineStrokeColor" format="color" />
+        <!-- 最大进度 -->
+        <attr name="maxProgress" format="integer" />
+        <!-- 当前进度 -->
+        <attr name="progress" format="integer" />
+        <!-- 顶部文字 -->
+        <attr name="textTop" format="string" />
+        <!-- 底部文字 -->
+        <attr name="textBottom" format="string" />
+        <!-- 是否显示圆圈背景 -->
+        <attr name="showBackgroundCircle" format="boolean" />
+        <!-- 是否显示百分比文字 -->
+        <attr name="showTextPercent" format="boolean" />
+        <!-- 是否显示顶部文字 -->
+        <attr name="showTextTop" format="boolean" />
+        <!-- 是否显示底部文字 -->
+        <attr name="showTextBottom" format="boolean" />
+    </declare-styleable>
+
+</resources>

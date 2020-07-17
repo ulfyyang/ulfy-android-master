@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tabPager1TV"
+        style="@style/TipButton"
+        android:text="A2.03 - 标签页分页 - 1：TabPager1Activity" />
+
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/tabPager2TV"
+        style="@style/TipButton"
+        android:text="A2.03 - 标签页分页 - 2：TabPager2Activity" />
+
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/tabPager3TV"
+        style="@style/TipButton"
+        android:text="A2.03 - 标签页分页 - 3：TabPager3Activity" />
+
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/tabPager4TV"
+        style="@style/TipButton"
+        android:text="A2.03 - 标签页分页 - 4：TabPager4Activity" />
+
+</LinearLayout>

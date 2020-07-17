@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 跳跃模式 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/categoryBar"
+                android:text="默认设置" />
+
+            <com.ulfy.android.views.AutoScrollUpLayout
+                android:id="@+id/contentJumpASUL"
+                android:layout_width="match_parent"
+                android:layout_height="40dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/categoryBar"
+                    android:text="向上滚动" />
+
+                <com.ulfy.android.views.AutoScrollUpLayout
+                    android:id="@+id/upJumpASUL"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:scroll_direction="up" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/categoryBar"
+                    android:text="向下滚动" />
+
+                <com.ulfy.android.views.AutoScrollUpLayout
+                    android:id="@+id/downJumpASUL"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:scroll_direction="down" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/categoryBar"
+                    android:text="向上滚动" />
+
+                <com.ulfy.android.views.AutoScrollUpLayout
+                    android:id="@+id/upBiggerJumpASUL"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    app:scroll_direction="up"
+                    app:scroll_distance="40dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/categoryBar"
+                    android:text="向下滚动" />
+
+                <com.ulfy.android.views.AutoScrollUpLayout
+                    android:id="@+id/downBiggerJumpASUL"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    app:scroll_direction="down"
+                    app:scroll_distance="40dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            style="@style/HLine"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp" />
+
+        <!-- 滚动模式 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                style="@style/categoryBar"
+                android:text="默认设置" />
+
+            <com.ulfy.android.views.AutoScrollUpLayout
+                android:id="@+id/contentScrollASUL"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:scroll_mode="smooth" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/categoryBar"
+                    android:text="向上滚动" />
+
+                <com.ulfy.android.views.AutoScrollUpLayout
+                    android:id="@+id/upScrollASUL"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:scroll_direction="up"
+                    app:scroll_mode="smooth" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/categoryBar"
+                    android:text="向下滚动" />
+
+                <com.ulfy.android.views.AutoScrollUpLayout
+                    android:id="@+id/downScrollASUL"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    app:scroll_direction="down"
+                    app:scroll_mode="smooth" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/categoryBar"
+                    android:text="向上滚动" />
+
+                <com.ulfy.android.views.AutoScrollUpLayout
+                    android:id="@+id/upBiggerScrollASUL"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    app:scroll_direction="up"
+                    app:scroll_mode="smooth" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/categoryBar"
+                    android:text="向下滚动" />
+
+                <com.ulfy.android.views.AutoScrollUpLayout
+                    android:id="@+id/downBiggerScrollASUL"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    app:scroll_direction="down"
+                    app:scroll_mode="smooth" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>
