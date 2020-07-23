@@ -189,7 +189,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:text="占位"
+                    android:text="业务抽象"
                     android:textColor="@color/selector_main_tab_text_color"
                     android:textSize="10sp" />
 
