@@ -134,6 +134,8 @@
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity android:name=".ui.activity.VideoThumbnailActivity" />
         <activity android:name=".ui.activity.SmartCustomHeaderActivity" />
+        <activity android:name=".ui.activity.StaggeredAutoFullActivity" />
+        <activity android:name=".ui.activity.StaggeredRandomRatioActivity" />
     </application>
 
 </manifest>

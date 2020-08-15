@@ -18,6 +18,8 @@ import com.ulfy.master.ui.activity.List2Activity;
 import com.ulfy.master.ui.activity.List3Activity;
 import com.ulfy.master.ui.activity.List4Activity;
 import com.ulfy.master.ui.activity.List5Activity;
+import com.ulfy.master.ui.activity.StaggeredAutoFullActivity;
+import com.ulfy.master.ui.activity.StaggeredRandomRatioActivity;
 import com.ulfy.master.ui.base.BaseView;
 
 @Layout(id = R.layout.view_list)
@@ -98,5 +100,21 @@ public class ListView extends BaseView {
      */
     @ViewClick(ids = R.id.list7TV) private void list7TV(View v) {
         ContactBookActivity.startActivity();
+    }
+
+    /**
+     * click: list8TV
+     * 列表八：瀑布流列表
+     */
+    @ViewClick(ids = R.id.list8TV) private void list8TV(View v) {
+        StaggeredAutoFullActivity.startActivity();
+    }
+
+    /**
+     * click: list9TV
+     * 列表九：瀑布流列表
+     */
+    @ViewClick(ids = R.id.list9TV) private void list9TV(View v) {
+        StaggeredRandomRatioActivity.startActivity();
     }
 }

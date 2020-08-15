@@ -11,6 +11,10 @@ import com.ulfy.master.ui.activity.MainActivity;
 import com.ulfy.master.ui.event.OnLoginActionEvent;
 import com.ulfy.master.ui.event.OnUserUpdateEvent;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 /**
  * 这个类里边放一些统一的配置和公共行为信息
  */
@@ -21,6 +25,33 @@ public class AppConfig {
     public static final String TIMER_KEY_RECORD_PLAY_GAME = "TIMER_KEY_RECORD_PLAY_GAME";       // 声明用于跟踪的 key
     public static final String TIME_KEY_RECORD_LOGIN_INFO = "TIME_KEY_RECORD_LOGIN_INFO";       // 声明用于时间判定的KEY
     public static Class<? extends Activity> loginActivityClazz = MainActivity.class;            // 这里需要替换为登录的页面
+
+    /**
+     * 定义一些共有的数据
+     */
+    public static List<String> pictureUrlList;
+
+    static {
+        pictureUrlList = Arrays.asList(
+                "https://dingyue.ws.126.net/HfAmE37j=WKVHmCqbRCuM9jjRmI5YjSvf2hDeQlurO3Uj1567230238593compressflag.jpg",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRgYdQEISNDAzRzrlnceew_o2Oqs5xQFdj2aw&usqp=CAU",
+                "https://pic.sucaibar.com/pic/201612/13/417aebfcc2.jpg",
+                "https://lh3.googleusercontent.com/proxy/Hn5nVEbr1dHUE6GhmcaJaqtEDiwjjR6lsiKuX-5qYRaGgquT_gd0WMFjcrasftlDdu3_697dS85Hc-Xz_Bh1i8LyrM1Q6cKUvDltH65Feg7biFonqbc",
+                "https://static.qiyuange.com/uploads/allimg/200520/9-20052009544VS.jpg",
+                "https://lh3.googleusercontent.com/proxy/n7jj9fUCS96LLOYha1NaI0fB0GZHOdWfTY-DtY3HRZovUGv-gjVIcVYxAwNlPJSV23pFUvhYaNNNgbe4XUj_XFcAe3QW3qetpE8",
+                "https://lh3.googleusercontent.com/proxy/lJeRzTYBpd1wOTFU8DHfnEaFaXI4Gtbys4iO43QVps4a1JhLT1bdN5A9eoZ6akAizjGOrBOBBGXQ8VBe75nrqntzjdhc7jonK4Elqa6nQUdXVZXpI-EDGX5F1ROS",
+                "https://lh3.googleusercontent.com/proxy/QvWsHVj0iYhtPUUqIr6WZ-UZZEoW81cOSoI7A_7pJJYMJIA_aL__Wz03DR7DGLoxcuPpb0X-N_AGa5aU2Wj_WoCjxSccflqC_xW0w5KSl7MITMV1FYmjkLFx",
+                "https://bpic.588ku.com/element_origin_min_pic/19/03/07/e31692990e58dc4257ddc8408ca662e6.jpg",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7v_9u-c7ljvl6tW73EYYveP4bAEiAWLqrfg&usqp=CAU"
+        );
+    }
+
+    /**
+     * 随机从图片中选取一张
+     */
+    public static String getPictureUrlRandom() {
+        return pictureUrlList.get(new Random().nextInt(pictureUrlList.size()));
+    }
 
     /**
      * 如果未登录则跳转到登录页面

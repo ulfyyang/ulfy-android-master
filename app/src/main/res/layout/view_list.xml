@@ -53,4 +53,18 @@
         style="@style/TipButton"
         android:text="A2.05 - 编写列表页 - 7：ContactBookActivity" />
 
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/list8TV"
+        style="@style/TipButton"
+        android:text="A2.05 - 编写列表页 - 7：StaggeredAutoFullActivity" />
+
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/list9TV"
+        style="@style/TipButton"
+        android:text="A2.05 - 编写列表页 - 7：StaggeredRandomRatioActivity" />
+
 </LinearLayout>
