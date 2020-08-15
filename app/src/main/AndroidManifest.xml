@@ -133,6 +133,7 @@
             android:name=".ui.activity.CommentEditTextActivity"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity android:name=".ui.activity.VideoThumbnailActivity" />
+        <activity android:name=".ui.activity.SmartCustomHeaderActivity" />
     </application>
 
 </manifest>

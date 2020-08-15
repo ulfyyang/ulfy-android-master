@@ -135,7 +135,8 @@ dependencies {
      */
     implementation externalGifDrawable                          // GIF图片加载控件
     implementation externalPtrLoadMore                          // 下拉刷新（已过时不建议）
-    implementation externalSmartRefreshLayout                   // 下拉刷新
+    implementation project(':ulfy-lib:ulfy-smart-refresh-layout')   // 下拉刷新（源码方式导入）
+//    implementation externalSmartRefreshLayout                     // 下拉刷新（远程依赖选择）
     implementation externalSmartRefreshHeader                   // 下拉刷新样式
     implementation externalMagicIndicator                       // ViewPager指示器
     debugImplementation externalDebugLeakcanary                 // 内存溢出分析

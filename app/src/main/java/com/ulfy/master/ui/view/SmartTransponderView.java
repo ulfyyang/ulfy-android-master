@@ -11,6 +11,7 @@ import com.ulfy.android.ui_injection.ViewById;
 import com.ulfy.android.ui_injection.ViewClick;
 import com.ulfy.master.R;
 import com.ulfy.master.application.vm.SmartTransponderVM;
+import com.ulfy.master.ui.activity.SmartCustomHeaderActivity;
 import com.ulfy.master.ui.activity.SmartLoadDataActivity;
 import com.ulfy.master.ui.activity.SmartLoadListPageActivity;
 import com.ulfy.master.ui.base.BaseView;
@@ -53,5 +54,13 @@ public class SmartTransponderView extends BaseView {
      */
     @ViewClick(ids = R.id.loadListPageTV) private void loadListPageTV(View v) {
         SmartLoadListPageActivity.startActivity();
+    }
+
+    /**
+     * click: customHeaderTV
+     * 定制刷新头
+     */
+    @ViewClick(ids = R.id.customHeaderTV) private void customHeaderTV(View v) {
+        SmartCustomHeaderActivity.startActivity();
     }
 }
