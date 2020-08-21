@@ -23,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="直接采用 context 来启用大图预览时将不会跟踪原始图片的位置" />
+                android:text="直接采用 context 来启用大图预览时将不会跟踪原始图片的位置\n放大后长按可保存到相册" />
 
             <Button
                 android:id="@+id/previewBT"

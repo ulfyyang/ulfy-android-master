@@ -7,9 +7,13 @@
         android:allowBackup="true"
         android:icon="@drawable/icon_logo"
         android:label="@string/app_name"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
         android:roundIcon="@drawable/icon_logo"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
         <activity android:name=".ui.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -90,9 +94,9 @@
         <activity android:name=".ui.activity.ContentSearchActivity" />
         <activity android:name=".ui.activity.Splash1Activity" />
         <activity android:name=".ui.activity.Splash2Activity" />
-        <activity android:name=".ui.activity.Splash3Activity"
-            android:theme="@style/SplashTheme">
-        </activity>
+        <activity
+            android:name=".ui.activity.Splash3Activity"
+            android:theme="@style/SplashTheme" />
         <activity android:name=".ui.activity.UpgradeCheckActivity" />
         <activity android:name=".ui.activity.Details1Activity" />
         <activity android:name=".ui.activity.Details2Activity" />
@@ -138,6 +142,7 @@
         <activity android:name=".ui.activity.StaggeredRandomRatioActivity" />
         <activity android:name=".ui.activity.ImageLoadActivity" />
         <activity android:name=".ui.activity.ImagePreviewActivity" />
+
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package com.ulfy.master.ui.view;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
@@ -10,13 +11,20 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.github.ielse.imagewatcher.ImageWatcher;
 import com.ulfy.android.adapter.RecyclerAdapter;
+import com.ulfy.android.dialog.DialogUtils;
+import com.ulfy.android.dialog.IQuickPickView;
 import com.ulfy.android.image.ImageUtils;
 import com.ulfy.android.mvvm.IViewModel;
+import com.ulfy.android.system.AppUtils;
+import com.ulfy.android.task.TaskUtils;
+import com.ulfy.android.task_transponder.SilentProcesser;
 import com.ulfy.android.ui_injection.Layout;
 import com.ulfy.android.ui_injection.ViewById;
 import com.ulfy.android.ui_injection.ViewClick;
 import com.ulfy.android.utils.RecyclerViewUtils;
+import com.ulfy.android.utils.UiUtils;
 import com.ulfy.master.R;
 import com.ulfy.master.application.cm.ImagePreviewCM;
 import com.ulfy.master.application.vm.ImagePreviewVM;
@@ -65,7 +73,34 @@ public class ImagePreviewView extends BaseView {
     }
 
     @ViewClick(ids = R.id.previewBT) private void previewBT(View v) {
-        ImageUtils.preview(getContext(), vm.imageUrlWithoutContainerList, 0);
+        ImageUtils.preview(getContext(), vm.imageUrlWithoutContainerList, 0)
+                .setOnPictureLongPressListener(new ImageWatcher.OnPictureLongPressListener() {
+                    @Override public void onPictureLongPress(ImageView v, Uri uri, int pos) {
+                        DialogUtils.showQuickPick(getContext(), "更多操作", new IQuickPickView.OnItemClickListener() {
+                            @Override public void onItemClick(int index, String item) {
+                                if (index == 0) {
+                                    saveImageToAlbum(pos);
+                                }
+                            }
+                        },"保存图片");
+                    }
+                });
+    }
+
+    private void saveImageToAlbum(int position) {
+        TaskUtils.loadData(getContext(), vm.downloadImageOnExe(position), new SilentProcesser() {
+                    @Override protected void onStart(Object data) {
+                        UiUtils.show(data);
+                    }
+                    @Override public void onSuccess(Object tipData) {
+                        UiUtils.show(tipData);
+                        AppUtils.insertPictureToSystem(vm.downloadImageFile, "图片标题", "图片描述");
+                    }
+                    @Override protected void onFail(Object data) {
+                        UiUtils.show(data);
+                    }
+                }
+        );
     }
 
     @ViewClick(ids = {R.id.content1IV, R.id.content2IV, R.id.content3IV, R.id.content4IV})
