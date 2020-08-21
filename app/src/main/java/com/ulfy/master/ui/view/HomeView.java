@@ -15,7 +15,7 @@ import com.ulfy.master.ui.activity.DataPreLoaderActivity;
 import com.ulfy.master.ui.activity.DialogActivity;
 import com.ulfy.master.ui.activity.DownloadManagerActivity;
 import com.ulfy.master.ui.activity.EventBusActivity;
-import com.ulfy.master.ui.activity.ImageProcessActivity;
+import com.ulfy.master.ui.activity.ImageLoadActivity;
 import com.ulfy.master.ui.activity.MultiDomainPickerActivity;
 import com.ulfy.master.ui.activity.ObjectCacheActivity;
 import com.ulfy.master.ui.activity.SmartTransponderActivity;
@@ -116,6 +116,14 @@ public class HomeView extends BaseView {
     }
 
     /**
+     * click: imageLoadTV
+     * 图片加载
+     */
+    @ViewClick(ids = R.id.imageLoadTV) private void imageLoadTV(View v) {
+        ImageLoadActivity.startActivity();
+    }
+
+    /**
      * click: time1TV
      * 时间跟踪
      */
@@ -177,14 +185,6 @@ public class HomeView extends BaseView {
      */
     @ViewClick(ids = R.id.dialogTV) private void dialogTV(View v) {
         DialogActivity.startActivity();
-    }
-    
-    /**
-     * click: imageTV
-     * 图片处理
-     */
-    @ViewClick(ids = R.id.imageTV) private void imageTV(View v) {
-        ImageProcessActivity.startActivity();
     }
 
     /**

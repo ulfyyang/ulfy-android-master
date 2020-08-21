@@ -136,6 +136,8 @@
         <activity android:name=".ui.activity.SmartCustomHeaderActivity" />
         <activity android:name=".ui.activity.StaggeredAutoFullActivity" />
         <activity android:name=".ui.activity.StaggeredRandomRatioActivity" />
+        <activity android:name=".ui.activity.ImageLoadActivity" />
+        <activity android:name=".ui.activity.ImagePreviewActivity" />
     </application>
 
 </manifest>

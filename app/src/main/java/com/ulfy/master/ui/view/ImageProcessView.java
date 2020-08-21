@@ -24,9 +24,6 @@ import com.ulfy.master.R;
 import com.ulfy.master.application.vm.ImageProcessVM;
 import com.ulfy.master.ui.base.BaseView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 @Layout(id = R.layout.view_image_process)
 public class ImageProcessView extends BaseView {
     @ViewById(id = R.id.cacheSizeTV) private TextView cacheSizeTV;
@@ -35,7 +32,6 @@ public class ImageProcessView extends BaseView {
     @ViewById(id = R.id.content2IV) private ImageView content2IV;
     @ViewById(id = R.id.content3IV) private ImageView content3IV;
     @ViewById(id = R.id.content4IV) private ImageView content4IV;
-    @ViewById(id = R.id.previewBT) private Button previewBT;
     @ViewById(id = R.id.clearCacheBT) private Button clearCacheBT;
     private ImageProcessVM vm;
 
@@ -68,47 +64,31 @@ public class ImageProcessView extends BaseView {
 
         cacheSizeTV.setText(String.format("缓存大小：%s", ImageUtils.convertFileSizeToHumanReadableString(ImageUtils.getCacheSize())));
 
-        ImageUtils.loadImage("http://static.runoob.com/images/demo/demo1.jpg", R.drawable.drawable_loading, content1IV);
-        ImageUtils.loadImage("http://static.runoob.com/images/demo/demo1.jpg", R.drawable.drawable_loading, content2IV, new BlackWhiteBitmapNode());
+        ImageUtils.loadImage(vm.imageUrlList.get(0), R.drawable.drawable_loading, content1IV);
+        ImageUtils.loadImage(vm.imageUrlList.get(1), R.drawable.drawable_loading, content2IV, new BlackWhiteBitmapNode());
 
-        ImageUtils.loadImage("http://pic.sc.chinaz.com/files/pic/pic9/201902/zzpic16755.jpg", R.drawable.drawable_loading, content3IV,
+        ImageUtils.loadImage(vm.imageUrlList.get(2), R.drawable.drawable_loading, content3IV,
                 new BitmapProcessChain().connect(new BlackWhiteBitmapNode()).connect(new CircleBitmapNode(Color.RED)).build());
-        ImageUtils.loadImage("http://pic.sc.chinaz.com/files/pic/pic9/201902/zzpic16755.jpg", R.drawable.drawable_loading, content4IV,
+        ImageUtils.loadImage(vm.imageUrlList.get(3), R.drawable.drawable_loading, content4IV,
                 new BitmapProcessChain().connect(new BlackWhiteBitmapNode()).connect(new RectBitmapNode(1, 1, 10)).build());
     }
 
     @ViewClick(ids = {R.id.content1IV, R.id.content2IV, R.id.content3IV, R.id.content4IV})
     private void previewIV(View v) {
-        List<String> urlList = new ArrayList<>();
-        urlList.add("http://static.runoob.com/images/demo/demo1.jpg");
-        urlList.add("http://static.runoob.com/images/demo/demo1.jpg");
-        urlList.add("http://pic.sc.chinaz.com/files/pic/pic9/201902/zzpic16755.jpg");
-        urlList.add("http://pic.sc.chinaz.com/files/pic/pic9/201902/zzpic16755.jpg");
         switch (v.getId()) {
             case R.id.content1IV:
-                ImageUtils.preview(imageContainerLL, urlList, 0);
+                ImageUtils.preview(imageContainerLL, vm.imageUrlList, 0);
                 break;
             case R.id.content2IV:
-                ImageUtils.preview(imageContainerLL, urlList, 1);
+                ImageUtils.preview(imageContainerLL, vm.imageUrlList, 1);
                 break;
             case R.id.content3IV:
-                ImageUtils.preview(imageContainerLL, urlList, 2);
+                ImageUtils.preview(imageContainerLL, vm.imageUrlList, 2);
                 break;
             case R.id.content4IV:
-                ImageUtils.preview(imageContainerLL, urlList, 3);
+                ImageUtils.preview(imageContainerLL, vm.imageUrlList, 3);
                 break;
         }
-    }
-
-
-    @ViewClick(ids = R.id.previewBT) private void previewBT(View v) {
-        List<String> urlList = new ArrayList<>();
-        urlList.add("http://upload.art.ifeng.com/2017/0425/1493105660290.jpg");
-        urlList.add("http://pic1.win4000.com/wallpaper/2019-04-25/5cc14aaa3eb0a.jpg");
-        urlList.add("http://pic1.win4000.com/wallpaper/2018-12-29/5c27352aef6ce.jpg");
-        urlList.add("https://www.mirrormedia.com.tw/assets/images/20190128152517-a2b611041e8d8b75af07cb61d34f3119-mobile.jpg");
-        urlList.add("http://up.deskcity.org/pic/18/2e/04/182e04f62f1aebf9089ed2275d26de21.jpg");
-        ImageUtils.preview(getContext(), urlList, 0);
     }
 
     @ViewClick(ids = R.id.clearCacheBT) private void clearCacheBT(View v) {

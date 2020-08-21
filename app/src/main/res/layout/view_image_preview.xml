@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="直接采用 context 来启用大图预览时将不会跟踪原始图片的位置" />
+
+            <Button
+                android:id="@+id/previewBT"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="大图预览-无容器" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="通过 ViewGroup 容器来启动大图预览会跟踪原始图片位置\n点击下方图片即可显示大图预览" />
+
+            <LinearLayout
+                android:id="@+id/imageContainerLL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.ulfy.android.views.RatioLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:ratio_height="1"
+                        app:ratio_width="1">
+
+                        <ImageView
+                            android:id="@+id/content1IV"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/ic_launcher" />
+
+                    </com.ulfy.android.views.RatioLayout>
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="50dp"
+                        android:layout_height="0dp" />
+
+                    <com.ulfy.android.views.RatioLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:ratio_height="1"
+                        app:ratio_width="1">
+
+                        <ImageView
+                            android:id="@+id/content2IV"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/ic_launcher" />
+
+                    </com.ulfy.android.views.RatioLayout>
+
+                </LinearLayout>
+
+                <android.support.v4.widget.Space
+                    android:layout_width="0dp"
+                    android:layout_height="10dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginRight="50dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <com.ulfy.android.views.RatioLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:ratio_height="1"
+                        app:ratio_width="1">
+
+                        <ImageView
+                            android:id="@+id/content3IV"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/ic_launcher" />
+
+                    </com.ulfy.android.views.RatioLayout>
+
+                    <android.support.v4.widget.Space
+                        android:layout_width="50dp"
+                        android:layout_height="0dp" />
+
+                    <com.ulfy.android.views.RatioLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        app:ratio_height="1"
+                        app:ratio_width="1">
+
+                        <ImageView
+                            android:id="@+id/content4IV"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="centerCrop"
+                            android:src="@mipmap/ic_launcher" />
+
+                    </com.ulfy.android.views.RatioLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="通过 RecyclerView 容器（任何 ViewGroup）来启动大图预览\n点击下方图片即可显示大图预览" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/contentRV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="50dp"
+                android:paddingRight="50dp"
+                android:paddingBottom="10dp" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

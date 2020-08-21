@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="2dp">
+
+    <TextView
+        android:id="@+id/imageProcessTV"
+        style="@style/TipButton"
+        android:text="图片处理：ImageProcessActivity" />
+
+    <TextView
+        android:id="@+id/imagePreviewTV"
+        style="@style/TipButton"
+        android:layout_marginTop="2dp"
+        android:text="大图预览：ImagePreviewActivity" />
+
+</LinearLayout>

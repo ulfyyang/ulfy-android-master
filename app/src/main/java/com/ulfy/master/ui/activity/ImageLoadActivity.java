@@ -7,20 +7,19 @@ import com.ulfy.android.system.ActivityUtils;
 import com.ulfy.android.task.TaskUtils;
 import com.ulfy.android.task_transponder.ContentDataLoader;
 import com.ulfy.android.task_transponder.OnReloadListener;
-import com.ulfy.master.application.vm.ImageProcessVM;
+import com.ulfy.master.application.vm.ImageLoadVM;
 import com.ulfy.master.ui.base.TitleContentActivity;
-import com.ulfy.master.ui.view.ImageProcessView;
+import com.ulfy.master.ui.view.ImageLoadView;
 
-
-public class ImageProcessActivity extends TitleContentActivity {
-    private ImageProcessVM vm;
-    private ImageProcessView view;
+public class ImageLoadActivity extends TitleContentActivity {
+    private ImageLoadVM vm;
+    private ImageLoadView view;
 
     /**
      * 启动Activity
      */
     public static void startActivity() {
-        ActivityUtils.startActivity(ImageProcessActivity.class);
+        ActivityUtils.startActivity(ImageLoadActivity.class);
     }
 
     /**
@@ -37,7 +36,7 @@ public class ImageProcessActivity extends TitleContentActivity {
      * 初始化模型和界面
      */
     private void initModel(Bundle savedInstanceState) {
-        vm = new ImageProcessVM();
+        vm = new ImageLoadVM();
     }
 
     /**
@@ -46,7 +45,7 @@ public class ImageProcessActivity extends TitleContentActivity {
     private void initContent(final Bundle savedInstanceState) {
         TaskUtils.loadData(getContext(), vm.loadDataOnExe(), new ContentDataLoader(contentFL, vm, false) {
                     @Override protected void onCreatView(ContentDataLoader loader, View createdView) {
-                        view = (ImageProcessView) createdView;
+                        view = (ImageLoadView) createdView;
                     }
                 }.setOnReloadListener(new OnReloadListener() {
                     @Override public void onReload() {
@@ -60,6 +59,6 @@ public class ImageProcessActivity extends TitleContentActivity {
      * 初始化Activity的数据
      */
     private void initActivity(Bundle savedInstanceState) {
-        titleTV.setText("图片处理");
+        titleTV.setText("图片加载");
     }
 }

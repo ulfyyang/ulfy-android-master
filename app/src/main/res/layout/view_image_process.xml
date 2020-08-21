@@ -119,12 +119,6 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/previewBT"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="大图预览" />
-
-    <Button
         android:id="@+id/clearCacheBT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

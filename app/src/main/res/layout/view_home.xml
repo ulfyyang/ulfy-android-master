@@ -71,6 +71,13 @@
             <View style="@style/HLine" />
 
             <TextView
+                android:id="@+id/imageLoadTV"
+                style="@style/TipButton"
+                android:text="工具包 - 图片加载：ImageLoadActivity" />
+
+            <View style="@style/HLine" />
+
+            <TextView
                 android:id="@+id/time1TV"
                 style="@style/TipButton"
                 android:text="B1.05 - 工具包 - 时间跟踪 - 1：Time1Activity" />
@@ -123,13 +130,6 @@
                 android:id="@+id/dialogTV"
                 style="@style/TipButton"
                 android:text="弹出框:DialogActivity" />
-
-            <View style="@style/HLine" />
-
-            <TextView
-                android:id="@+id/imageTV"
-                style="@style/TipButton"
-                android:text="图片处理:ImageProcessActivity" />
 
             <View style="@style/HLine" />
 

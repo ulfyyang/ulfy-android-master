@@ -29,12 +29,21 @@ public class AppConfig {
     /**
      * 定义一些共有的数据
      */
-    public static List<String> pictureUrlList;
+    public static List<String> pictureUrlList;              // 公共图片配置
 
     static {
         pictureUrlList = Arrays.asList(
-                "https://dingyue.ws.126.net/HfAmE37j=WKVHmCqbRCuM9jjRmI5YjSvf2hDeQlurO3Uj1567230238593compressflag.jpg",
-                "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRgYdQEISNDAzRzrlnceew_o2Oqs5xQFdj2aw&usqp=CAU",
+                "http://static.runoob.com/images/demo/demo1.jpg",
+                "http://pic.sc.chinaz.com/files/pic/pic9/201902/zzpic16755.jpg",
+                "http://img01.cztv.com/201605/23/72f53f1af0862021fa283780e9732b08.jpg",
+                "https://i.keaitupian.net/up/af/b1/01/93d4aee9e82718d98c38f4994d01b1af.jpg",
+
+                "http://upload.art.ifeng.com/2017/0425/1493105660290.jpg",
+                "http://pic1.win4000.com/wallpaper/2019-04-25/5cc14aaa3eb0a.jpg",
+                "http://pic1.win4000.com/wallpaper/2018-12-29/5c27352aef6ce.jpg",
+                "https://www.mirrormedia.com.tw/assets/images/20190128152517-a2b611041e8d8b75af07cb61d34f3119-mobile.jpg",
+                "http://up.deskcity.org/pic/18/2e/04/182e04f62f1aebf9089ed2275d26de21.jpg",
+
                 "https://pic.sucaibar.com/pic/201612/13/417aebfcc2.jpg",
                 "https://lh3.googleusercontent.com/proxy/Hn5nVEbr1dHUE6GhmcaJaqtEDiwjjR6lsiKuX-5qYRaGgquT_gd0WMFjcrasftlDdu3_697dS85Hc-Xz_Bh1i8LyrM1Q6cKUvDltH65Feg7biFonqbc",
                 "https://static.qiyuange.com/uploads/allimg/200520/9-20052009544VS.jpg",
