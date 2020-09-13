@@ -1,6 +1,7 @@
 package com.ulfy.master.ui.view;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
@@ -40,13 +41,21 @@ public class StaggeredAutoFullView extends BaseView {
     }
 
     private void init(Context context, AttributeSet attrs) {
-        RecyclerViewUtils.staggeredLayout(staggeredRV).vertical(2);
-        staggeredRV.setAdapter(staggeredAdapter);
+        RecyclerViewUtils.staggeredLayout(staggeredRV).vertical(3).dividerDp(Color.TRANSPARENT, 4, 4, 0, 0);
+        staggeredAdapter.setComparator(new RecyclerAdapter.Comparator<StaggeredAutoFullCM>() {
+            @Override public boolean areItemsTheSame(StaggeredAutoFullCM oldItem, StaggeredAutoFullCM newItem) {
+                return oldItem.index == newItem.index;
+            }
+            @Override public boolean areContentsTheSame(StaggeredAutoFullCM oldItem, StaggeredAutoFullCM newItem) {
+                return oldItem.contentSame(newItem);
+            }
+        });
         staggeredAdapter.setOnItemClickListener(new RecyclerAdapter.OnItemClickListener<StaggeredAutoFullCM>() {
             @Override public void onItemClick(ViewGroup parent, View view, int position, StaggeredAutoFullCM model) {
                 UiUtils.show("点击了：" + position);
             }
         });
+        staggeredRV.setAdapter(staggeredAdapter);
         staggeredRefresher = new SmartRefresher(smartSRL, new SmartRefresher.OnRefreshSuccessListener() {
             @Override public void onRefreshSuccess(SmartRefresher smartRefresher) {
                 bind(vm);
@@ -60,7 +69,7 @@ public class StaggeredAutoFullView extends BaseView {
         staggeredRefresher.updateExecuteBody(vm.staggeredTaskInfo, vm.loadDataPerPageOnExe());
         staggeredLoader.updateExecuteBody(vm.staggeredTaskInfo, vm.loadDataPerPageOnExe());
         staggeredAdapter.setData(vm.staggeredCMList);
-        staggeredAdapter.notifyDataSetChanged();
+        RecyclerAdapter.notifyDataSetChanged(staggeredAdapter);
         staggeredLoader.notifyDataSetChanged();
     }
 }

@@ -45,11 +45,11 @@ public class AppConfig {
                 "http://up.deskcity.org/pic/18/2e/04/182e04f62f1aebf9089ed2275d26de21.jpg",
 
                 "https://pic.sucaibar.com/pic/201612/13/417aebfcc2.jpg",
-                "https://lh3.googleusercontent.com/proxy/Hn5nVEbr1dHUE6GhmcaJaqtEDiwjjR6lsiKuX-5qYRaGgquT_gd0WMFjcrasftlDdu3_697dS85Hc-Xz_Bh1i8LyrM1Q6cKUvDltH65Feg7biFonqbc",
+                "https://img95.699pic.com/photo/50121/7530.jpg_wh860.jpg",
                 "https://static.qiyuange.com/uploads/allimg/200520/9-20052009544VS.jpg",
-                "https://lh3.googleusercontent.com/proxy/n7jj9fUCS96LLOYha1NaI0fB0GZHOdWfTY-DtY3HRZovUGv-gjVIcVYxAwNlPJSV23pFUvhYaNNNgbe4XUj_XFcAe3QW3qetpE8",
-                "https://lh3.googleusercontent.com/proxy/lJeRzTYBpd1wOTFU8DHfnEaFaXI4Gtbys4iO43QVps4a1JhLT1bdN5A9eoZ6akAizjGOrBOBBGXQ8VBe75nrqntzjdhc7jonK4Elqa6nQUdXVZXpI-EDGX5F1ROS",
-                "https://lh3.googleusercontent.com/proxy/QvWsHVj0iYhtPUUqIr6WZ-UZZEoW81cOSoI7A_7pJJYMJIA_aL__Wz03DR7DGLoxcuPpb0X-N_AGa5aU2Wj_WoCjxSccflqC_xW0w5KSl7MITMV1FYmjkLFx",
+                "https://www.mysearchome.cn/article/doctype13/doc31231/img031231_1559033672.jpg",
+                "https://pic1.shejiben.com/case/2018/11/23/20181123160023-7bba87ae-la.jpg",
+                "https://fotor-cn-website-upload-prod.oss-cn-beijing.aliyuncs.com/images/carousel/%E6%9C%AA%E5%91%BD%E5%90%8D%E8%AE%BE%E8%AE%A1-33.jpg",
                 "https://bpic.588ku.com/element_origin_min_pic/19/03/07/e31692990e58dc4257ddc8408ca662e6.jpg",
                 "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT7v_9u-c7ljvl6tW73EYYveP4bAEiAWLqrfg&usqp=CAU"
         );

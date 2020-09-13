@@ -18,8 +18,8 @@ public class StaggeredAutoFullVM extends BaseVM {
         return new LoadListPageUiTask.OnLoadSimpleListPage() {
             @Override protected void loadSimplePage(LoadListPageUiTask task, List<Object> modelList, List<Object> tempList, int page, int pageSize) throws Exception {
                 Thread.sleep(1000);
-                for (int i = 0; i < 20; i++) {
-                    tempList.add(new StaggeredAutoFullCM(AppConfig.getPictureUrlRandom()));
+                for (int i = 0; i < 30; i++) {
+                    tempList.add(new StaggeredAutoFullCM(page * 30 + i, AppConfig.getPictureUrlRandom()));
                 }
             }
         };

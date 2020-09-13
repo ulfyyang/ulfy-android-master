@@ -19,7 +19,7 @@ public class StaggeredRandomRatioVM extends BaseVM {
             @Override protected void loadSimplePage(LoadListPageUiTask task, List<Object> modelList, List<Object> tempList, int page, int pageSize) throws Exception {
                 Thread.sleep(1000);
                 for (int i = 0; i < 20; i++) {
-                    tempList.add(new StaggeredRandomRatioCM(AppConfig.getPictureUrlRandom()));
+                    tempList.add(new StaggeredRandomRatioCM(page * 20 + i, AppConfig.getPictureUrlRandom()));
                 }
             }
         };
