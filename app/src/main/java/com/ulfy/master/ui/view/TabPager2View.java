@@ -48,17 +48,18 @@ public class TabPager2View extends BaseView {
      */
     private void init(Context context, AttributeSet attrs) {
         linkage.setMagicIndicator(tabsMI).setContainer(containerVP)
-                .setTitleSize(18)                                                        // 设置标签文字大小
+                .setTitleSize(18)                                                       // 设置标签文字大小
                 .setTitleNormalColor(Color.parseColor("#616161"))             // 设置标签常规字体颜色
                 .setTitleSelectedColor(Color.parseColor("#f57c00"))           // 设置标签选中文字颜色
-                .setTitleScale(false)                                                    // 设置标签文字是否有大小缩放效果
-                .setIndicatorBounce(false)                                               // 设置是否有弹性回滚效果
-                .setIndicatorMode(LinePagerIndicator.MODE_WRAP_CONTENT)                  // 设置标签下划线的宽度模式
-                .setIndicatorWidthDP(20)                                                 // 设置指示器线条宽度，设置 MODE_EXACTLY 生效
-                .setIndicatorHeightDP(2)                                                 // 设置指示器线条的高度
-                .setIndicatorYOffsetDp(0)                                                // 设置指示器线条距离文字的偏移量
+                .setTitleScale(false)                                                   // 设置标签文字是否有大小缩放效果
+                .setTitleBold(true)                                                     // 设置是否字体加粗
+                .setIndicatorBounce(false)                                              // 设置是否有弹性回滚效果
+                .setIndicatorMode(LinePagerIndicator.MODE_WRAP_CONTENT)                 // 设置标签下划线的宽度模式
+                .setIndicatorWidthDP(20)                                                // 设置指示器线条宽度，设置 MODE_EXACTLY 生效
+                .setIndicatorHeightDP(2)                                                // 设置指示器线条的高度
+                .setIndicatorYOffsetDp(0)                                               // 设置指示器线条距离文字的偏移量
                 .setIndicatorColor(Color.parseColor("#f57c00"))               // 设置指示器线条的颜色
-                .addOnTabSelectedListener(new OnTabSelectedListener() {                  // 当标签页被选中时回调
+                .addOnTabSelectedListener(new OnTabSelectedListener() {                 // 当标签页被选中时回调
                     @Override public void onTabSelected(int index) {
                         UiUtils.show("选中了标签页：" + index);
                     }
