@@ -121,13 +121,23 @@
                 android:weightSum="3">
 
                 <ImageView
-                    android:id="@+id/minePageIV"
+                    android:id="@+id/minePage1IV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/screen_mine_page" />
+                    android:src="@drawable/screen_mine_page1" />
+
+                <ImageView
+                    android:id="@+id/minePage2IV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/screen_mine_page2" />
 
             </LinearLayout>
 

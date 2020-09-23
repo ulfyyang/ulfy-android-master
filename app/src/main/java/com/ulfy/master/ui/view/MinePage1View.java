@@ -26,11 +26,11 @@ import com.ulfy.android.utils.RecyclerViewUtils;
 import com.ulfy.android.utils.StatusBarUtils;
 import com.ulfy.master.R;
 import com.ulfy.master.application.cm.MinePageVideoCM;
-import com.ulfy.master.application.vm.MinePageVM;
+import com.ulfy.master.application.vm.MinePage1VM;
 import com.ulfy.master.ui.base.BaseView;
 
-@Layout(id = R.layout.view_mine_page)
-public class MinePageView extends BaseView {
+@Layout(id = R.layout.view_mine_page1)
+public class MinePage1View extends BaseView {
     @ViewById(id = R.id.smartSRL) private SmartRefreshLayout smartSRL;
     @ViewById(id = R.id.middleFL) private FrameLayout middleFL;
     @ViewById(id = R.id.zuopinFL) private FrameLayout zuopinFL;
@@ -50,14 +50,14 @@ public class MinePageView extends BaseView {
     private SmartRefresher smartRefresher;
     private RecyclerViewPageLoader zuopinLoader;
     private RecyclerViewPageLoader shoucangLoader;
-    private MinePageVM vm;
+    private MinePage1VM vm;
 
-    public MinePageView(Context context) {
+    public MinePage1View(Context context) {
         super(context);
         init(context, null);
     }
 
-    public MinePageView(Context context, AttributeSet attrs) {
+    public MinePage1View(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs);
     }
@@ -96,7 +96,7 @@ public class MinePageView extends BaseView {
     }
 
     @Override public void bind(IViewModel model) {
-        vm = (MinePageVM) model;
+        vm = (MinePage1VM) model;
         linkage.initViewTabs(zuopinFL, shoucangFL)
                 .initViewPages(zuopinContainerFL, shoucangContainerFL)
                 .build().select(0);

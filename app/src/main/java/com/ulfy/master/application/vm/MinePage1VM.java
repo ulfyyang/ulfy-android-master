@@ -6,12 +6,12 @@ import com.ulfy.android.task.LoadListPageUiTask;
 import com.ulfy.android.utils.LogUtils;
 import com.ulfy.master.application.base.BaseVM;
 import com.ulfy.master.application.cm.MinePageVideoCM;
-import com.ulfy.master.ui.view.MinePageView;
+import com.ulfy.master.ui.view.MinePage1View;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MinePageVM extends BaseVM {
+public class MinePage1VM extends BaseVM {
     public List<MinePageVideoCM> zuopinCMList = new ArrayList<>();
     public LoadListPageUiTask.LoadListPageUiTaskInfo<MinePageVideoCM> zuopinTaskInfo = new LoadListPageUiTask.LoadListPageUiTaskInfo<>(zuopinCMList);
     public List<MinePageVideoCM> shoucangCMList = new ArrayList<>();
@@ -62,6 +62,6 @@ public class MinePageVM extends BaseVM {
     }
 
     @Override public Class<? extends IView> getViewClass() {
-        return MinePageView.class;
+        return MinePage1View.class;
     }
 }

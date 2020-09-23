@@ -16,7 +16,8 @@ import com.ulfy.master.ui.activity.DeviceIdActivity;
 import com.ulfy.master.ui.activity.FailRollbackActivity;
 import com.ulfy.master.ui.activity.GuideActivity;
 import com.ulfy.master.ui.activity.ListActivity;
-import com.ulfy.master.ui.activity.MinePageActivity;
+import com.ulfy.master.ui.activity.MinePage1Activity;
+import com.ulfy.master.ui.activity.MinePage2Activity;
 import com.ulfy.master.ui.activity.NetInfoActivity;
 import com.ulfy.master.ui.activity.SplashActivity;
 import com.ulfy.master.ui.activity.TabPagerActivity;
@@ -137,7 +138,15 @@ public class FindView extends BaseView {
      * click: minePageIV
      * 个人主页
      */
-    @ViewClick(ids = R.id.minePageIV) private void minePageIV(View v) {
-        MinePageActivity.startActivity();
+    @ViewClick(ids = R.id.minePage1IV) private void minePage1IV(View v) {
+        MinePage1Activity.startActivity();
+    }
+
+    /**
+     * click: minePageIV
+     * 个人主页
+     */
+    @ViewClick(ids = R.id.minePage2IV) private void minePage2IV(View v) {
+        MinePage2Activity.startActivity();
     }
 }

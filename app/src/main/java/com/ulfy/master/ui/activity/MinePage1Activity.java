@@ -8,19 +8,19 @@ import com.ulfy.android.task.TaskUtils;
 import com.ulfy.android.task_transponder.ContentDataLoader;
 import com.ulfy.android.task_transponder.OnReloadListener;
 import com.ulfy.android.utils.StatusBarUtils;
-import com.ulfy.master.application.vm.MinePageVM;
+import com.ulfy.master.application.vm.MinePage1VM;
 import com.ulfy.master.ui.base.ContentActivity;
-import com.ulfy.master.ui.view.MinePageView;
+import com.ulfy.master.ui.view.MinePage1View;
 
-public class MinePageActivity extends ContentActivity {
-    private MinePageVM vm;
-    private MinePageView view;
+public class MinePage1Activity extends ContentActivity {
+    private MinePage1VM vm;
+    private MinePage1View view;
 
     /**
      * 启动Activity
      */
     public static void startActivity() {
-        ActivityUtils.startActivity(MinePageActivity.class);
+        ActivityUtils.startActivity(MinePage1Activity.class);
     }
 
     /**
@@ -39,7 +39,7 @@ public class MinePageActivity extends ContentActivity {
      * 初始化模型和界面
      */
     private void initModel(Bundle savedInstanceState) {
-        vm = new MinePageVM();
+        vm = new MinePage1VM();
     }
 
     /**
@@ -48,7 +48,7 @@ public class MinePageActivity extends ContentActivity {
     private void initContent(final Bundle savedInstanceState) {
         TaskUtils.loadData(getContext(), vm.loadDataOnExe(), new ContentDataLoader(contentFL, vm, false) {
                     @Override protected void onCreatView(ContentDataLoader loader, View createdView) {
-                        view = (MinePageView) createdView;
+                        view = (MinePage1View) createdView;
                         view.loadListDataAndRefreshUI();
                     }
                 }.setOnReloadListener(new OnReloadListener() {
