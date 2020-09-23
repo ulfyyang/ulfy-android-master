@@ -1,70 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:fillViewport="true">
 
-    <TextView
-        android:id="@+id/list1TV"
-        style="@style/TipButton"
-        android:text="A2.05 - 编写列表页 - 1：List1Activity" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    <View style="@style/HLine" />
+        <TextView
+            android:id="@+id/list1TV"
+            style="@style/TipButton"
+            android:text="A2.05 - 编写列表页 - 1：List1Activity" />
 
-    <TextView
-        android:id="@+id/list2TV"
-        style="@style/TipButton"
-        android:text="A2.05 - 编写列表页 - 2：List2Activity" />
+        <View style="@style/HLine" />
 
-    <View style="@style/HLine" />
+        <TextView
+            android:id="@+id/list2TV"
+            style="@style/TipButton"
+            android:text="A2.05 - 编写列表页 - 2：List2Activity" />
 
-    <TextView
-        android:id="@+id/list3TV"
-        style="@style/TipButton"
-        android:text="A2.05 - 编写列表页 - 3：List3Activity" />
+        <View style="@style/HLine" />
 
-    <View style="@style/HLine" />
+        <TextView
+            android:id="@+id/list3TV"
+            style="@style/TipButton"
+            android:text="A2.05 - 编写列表页 - 3：List3Activity" />
 
-    <TextView
-        android:id="@+id/list4TV"
-        style="@style/TipButton"
-        android:text="A2.05 - 编写列表页 - 4：List4Activity" />
+        <View style="@style/HLine" />
 
-    <View style="@style/HLine" />
+        <TextView
+            android:id="@+id/list4TV"
+            style="@style/TipButton"
+            android:text="A2.05 - 编写列表页 - 4：List4Activity" />
 
-    <TextView
-        android:id="@+id/list5TV"
-        style="@style/TipButton"
-        android:text="A2.05 - 编写列表页 - 5：List5Activity" />
+        <View style="@style/HLine" />
 
-    <View style="@style/HLine" />
+        <TextView
+            android:id="@+id/list5TV"
+            style="@style/TipButton"
+            android:text="A2.05 - 编写列表页 - 5：List5Activity" />
 
-    <TextView
-        android:id="@+id/list6TV"
-        style="@style/TipButton"
-        android:text="A2.05 - 编写列表页 - 6：CountryCodeActivity" />
+        <View style="@style/HLine" />
 
-    <View style="@style/HLine" />
+        <TextView
+            android:id="@+id/list6TV"
+            style="@style/TipButton"
+            android:text="A2.05 - 编写列表页 - 6：CountryCodeActivity" />
 
-    <TextView
-        android:id="@+id/list7TV"
-        style="@style/TipButton"
-        android:text="A2.05 - 编写列表页 - 7：ContactBookActivity" />
+        <View style="@style/HLine" />
 
-    <View style="@style/HLine" />
+        <TextView
+            android:id="@+id/list7TV"
+            style="@style/TipButton"
+            android:text="A2.05 - 编写列表页 - 7：ContactBookActivity" />
 
-    <TextView
-        android:id="@+id/list8TV"
-        style="@style/TipButton"
-        android:text="A2.05 - 编写列表页 - 7：StaggeredAutoFullActivity" />
+        <View style="@style/HLine" />
 
-    <View style="@style/HLine" />
+        <TextView
+            android:id="@+id/list8TV"
+            style="@style/TipButton"
+            android:text="A2.05 - 编写列表页 - 7：StaggeredAutoFullActivity" />
 
-    <TextView
-        android:id="@+id/list9TV"
-        style="@style/TipButton"
-        android:text="A2.05 - 编写列表页 - 7：StaggeredRandomRatioActivity" />
+        <View style="@style/HLine" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/list9TV"
+            style="@style/TipButton"
+            android:text="A2.05 - 编写列表页 - 7：StaggeredRandomRatioActivity" />
+
+        <TextView
+            style="@style/description"
+            android:text="使用示例" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <ImageView
+                android:id="@+id/videoListIV"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:src="@drawable/screen_video_list" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

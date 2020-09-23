@@ -3,11 +3,9 @@ package com.ulfy.master.ui.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;
-import android.widget.TextView;
 
 import com.ulfy.android.mvvm.IViewModel;
 import com.ulfy.android.ui_injection.Layout;
-import com.ulfy.android.ui_injection.ViewById;
 import com.ulfy.android.ui_injection.ViewClick;
 import com.ulfy.master.R;
 import com.ulfy.master.application.vm.ListVM;
@@ -20,12 +18,11 @@ import com.ulfy.master.ui.activity.List4Activity;
 import com.ulfy.master.ui.activity.List5Activity;
 import com.ulfy.master.ui.activity.StaggeredAutoFullActivity;
 import com.ulfy.master.ui.activity.StaggeredRandomRatioActivity;
+import com.ulfy.master.ui.activity.VideoListActivity;
 import com.ulfy.master.ui.base.BaseView;
 
 @Layout(id = R.layout.view_list)
 public class ListView extends BaseView {
-    @ViewById(id = R.id.list1TV) private TextView list1TV;
-    @ViewById(id = R.id.list2TV) private TextView list2TV;
     private ListVM vm;
 
     public ListView(Context context) {
@@ -116,5 +113,13 @@ public class ListView extends BaseView {
      */
     @ViewClick(ids = R.id.list9TV) private void list9TV(View v) {
         StaggeredRandomRatioActivity.startActivity();
+    }
+
+    /**
+     * click: videoListIV
+     * 视频列表页
+     */
+    @ViewClick(ids = R.id.videoListIV) private void videoListIV(View v) {
+        VideoListActivity.startActivity();
     }
 }

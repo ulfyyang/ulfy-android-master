@@ -1,0 +1,141 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/headLL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingTop="10dp">
+
+            <LinearLayout
+                android:id="@+id/dailyLL"
+                android:layout_width="66dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <com.ulfy.android.views.ShapeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_shape="circle">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:src="@drawable/icon_logo" />
+
+                </com.ulfy.android.views.ShapeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="每日精选"
+                    android:textColor="#141414"
+                    android:textSize="8sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/searchLL"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/shape_video_list_search"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginRight="6dp"
+                    android:src="@drawable/ic_search" />
+
+                <TextView
+                    android:id="@+id/searchTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="请输入搜索内容..."
+                    android:textColor="#cccccc" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/publishLL"
+                android:layout_width="52dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_camera" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="发布"
+                    android:textColor="#999999"
+                    android:textSize="8sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <net.lucode.hackware.magicindicator.MagicIndicator
+                android:id="@+id/tabsMI"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1" />
+
+            <ImageView
+                android:id="@+id/moreIV"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_marginRight="2dp"
+                android:padding="12dp"
+                android:src="@drawable/ic_function" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 存放标签的容器 -->
+    <!-- ViewPager容器必须和具体的标签分开排放，否则会崩溃 -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 如果支持滑动，则使用该容器 -->
+        <android.support.v4.view.ViewPager
+            android:id="@+id/containerVP"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- 如果不支持滑动，则使用该容器 -->
+        <FrameLayout
+            android:id="@+id/containerFL"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+</LinearLayout>
