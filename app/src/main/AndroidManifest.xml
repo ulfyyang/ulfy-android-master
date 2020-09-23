@@ -143,6 +143,7 @@
         <activity android:name=".ui.activity.ImageLoadActivity" />
         <activity android:name=".ui.activity.ImagePreviewActivity" />
         <activity android:name=".ui.activity.VideoListActivity" />
+        <activity android:name=".ui.activity.MinePageActivity" />
 
     </application>
 

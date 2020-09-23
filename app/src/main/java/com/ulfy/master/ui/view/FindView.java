@@ -16,6 +16,7 @@ import com.ulfy.master.ui.activity.DeviceIdActivity;
 import com.ulfy.master.ui.activity.FailRollbackActivity;
 import com.ulfy.master.ui.activity.GuideActivity;
 import com.ulfy.master.ui.activity.ListActivity;
+import com.ulfy.master.ui.activity.MinePageActivity;
 import com.ulfy.master.ui.activity.NetInfoActivity;
 import com.ulfy.master.ui.activity.SplashActivity;
 import com.ulfy.master.ui.activity.TabPagerActivity;
@@ -130,5 +131,13 @@ public class FindView extends BaseView {
      */
     @ViewClick(ids = R.id.commentEditTextTV) private void commentEditTextTV(View v) {
         CommentEditTextActivity.startActivity();
+    }
+
+    /**
+     * click: minePageIV
+     * 个人主页
+     */
+    @ViewClick(ids = R.id.minePageIV) private void minePageIV(View v) {
+        MinePageActivity.startActivity();
     }
 }
