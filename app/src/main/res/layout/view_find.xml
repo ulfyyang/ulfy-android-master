@@ -112,7 +112,7 @@
 
             <TextView
                 style="@style/description"
-                android:text="个人主页" />
+                android:text="场景举例" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -133,11 +133,21 @@
                     android:id="@+id/minePage2IV"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="2dp"
                     android:layout_weight="1"
                     android:adjustViewBounds="true"
                     android:scaleType="centerCrop"
                     android:src="@drawable/screen_mine_page2" />
+
+                <ImageView
+                    android:id="@+id/showTypeIV"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/screen_show_type" />
 
             </LinearLayout>
 

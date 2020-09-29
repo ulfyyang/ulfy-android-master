@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.ulfy.android.views.RatioLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:ratio_height="1"
+        app:ratio_width="1">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="#F2F2F2" />
+
+    </com.ulfy.android.views.RatioLayout>
+
+    <TextView
+        android:id="@+id/contentTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本" />
+
+</LinearLayout>

@@ -145,6 +145,7 @@
         <activity android:name=".ui.activity.VideoListActivity" />
         <activity android:name=".ui.activity.MinePage1Activity" />
         <activity android:name=".ui.activity.MinePage2Activity" />
+        <activity android:name=".ui.activity.ShowTypeActivity" />
 
     </application>
 

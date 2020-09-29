@@ -19,6 +19,7 @@ import com.ulfy.master.ui.activity.ListActivity;
 import com.ulfy.master.ui.activity.MinePage1Activity;
 import com.ulfy.master.ui.activity.MinePage2Activity;
 import com.ulfy.master.ui.activity.NetInfoActivity;
+import com.ulfy.master.ui.activity.ShowTypeActivity;
 import com.ulfy.master.ui.activity.SplashActivity;
 import com.ulfy.master.ui.activity.TabPagerActivity;
 import com.ulfy.master.ui.activity.UpgradeCheckActivity;
@@ -148,5 +149,13 @@ public class FindView extends BaseView {
      */
     @ViewClick(ids = R.id.minePage2IV) private void minePage2IV(View v) {
         MinePage2Activity.startActivity();
+    }
+
+    /**
+     * click: showTypeIV
+     * 显示类型切换
+     */
+    @ViewClick(ids = R.id.showTypeIV) private void showTypeIV(View v) {
+        ShowTypeActivity.startActivity();
     }
 }
