@@ -48,6 +48,7 @@ public class TabPager2View extends BaseView {
      */
     private void init(Context context, AttributeSet attrs) {
         linkage.setMagicIndicator(tabsMI).setContainer(containerVP)
+                .setAverage(true)                                                       // 均分模式（MagicIndicator需填充父控件）
                 .setTitleSize(18)                                                       // 设置标签文字大小
                 .setTitleNormalColor(Color.parseColor("#616161"))             // 设置标签常规字体颜色
                 .setTitleSelectedColor(Color.parseColor("#f57c00"))           // 设置标签选中文字颜色
