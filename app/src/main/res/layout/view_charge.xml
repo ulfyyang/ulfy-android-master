@@ -22,6 +22,13 @@
             <View style="@style/HLine" />
 
             <TextView
+                android:id="@+id/videoTV"
+                style="@style/TipButton"
+                android:text="视频列表：VideoActivity" />
+
+            <View style="@style/HLine" />
+
+            <TextView
                 android:id="@+id/makeGifTV"
                 style="@style/TipButton"
                 android:text="生成GIF:MakeGifActivity" />

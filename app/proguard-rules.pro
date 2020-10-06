@@ -28,6 +28,18 @@
 
 
 
+################################ DKPlayer ################################
+-keep class com.dueeeke.videoplayer.** { *; }
+-dontwarn com.dueeeke.videoplayer.**
+# IjkPlayer
+-keep class tv.danmaku.ijk.** { *; }
+-dontwarn tv.danmaku.ijk.**
+# ExoPlayer
+-keep class com.google.android.exoplayer2.** { *; }
+-dontwarn com.google.android.exoplayer2.**
+
+
+
 ################################ 公共 ################################
 # 代码混淆压缩比，在0~7之间，默认为5，一般不做修改
 -optimizationpasses 5

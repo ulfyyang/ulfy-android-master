@@ -50,7 +50,7 @@ public class DouyinCell extends BaseCell {
         UiUtils.clearParent(videoView);
         containerFL.addView(videoView);
         videoView.setUrl(cm.videoUrl);
-        videoView.setScreenScale(VideoView.SCREEN_SCALE_CENTER_CROP);
+        videoView.setScreenScaleType(VideoView.SCREEN_SCALE_CENTER_CROP);
         videoView.start();
     }
 }

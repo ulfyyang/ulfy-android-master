@@ -28,6 +28,10 @@ android {
         multiDexEnabled true
         testInstrumentationRunner externalRunner
 
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+
         // 定制字段 -- 多域名选择器
         buildConfigField("String[]", "HTTP_BASES", 'new String[] {"http://www.baidu.com", "http://www.google.com"}')
         // 定制字段 -- 服务器接口根路径
@@ -155,7 +159,12 @@ dependencies {
     implementation project(':wave')                             // 波浪索引选择器
     implementation externalGifDrawable                          // GIF图片加载控件
     implementation externalAppBarLayoutBehavior                 // AppBarLayout回弹问题
-    implementation 'com.github.dueeeke.dkplayer:dkplayer-java:3.0.2'        // DK视频播放器
+
+    implementation project(':third-dkplayer:dkplayer-java')             // DK播放器
+    implementation project(':third-dkplayer:dkplayer-ui')               // DK播放器
+    implementation project(':third-dkplayer:dkplayer-players:exo')      // DK播放器
+    implementation project(':third-dkplayer:dkplayer-players:ijk')      // DK播放器
+    implementation project(':third-dkplayer:dkplayer-videocache')       // DK播放器
 
     /*
     测试库

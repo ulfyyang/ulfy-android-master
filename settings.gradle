@@ -27,3 +27,9 @@ include ':ulfy-lib:ulfy-agentweb'
 include ':ulfy-lib:ulfy-agentweb-filechooser'
 
 include ':wave'
+
+include ':third-dkplayer:dkplayer-java'
+include ':third-dkplayer:dkplayer-players:exo'
+include ':third-dkplayer:dkplayer-players:ijk'
+include ':third-dkplayer:dkplayer-ui'
+include ':third-dkplayer:dkplayer-videocache'

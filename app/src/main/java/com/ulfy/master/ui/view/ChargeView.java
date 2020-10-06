@@ -12,6 +12,7 @@ import com.ulfy.master.application.vm.ChargeVM;
 import com.ulfy.master.ui.activity.DouyinActivity;
 import com.ulfy.master.ui.activity.MakeGifActivity;
 import com.ulfy.master.ui.activity.QRCodeActivity;
+import com.ulfy.master.ui.activity.VideoActivity;
 import com.ulfy.master.ui.base.BaseView;
 
 @Layout(id = R.layout.view_charge)
@@ -44,6 +45,14 @@ public class ChargeView extends BaseView {
         DouyinActivity.startActivity();
     }
 
+    /**
+     * click: videoTV
+     * 视频列表
+     */
+    @ViewClick(ids = R.id.videoTV) private void videoTV(View v) {
+        VideoActivity.startActivity();
+    }
+    
     /**
      * click: makeGifTV
      * 生成GIF动图
