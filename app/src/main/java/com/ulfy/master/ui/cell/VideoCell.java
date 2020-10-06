@@ -94,6 +94,7 @@ public class VideoCell extends BaseCell {
     }
 
     @ViewClick(ids = R.id.coverFL) private void coverFL(View v) {
+        VideoViewRepository.getInstance().releaseVideoView(getContext(), false);
         playerVV.start();
     }
 
