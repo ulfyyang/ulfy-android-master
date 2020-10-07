@@ -1,7 +1,6 @@
-package com.ulfy.master.ui.view;
+package com.ulfy.master.ui.custom_dkplayer;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.widget.ImageView;
 
 import com.dueeeke.videoplayer.controller.BaseVideoController;
@@ -14,7 +13,7 @@ import com.ulfy.master.R;
 public class TikTokController extends BaseVideoController {
     private ImageView thumbIV;
 
-    public TikTokController(@NonNull Context context) {
+    public TikTokController(Context context) {
         super(context);
     }
 
@@ -28,7 +27,7 @@ public class TikTokController extends BaseVideoController {
 
     @Override protected void initView() {
         super.initView();
-//        thumbIV = mControllerView.findViewById(R.id.thumbIV);
+        thumbIV = findViewById(R.id.thumbIV);
     }
 
     @Override public void setPlayState(int playState) {

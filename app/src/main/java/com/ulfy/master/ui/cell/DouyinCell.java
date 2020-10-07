@@ -10,11 +10,12 @@ import com.ulfy.android.image.ImageUtils;
 import com.ulfy.android.mvvm.IViewModel;
 import com.ulfy.android.ui_injection.Layout;
 import com.ulfy.android.ui_injection.ViewById;
-import com.ulfy.android.utils.UiUtils;
+import com.ulfy.master.BuildConfig;
 import com.ulfy.master.R;
 import com.ulfy.master.application.cm.DouyinCM;
 import com.ulfy.master.ui.base.BaseCell;
-import com.ulfy.master.ui.view.TikTokController;
+import com.ulfy.master.ui.custom_dkplayer.TikTokController;
+import com.ulfy.master.ui.custom_dkplayer.cache.PreloadManager;
 
 @Layout(id = R.layout.cell_douyin)
 public class DouyinCell extends BaseCell {
@@ -46,11 +47,18 @@ public class DouyinCell extends BaseCell {
     }
 
     public void onItemSelected(VideoView videoView, TikTokController tikTokController) {
+        tikTokController.getThumbIV().setScaleType(ImageView.ScaleType.FIT_CENTER);
         ImageUtils.loadImage(cm.imageUrl, android.R.color.white, tikTokController.getThumbIV());
-        UiUtils.clearParent(videoView);
         containerFL.addView(videoView);
-        videoView.setUrl(cm.videoUrl);
-        videoView.setScreenScaleType(VideoView.SCREEN_SCALE_CENTER_CROP);
+        if (BuildConfig.VIDEO_PRE_LOAD) {
+            videoView.setUrl(PreloadManager.getInstance(getContext()).getPlayUrl(cm.videoUrl));
+        } else {
+            videoView.setUrl(cm.videoUrl);
+        }
         videoView.start();
+    }
+
+    public int getIndex() {
+        return cm.index;
     }
 }

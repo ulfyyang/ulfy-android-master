@@ -32,6 +32,7 @@ android {
             abiFilters "armeabi-v7a"
         }
 
+        buildConfigField("boolean", "VIDEO_PRE_LOAD", 'true')       // 是否开启视频预加载
         // 定制字段 -- 多域名选择器
         buildConfigField("String[]", "HTTP_BASES", 'new String[] {"http://www.baidu.com", "http://www.google.com"}')
         // 定制字段 -- 服务器接口根路径
