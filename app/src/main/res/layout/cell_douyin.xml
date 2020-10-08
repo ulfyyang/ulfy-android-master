@@ -10,10 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ImageView
-            android:id="@+id/thumbIV"
+        <com.dueeeke.videoplayer.player.VideoView
+            android:id="@+id/douyinVV"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            app:looping="true" />
 
     </FrameLayout>
 

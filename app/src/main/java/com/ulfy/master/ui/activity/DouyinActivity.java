@@ -3,12 +3,15 @@ package com.ulfy.master.ui.activity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.ulfy.android.system.ActivityUtils;
 import com.ulfy.android.task.TaskUtils;
 import com.ulfy.android.task_transponder.ContentDataLoader;
 import com.ulfy.android.task_transponder.OnReloadListener;
-import com.ulfy.android.system.ActivityUtils;
+import com.ulfy.master.BuildConfig;
 import com.ulfy.master.application.vm.DouyinVM;
 import com.ulfy.master.ui.base.ContentActivity;
+import com.ulfy.master.ui.custom_dkplayer.VideoViewRepository;
+import com.ulfy.master.ui.custom_dkplayer.cache.PreloadManager;
 import com.ulfy.master.ui.view.DouyinView;
 
 
@@ -65,22 +68,22 @@ public class DouyinActivity extends ContentActivity {
 
     @Override protected void onPause() {
         super.onPause();
-        if (view != null) {
-            view.onPause();
-        }
+        VideoViewRepository.getInstance().pause(this);
     }
-
     @Override protected void onResume() {
         super.onResume();
-        if (view != null) {
-            view.onResume();
-        }
+        VideoViewRepository.getInstance().resume(this);
     }
-
     @Override protected void onDestroy() {
         super.onDestroy();
-        if (view != null) {
-            view.onDestroy();
+        VideoViewRepository.getInstance().releaseVideoView(this, true);
+        if (BuildConfig.VIDEO_PRE_LOAD) {
+            PreloadManager.getInstance(getContext()).removeAllPreloadTask();
+        }
+    }
+    @Override public void onBackPressed() {
+        if (!VideoViewRepository.getInstance().onBackPressed(this)) {
+            super.onBackPressed();
         }
     }
 }
