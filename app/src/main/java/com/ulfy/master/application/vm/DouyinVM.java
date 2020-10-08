@@ -18,6 +18,9 @@ public class DouyinVM extends BaseVM {
         return new LoadListPageUiTask.OnLoadSimpleListPage() {
             @Override protected void loadSimplePage(LoadListPageUiTask task, List<Object> modelList, List<Object> tempList, int page, int pageSize) throws Exception {
                 Thread.sleep(1000);
+                if (page == LoadListPageUiTask.DEFAULT_START_PAGE) {        // 加载第一页时重置位置计数
+                    index = 0;
+                }
                 tempList.add(new DouyinCM(index++, "https://p9.pstatp.com/large/4c87000639ab0f21c285.jpeg", "https://aweme.snssdk.com/aweme/v1/play/?video_id=97022dc18711411ead17e8dcb75bccd2&line=0&ratio=720p&media_type=4&vr_type=0"));
                 tempList.add(new DouyinCM(index++, "https://p1.pstatp.com/large/4bea0014e31708ecb03e.jpeg", "https://aweme.snssdk.com/aweme/v1/play/?video_id=374e166692ee4ebfae030ceae117a9d0&line=0&ratio=720p&media_type=4&vr_type=0"));
                 tempList.add(new DouyinCM(index++, "https://p1.pstatp.com/large/4bb500130248a3bcdad0.jpeg", "https://aweme.snssdk.com/aweme/v1/play/?video_id=8a55161f84cb4b6aab70cf9e84810ad2&line=0&ratio=720p&media_type=4&vr_type=0"));

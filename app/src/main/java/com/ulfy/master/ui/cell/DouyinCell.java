@@ -2,7 +2,6 @@ package com.ulfy.master.ui.cell;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.dueeeke.videoplayer.player.VideoView;
@@ -20,7 +19,6 @@ import com.ulfy.master.ui.custom_dkplayer.cache.PreloadManager;
 
 @Layout(id = R.layout.cell_douyin)
 public class DouyinCell extends BaseCell {
-    @ViewById(id = R.id.containerFL) private FrameLayout containerFL;
     @ViewById(id = R.id.douyinVV) private VideoView douyinVV;
     private TikTokController tikTokController;
     private DouyinCM cm;
@@ -36,16 +34,12 @@ public class DouyinCell extends BaseCell {
     }
 
     private void init(Context context, AttributeSet attrs) {
-//        videoView.setScreenScaleType(VideoView.SCREEN_SCALE_CENTER_CROP);
         tikTokController = new TikTokController(getContext());
         tikTokController.getThumbIV().setScaleType(ImageView.ScaleType.FIT_CENTER);
+//        videoView.setScreenScaleType(VideoView.SCREEN_SCALE_CENTER_CROP);
         douyinVV.setVideoController(tikTokController);
         VideoViewRepository.getInstance().addVideoView(douyinVV);
     }
-
-    /*
-    滑动时图片闪动是因为视频中的缩略图被后加载时导致的，这里需要想个办法处理。
-     */
 
     @Override public void bind(IViewModel model) {
         cm = (DouyinCM) model;

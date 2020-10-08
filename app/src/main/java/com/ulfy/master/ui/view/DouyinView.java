@@ -41,34 +41,7 @@ public class DouyinView extends BaseView {
         douyinVP.setOffscreenPageLimit(5);
         douyinVP.setVertical(true);
         douyinVP.setAdapter(douyinAdapter);
-
-        douyinVP.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            private int currentItem;
-            private boolean isReverseScroll;
-            @Override public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if (position != currentItem) {
-                    isReverseScroll = position < currentItem;
-                }
-            }
-            @Override public void onPageSelected(int position) {
-                if (position != currentItem) {
-                    startPlay(position);
-                }
-            }
-            @Override public void onPageScrollStateChanged(int state) {
-                if (state == VerticalViewPager.SCROLL_STATE_DRAGGING) {
-                    currentItem = douyinVP.getCurrentItem();
-                }
-                if (BuildConfig.VIDEO_PRE_LOAD) {
-                    if (state == VerticalViewPager.SCROLL_STATE_IDLE) {
-                        PreloadManager.getInstance(getContext()).resumePreload(currentPosition, isReverseScroll);
-                    } else {
-                        PreloadManager.getInstance(getContext()).pausePreload(currentPosition, isReverseScroll);
-                    }
-                }
-            }
-        });
-
+        douyinVP.addOnPageChangeListener(new DouyinOnPageChangeListener());
         loader = new DouyinPageLoader(douyinVP);
     }
 
@@ -101,10 +74,41 @@ public class DouyinView extends BaseView {
         }
     }
 
+    private class DouyinOnPageChangeListener implements ViewPager.OnPageChangeListener {
+        private int currentItem;
+        private boolean isReverseScroll;
+
+        @Override public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            if (position != currentItem) {
+                isReverseScroll = position < currentItem;
+            }
+        }
+
+        @Override public void onPageSelected(int position) {
+            if (position != currentItem) {
+                startPlay(position);
+            }
+        }
+
+        @Override public void onPageScrollStateChanged(int state) {
+            if (state == VerticalViewPager.SCROLL_STATE_DRAGGING) {
+                currentItem = douyinVP.getCurrentItem();
+            }
+            if (BuildConfig.VIDEO_PRE_LOAD) {
+                if (state == VerticalViewPager.SCROLL_STATE_IDLE) {
+                    PreloadManager.getInstance(getContext()).resumePreload(currentPosition, isReverseScroll);
+                } else {
+                    PreloadManager.getInstance(getContext()).pausePreload(currentPosition, isReverseScroll);
+                }
+            }
+        }
+    }
+
     /**
      * 在页面创建时添加预加载，在页面销毁时取消预加载
      */
     private class DouyinAdapter<M extends IViewModel> extends PagerAdapter {
+
         @Override public Object instantiateItem(ViewGroup container, int position) {
             if (BuildConfig.VIDEO_PRE_LOAD) {
                 String playUrl = vm.douyinCMList.get(position).videoUrl;
@@ -112,6 +116,7 @@ public class DouyinView extends BaseView {
             }
             return super.instantiateItem(container, position);
         }
+
         @Override public void destroyItem(ViewGroup container, int position, Object object) {
             if (BuildConfig.VIDEO_PRE_LOAD) {
                 String playUrl = vm.douyinCMList.get(position).videoUrl;
@@ -119,5 +124,6 @@ public class DouyinView extends BaseView {
             }
             super.destroyItem(container, position, object);
         }
+
     }
 }

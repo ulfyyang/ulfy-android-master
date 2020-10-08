@@ -5,17 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <FrameLayout
-        android:id="@+id/containerFL"
+    <com.dueeeke.videoplayer.player.VideoView
+        android:id="@+id/douyinVV"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <com.dueeeke.videoplayer.player.VideoView
-            android:id="@+id/douyinVV"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:looping="true" />
-
-    </FrameLayout>
+        android:layout_height="match_parent"
+        app:looping="true" />
 
 </FrameLayout>
