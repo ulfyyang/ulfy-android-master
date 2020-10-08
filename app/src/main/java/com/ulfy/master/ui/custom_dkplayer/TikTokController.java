@@ -8,7 +8,6 @@ import android.widget.SeekBar;
 
 import com.dueeeke.videoplayer.controller.BaseVideoController;
 import com.dueeeke.videoplayer.player.VideoView;
-import com.ulfy.android.utils.LogUtils;
 import com.ulfy.master.R;
 import com.yqw.hotheart.HeartFrameLayout;
 import com.yqw.hotheart.MyClickListener;
@@ -99,7 +98,6 @@ public class TikTokController extends BaseVideoController {
     }
 
     @Override protected void setProgress(int duration, int position) {
-        LogUtils.log("d:" + duration + " p:" + position);
         if (!mIsDragging) {
             if (duration > 0) {
                 loadingSB.setEnabled(true);
