@@ -5,13 +5,14 @@ import android.support.v4.view.ViewPager;
 import com.ulfy.android.task.LoadListPageUiTask;
 import com.ulfy.android.task.TaskExecutor;
 import com.ulfy.android.task.Transponder;
+import com.ulfy.android.views.VerticalViewPager;
 
 public class DouyinPageLoader extends Transponder {
-    private ViewPager viewPager;
+    private VerticalViewPager viewPager;
     private LoadListPageUiTask loadListPageUiTask;                  // 分页加载的任务
     private LoadListPageUiTask.LoadListPageUiTaskInfo taskInfo;     // 任务执行的信息
 
-    public DouyinPageLoader(ViewPager viewPager) {
+    public DouyinPageLoader(VerticalViewPager viewPager) {
         this.viewPager = viewPager;
         loadListPageUiTask = new LoadListPageUiTask(viewPager.getContext(), this);
         this.viewPager.addOnPageChangeListener(new OnPageChangeImpl());

@@ -9,6 +9,7 @@ import com.ulfy.android.image.ImageUtils;
 import com.ulfy.android.mvvm.IViewModel;
 import com.ulfy.android.ui_injection.Layout;
 import com.ulfy.android.ui_injection.ViewById;
+import com.ulfy.android.utils.UiUtils;
 import com.ulfy.master.BuildConfig;
 import com.ulfy.master.R;
 import com.ulfy.master.application.cm.DouyinCM;
@@ -36,6 +37,13 @@ public class DouyinCell extends BaseCell {
     private void init(Context context, AttributeSet attrs) {
         tikTokController = new TikTokController(getContext());
         tikTokController.getThumbIV().setScaleType(ImageView.ScaleType.FIT_CENTER);
+        tikTokController.setEnableDoubleEffect(true);
+        tikTokController.setOnDoubleClickListener(new TikTokController.OnDoubleClickListener() {
+            @Override public void onDoubleClick() {
+                UiUtils.show("双击了");
+            }
+        });
+
 //        videoView.setScreenScaleType(VideoView.SCREEN_SCALE_CENTER_CROP);
         douyinVV.setVideoController(tikTokController);
         VideoViewRepository.getInstance().addVideoView(douyinVV);

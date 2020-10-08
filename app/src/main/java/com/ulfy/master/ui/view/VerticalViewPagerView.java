@@ -8,14 +8,14 @@ import com.ulfy.android.adapter.PagerViewAdapter;
 import com.ulfy.android.mvvm.IViewModel;
 import com.ulfy.android.ui_injection.Layout;
 import com.ulfy.android.ui_injection.ViewById;
-import com.ulfy.android.views.VerticalViewPager;
+import com.ulfy.android.views.ViewPager;
 import com.ulfy.master.R;
 import com.ulfy.master.application.vm.VerticalViewPagerVM;
 import com.ulfy.master.ui.base.BaseView;
 
 @Layout(id = R.layout.view_vertical_view_pager)
 public class VerticalViewPagerView extends BaseView {
-    @ViewById(id = R.id.contentVVP) private VerticalViewPager contentVVP;
+    @ViewById(id = R.id.contentVVP) private ViewPager contentVVP;
     @ViewById(id = R.id.page1TV) private TextView page1TV;
     @ViewById(id = R.id.page2TV) private TextView page2TV;
     @ViewById(id = R.id.page3TV) private TextView page3TV;

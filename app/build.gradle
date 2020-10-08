@@ -167,6 +167,8 @@ dependencies {
     implementation project(':third-dkplayer:dkplayer-players:ijk')      // DK播放器
     implementation project(':third-dkplayer:dkplayer-videocache')       // DK播放器
 
+    implementation project(':third-dkplayer:hotheart')                  // 抖音单击暂停、双击红心
+
     /*
     测试库
      */
