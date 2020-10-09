@@ -51,7 +51,7 @@ public class DouyinCell extends BaseCell {
 
     @Override public void bind(IViewModel model) {
         cm = (DouyinCM) model;
-        ImageUtils.loadImage(cm.imageUrl, android.R.color.white, tikTokController.getThumbIV());
+        ImageUtils.loadImage(cm.imageUrl, android.R.color.black, tikTokController.getThumbIV());
         if (BuildConfig.VIDEO_PRE_LOAD) {
             douyinVV.setUrl(PreloadManager.getInstance(getContext()).getPlayUrl(cm.videoUrl));
         } else {
