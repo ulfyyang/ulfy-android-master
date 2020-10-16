@@ -49,6 +49,11 @@ public class List1View extends BaseView {
                 UiUtils.show(String.format("点击了：%d", position));
             }
         });
+        contentAdapter.setOnItemLongClickListener(new RecyclerAdapter.OnItemLongClickListener<List1CM>() {
+            @Override public void onItemLongClick(ViewGroup parent, View view, int position, List1CM model) {
+                UiUtils.show(String.format("长按了：%d", position));
+            }
+        });
         contentRefresher = new SmartRefresher(contentSRL, new SmartRefresher.OnRefreshSuccessListener() {
             @Override public void onRefreshSuccess(SmartRefresher smartRefresher) {
                 bind(vm);
