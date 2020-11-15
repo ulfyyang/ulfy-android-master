@@ -42,7 +42,9 @@ public class List1View extends BaseView {
     private void init(Context context, AttributeSet attrs) {
         // RecyclerAdapter 可以设置 header 和 footer，如果设置了 header、footer 则 dividerXX 方法中要填写对应的 header、footer 数量
         // RecyclerViewPageLoader 上拉加载分页内部通过 RecyclerAdapter 设置了 footer，因此需要配置 footer 为 1
-        RecyclerViewUtils.linearLayout(contentRV).vertical().dividerDp(getResources().getColor(R.color.line), 0.5f, 0, 1);
+        RecyclerViewUtils.linearLayout(contentRV).vertical()
+                .dividerDp(getResources().getColor(R.color.line), 0.5f, 0, 1);
+//                .dividerDp(getResources().getColor(R.color.line), 0.5f, 0, 1, 20, 20);
         contentRV.setAdapter(contentAdapter);
         contentAdapter.setOnItemClickListener(new RecyclerAdapter.OnItemClickListener<List1CM>() {
             @Override public void onItemClick(ViewGroup parent, View view, int position, List1CM model) {
