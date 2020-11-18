@@ -28,6 +28,11 @@
         android:text="网络监听：NetStateActivity" />
 
     <TextView
+        android:id="@+id/imgPickTV"
+        style="@style/TipButton"
+        android:text="图片选择：ImagePickActivity" />
+
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"

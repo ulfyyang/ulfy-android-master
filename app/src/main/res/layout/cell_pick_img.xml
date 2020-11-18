@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ulfy.android.views.RatioLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:ratio_width="1"
+    app:ratio_height="1">
+
+    <FrameLayout
+        android:id="@+id/flAdd"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/shape_item_image_picker">
+
+        <ImageView
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_image_add" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/flPicked"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/ivPicked"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop" />
+
+        <ImageView
+            android:id="@+id/ivDel"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_image_del"
+            android:layout_gravity="right"
+            android:paddingTop="3dp"
+            android:paddingRight="3dp"
+            android:paddingLeft="10dp"
+            android:paddingBottom="10dp"/>
+
+    </FrameLayout>
+
+</com.ulfy.android.views.RatioLayout>
