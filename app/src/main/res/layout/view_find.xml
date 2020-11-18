@@ -106,6 +106,13 @@
             <View style="@style/HLine" />
 
             <TextView
+                android:id="@+id/dialogProcessTV"
+                style="@style/TipButton"
+                android:text="任务进度处理:DialogProcessActivity" />
+
+            <View style="@style/HLine" />
+
+            <TextView
                 android:id="@+id/commentEditTextTV"
                 style="@style/TipButton"
                 android:text="评论输入框:CommentEditTextActivity" />
