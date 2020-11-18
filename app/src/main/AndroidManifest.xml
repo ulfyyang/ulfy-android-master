@@ -149,6 +149,7 @@
         <activity android:name=".ui.activity.VideoActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity android:name=".ui.activity.ImagePickActivity" />
+        <activity android:name=".ui.activity.DialogProcessActivity" />
 
     </application>
 

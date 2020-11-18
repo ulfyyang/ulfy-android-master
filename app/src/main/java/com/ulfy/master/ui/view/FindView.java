@@ -13,6 +13,7 @@ import com.ulfy.master.ui.activity.CommentEditTextActivity;
 import com.ulfy.master.ui.activity.ContentSearchActivity;
 import com.ulfy.master.ui.activity.DetailsActivity;
 import com.ulfy.master.ui.activity.DeviceIdActivity;
+import com.ulfy.master.ui.activity.DialogProcessActivity;
 import com.ulfy.master.ui.activity.FailRollbackActivity;
 import com.ulfy.master.ui.activity.GuideActivity;
 import com.ulfy.master.ui.activity.ListActivity;
@@ -125,6 +126,14 @@ public class FindView extends BaseView {
      */
     @ViewClick(ids = R.id.upgradeCheckTV) private void upgradeCheckTV(View v) {
         UpgradeCheckActivity.startActivity();
+    }
+
+    /**
+     * click: dialogProcessTV
+     * 任务进度处理
+     */
+    @ViewClick(ids = R.id.dialogProcessTV) private void dialogProcessTV(View v) {
+        DialogProcessActivity.startActivity();
     }
 
     /**

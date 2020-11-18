@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/startBT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="开始处理" />
+
+    <FrameLayout
+        android:id="@+id/progressDialogFL"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:visibility="gone">
+
+        <com.ulfy.android.views.ShapeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_shape="rect"
+            app:rect_radius="5dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="15dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="处理中..."
+                    android:textColor="@color/white" />
+
+                <com.ulfy.master.ui.custom.CircleProgressView
+                    android:id="@+id/statusCPV"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    app:lineStrokeColor="@color/white"
+                    app:showTextPercent="true" />
+
+                <TextView
+                    android:id="@+id/closeTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:background="#f2f2f2"
+                    android:padding="5dp"
+                    android:text="关闭" />
+
+            </LinearLayout>
+
+        </com.ulfy.android.views.ShapeLayout>
+
+    </FrameLayout>
+
+</FrameLayout>
