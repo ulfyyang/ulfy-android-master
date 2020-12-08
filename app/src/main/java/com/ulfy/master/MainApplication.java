@@ -14,7 +14,6 @@ import com.ulfy.android.multi_domain_picker.MultiDomainPickerConfig;
 import com.ulfy.android.okhttp.HttpConfig;
 import com.ulfy.android.system.AppUtils;
 import com.ulfy.android.system.SystemConfig;
-import com.ulfy.android.task.LoadListPageUiTask;
 import com.ulfy.android.task.TaskConfig;
 import com.ulfy.android.task_transponder.TaskTransponderConfig;
 import com.ulfy.android.time.TimeConfig;
@@ -30,19 +29,19 @@ public class MainApplication extends MultiDexApplication {
 //        CacheConfig.Config.recordInfoCacheDirName = "local_entity_cache";       // 用于跟踪下载信息的缓存目录
 //    }
 
-    static {        // 任务引擎配置
-        TaskConfig.Config.checkInternet = true;             // 默认不检查网络状态
-        TaskConfig.Config.NO_NET_CONNECTION_TIP = "无网络链接";
-        TaskConfig.Config.LOAD_DATA_SUCCESS_TIP = "加载完成";
-        TaskConfig.Config.LOAD_LIST_PAGE_START_TIP = "正在刷新数据...";
-        TaskConfig.Config.LOAD_LIST_PAGE_SUCCESS_START_PAGE_TIP = "刷新成功";
-        TaskConfig.Config.LOAD_LIST_PAGE_SUCCESS_NEXT_PAGE_TIP = "加载成功";
-        LoadListPageUiTask.DEFAULT_START_PAGE = 1;          // 分页任务的默认起始页
-        LoadListPageUiTask.DEFAULT_PAGE_SIZE = 20;          // 分页任务的默认页大小
-    }
+//    static {        // 任务引擎配置
+//        TaskConfig.Config.checkInternet = true;             // 默认不检查网络状态
+//        TaskConfig.Config.NO_NET_CONNECTION_TIP = "无网络链接";
+//        TaskConfig.Config.LOAD_DATA_SUCCESS_TIP = "加载完成";
+//        TaskConfig.Config.LOAD_LIST_PAGE_START_TIP = "正在刷新数据...";
+//        TaskConfig.Config.LOAD_LIST_PAGE_SUCCESS_START_PAGE_TIP = "刷新成功";
+//        TaskConfig.Config.LOAD_LIST_PAGE_SUCCESS_NEXT_PAGE_TIP = "加载成功";
+//        LoadListPageUiTask.DEFAULT_START_PAGE = 1;          // 分页任务的默认起始页
+//        LoadListPageUiTask.DEFAULT_PAGE_SIZE = 20;          // 分页任务的默认页大小
+//    }
 
 //    static {        // 任务应答器配置
-//        TaskTransponderConfig.contentDataLoaderConfig = new TaskTransponderConfig.ContentDataLoaderConfig() {
+//        TaskTransponderConfig.Config.contentDataLoaderConfig = new TaskTransponderConfig.ContentDataLoaderConfig() {
 //            @Override public IReloadView getNetErrorView(Context context) {
 //                return new ContentDataLoaderFailedView(context);
 //            }
@@ -76,18 +75,18 @@ public class MainApplication extends MultiDexApplication {
 //    }
 
 //    static {        // 多域名选择器
-//        MultiDomainPickerConfig.Config.domainTest = new MultiDomainPickerConfig.PingDomainTest();               // 自定义域名测试器
-//        MultiDomainPickerConfig.Config.domainConverter = new MultiDomainPickerConfig.CopyDomainConverter();     // 自定义域名转换器
+//        MultiDomainPickerConfig.Config.domainTester = new PingDomainTester();             // 自定义域名测试器
+//        MultiDomainPickerConfig.Config.domainConverter = new CopyDomainConverter();       // 自定义域名转换器
 //    }
 
 //    static {        // 数据预加载
 //        DataPreLoaderManager.Config.loadDataDelayTime = 100;          // 当使用延迟加载时演示的时间（毫秒）
 //    }
 
-    static {        // 图片处理
-        ImageConfig.Config.imageLoadingAnimator = true;              // 配置占位图动画
-        ImageConfig.Config.imageTransitionAnimator = false;          // 配置过渡动画
-    }
+//    static {        // 图片处理
+//        ImageConfig.Config.imageLoadingAnimator = true;              // 配置占位图动画
+//        ImageConfig.Config.imageTransitionAnimator = false;          // 配置过渡动画
+//    }
 
 //    static {        // 系统模块
 //        SystemConfig.Config.EXIT_TWICE_INTERVAL = 2000;            // 按两次返回退出的时间（毫秒）
