@@ -13,6 +13,7 @@ import com.ulfy.android.utils.UiUtils;
 import com.ulfy.master.R;
 import com.ulfy.master.application.vm.SystemVM;
 import com.ulfy.master.ui.activity.FileChooseActivity;
+import com.ulfy.master.ui.activity.ImagePickActivity;
 import com.ulfy.master.ui.activity.NetStateActivity;
 import com.ulfy.master.ui.activity.ReceiveDataActivity;
 import com.ulfy.master.ui.activity.ShakeActivity;
@@ -81,4 +82,13 @@ public class SystemView extends BaseView {
     @ViewClick(ids = R.id.netStateTV) private void netStateTV(View v) {
         NetStateActivity.startActivity();
     }
+
+    /**
+     * click: imgPickTV
+     * 图片选择
+     */
+    @ViewClick(ids = R.id.imgPickTV) private void imgPickTV(View v) {
+        ImagePickActivity.startActivity();
+    }
+
 }
