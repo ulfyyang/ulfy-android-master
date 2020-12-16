@@ -17,15 +17,21 @@
         android:layout_marginTop="2dp"
         android:text="输入框清空：EditTextClearLinkageActivity" />
 
+    <View style="@style/HLine" />
+
     <TextView
         android:id="@+id/editTextWordCountLinkageTV"
         style="@style/TipButton"
         android:text="输入框字数统计：EditTextWordCountLinkageActivity" />
 
+    <View style="@style/HLine" />
+
     <TextView
         android:id="@+id/multiEditTextNotEmptyLinkageTV"
         style="@style/TipButton"
         android:text="多输入框非空：MultiEditTextNotEmptyLinkageActivity" />
+
+    <View style="@style/HLine" />
 
     <TextView
         android:id="@+id/passwordShowHideLinkageTV"
@@ -42,9 +48,18 @@
         android:layout_marginTop="2dp"
         android:text="滚动透明度：ScrollAlphaLinkageActivity" />
 
+    <View style="@style/HLine" />
+
     <TextView
         android:id="@+id/scrollShowLinkageTV"
         style="@style/TipButton"
         android:text="滚动可见性：ScrollShowLinkageActivity" />
+
+    <View style="@style/HLine" />
+
+    <TextView
+        android:id="@+id/scrollPullLinkageTV"
+        style="@style/TipButton"
+        android:text="跟随滚动：ScrollPullLinkageActivity" />
 
 </LinearLayout>

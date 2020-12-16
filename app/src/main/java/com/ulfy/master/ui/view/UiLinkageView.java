@@ -14,6 +14,7 @@ import com.ulfy.master.ui.activity.EditTextWordCountLinkageActivity;
 import com.ulfy.master.ui.activity.MultiEditTextNotEmptyLinkageActivity;
 import com.ulfy.master.ui.activity.PasswordShowHideLinkageActivity;
 import com.ulfy.master.ui.activity.ScrollAlphaLinkageActivity;
+import com.ulfy.master.ui.activity.ScrollPullLinkageActivity;
 import com.ulfy.master.ui.activity.ScrollShowLinkageActivity;
 import com.ulfy.master.ui.base.BaseView;
 
@@ -85,5 +86,13 @@ public class UiLinkageView extends BaseView {
      */
     @ViewClick(ids = R.id.scrollShowLinkageTV) private void scrollShowLinkageTV(View v) {
         ScrollShowLinkageActivity.startActivity();
+    }
+
+    /**
+     * click: scrollPullLinkageTV
+     * 跟随滚动
+     */
+    @ViewClick(ids = R.id.scrollPullLinkageTV) private void scrollPullLinkageTV(View v) {
+        ScrollPullLinkageActivity.startActivity();
     }
 }
