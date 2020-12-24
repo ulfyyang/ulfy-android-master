@@ -62,9 +62,4 @@ public class VideoThumbnailActivity extends TitleContentActivity {
     private void initActivity(Bundle savedInstanceState) {
         titleTV.setText("视频截图");
     }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-    }
 }
