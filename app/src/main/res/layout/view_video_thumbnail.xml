@@ -29,6 +29,12 @@
 
     </LinearLayout>
 
+    <Button
+        android:id="@+id/manualThumbnailBT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="手动选择截图" />
+
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">

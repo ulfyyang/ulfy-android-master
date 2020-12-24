@@ -1,5 +1,6 @@
 package com.ulfy.master.ui.view;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
@@ -15,6 +16,7 @@ import com.ulfy.android.image.ImageUtils;
 import com.ulfy.android.mvvm.IViewModel;
 import com.ulfy.android.system.ActivityUtils;
 import com.ulfy.android.system.event.OnPickMediaEvent;
+import com.ulfy.android.system.event.OnReceiveDataEvent;
 import com.ulfy.android.system.media_picker.MediaRepository;
 import com.ulfy.android.task.TaskUtils;
 import com.ulfy.android.task_transponder.DialogProcesser;
@@ -26,6 +28,7 @@ import com.ulfy.android.utils.VideoUtils;
 import com.ulfy.master.R;
 import com.ulfy.master.application.cm.VideoThumbnailCM;
 import com.ulfy.master.application.vm.VideoThumbnailVM;
+import com.ulfy.master.ui.activity.VideoThumbnailPickerActivity;
 import com.ulfy.master.ui.base.BaseView;
 
 import org.joda.time.Period;
@@ -36,13 +39,16 @@ import java.io.File;
 public class VideoThumbnailView extends BaseView {
     @ViewById(id = R.id.firstThumbnailBT) private Button firstThumbnailBT;
     @ViewById(id = R.id.moreThumbnailBT) private Button moreThumbnailBT;
+    @ViewById(id = R.id.manualThumbnailBT) private Button manualThumbnailBT;
     @ViewById(id = R.id.firstThumbnailIV) private ImageView firstThumbnailIV;
     @ViewById(id = R.id.moreThumbnailRV) private RecyclerView moreThumbnailRV;
     @ViewById(id = R.id.videoInfoBT) private Button videoInfoBT;
     @ViewById(id = R.id.videoInfoTV) private TextView videoInfoTV;
     private static final int REQUEST_CODE_PICK_VIDEO_FOR_ONE = 100;
     private static final int REQUEST_CODE_PICK_VIDEO_FOR_MORE = 101;
-    private static final int REQUEST_CODE_PICK_VIDEO_FOR_INFO = 102;
+    private static final int REQUEST_CODE_PICK_VIDEO_FOR_MANUAL = 102;
+    private static final int REQUEST_CODE_PICK_VIDEO_FOR_MANUAL_PICK = 103;
+    private static final int REQUEST_CODE_PICK_VIDEO_FOR_INFO = 104;
     private RecyclerAdapter<VideoThumbnailCM> thumbnailAdapter = new RecyclerAdapter<>();
     private VideoThumbnailVM vm;
 
@@ -95,6 +101,24 @@ public class VideoThumbnailView extends BaseView {
                         }
                     }
             );
+        }
+    }
+
+    @ViewClick(ids = R.id.manualThumbnailBT) private void manualThumbnailBT(View v) {
+        ActivityUtils.pickMedia(REQUEST_CODE_PICK_VIDEO_FOR_MANUAL, MediaRepository.SEARCH_TYPE_VIDEO, 1, null);
+    }
+
+    @Subscribe private void OnPickMediaEventForManual(OnPickMediaEvent event) {
+        if (event.requestCode == REQUEST_CODE_PICK_VIDEO_FOR_MANUAL && event.entities != null && event.entities.size() > 0) {
+            VideoThumbnailPickerActivity.startActivity((Activity) getContext(), REQUEST_CODE_PICK_VIDEO_FOR_MANUAL_PICK, event.entities.get(0).file);
+        }
+    }
+
+    @Subscribe public void OnReceiveDataEventForManual(OnReceiveDataEvent event) {
+        if (event.requestCode == REQUEST_CODE_PICK_VIDEO_FOR_MANUAL_PICK) {
+            firstThumbnailIV.setVisibility(View.VISIBLE);
+            moreThumbnailRV.setVisibility(View.GONE);
+            ImageUtils.loadImage((File) event.data.getSerializable("thumbnail"), firstThumbnailIV);
         }
     }
 
