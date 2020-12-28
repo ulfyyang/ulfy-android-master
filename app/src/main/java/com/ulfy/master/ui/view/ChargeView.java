@@ -9,7 +9,7 @@ import com.ulfy.android.ui_injection.Layout;
 import com.ulfy.android.ui_injection.ViewClick;
 import com.ulfy.master.R;
 import com.ulfy.master.application.vm.ChargeVM;
-import com.ulfy.master.ui.activity.DouyinActivity;
+import com.ulfy.master.ui.activity.LittleVideoPageActivity;
 import com.ulfy.master.ui.activity.MakeGifActivity;
 import com.ulfy.master.ui.activity.QRCodeActivity;
 import com.ulfy.master.ui.activity.VideoActivity;
@@ -42,7 +42,7 @@ public class ChargeView extends BaseView {
      * 仿抖音
      */
     @ViewClick(ids = R.id.douyinTV) private void douyinTV(View v) {
-        DouyinActivity.startActivity();
+        LittleVideoPageActivity.startActivity();
     }
 
     /**

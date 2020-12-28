@@ -52,10 +52,10 @@ public class DouyinView extends BaseView {
         douyinAdapter.notifyDataSetChanged();
 
         // 为了保证在播放时页面已经准备完毕，通过post执行
-        douyinVP.setCurrentItem(0);
+        douyinVP.setCurrentItem(vm.enterPosition);
         post(new Runnable() {
             @Override public void run() {
-                startPlay(0);
+                startPlay(vm.enterPosition);
             }
         });
     }

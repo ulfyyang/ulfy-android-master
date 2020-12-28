@@ -1,9 +1,12 @@
 package com.ulfy.master.application.vm;
 
 import com.ulfy.android.mvvm.IView;
+import com.ulfy.android.task.LoadDataUiTask;
 import com.ulfy.android.task.LoadListPageUiTask;
+import com.ulfy.android.utils.LogUtils;
 import com.ulfy.master.application.base.BaseVM;
 import com.ulfy.master.application.cm.DouyinCM;
+import com.ulfy.master.application.cm.LittleVideoCM;
 import com.ulfy.master.ui.view.DouyinView;
 
 import java.util.ArrayList;
@@ -12,20 +15,54 @@ import java.util.List;
 public class DouyinVM extends BaseVM {
     public List<DouyinCM> douyinCMList = new ArrayList<>();
     public LoadListPageUiTask.LoadListPageUiTaskInfo<DouyinCM> douyinTaskInfo = new LoadListPageUiTask.LoadListPageUiTaskInfo<>(douyinCMList);
-    private int index = 0;      // 用来计算元素的位置，位置必须正确，否则分页以后会显示不正常
+    private int index = 0;       // 用来计算元素的位置，位置必须正确，否则分页以后会显示不正常
+    public int enterPosition;    // 用于记录点进来的是哪个位置，显示时直接跳转到该位置
+
+    public void init(List<LittleVideoCM> videoCMList, LoadListPageUiTask.LoadListPageUiTaskInfo taskInfo, int enterPosition) {
+        for (int i = 0; i < videoCMList.size(); i++) {
+            douyinCMList.add(new DouyinCM(i, videoCMList.get(i).imageUrl, videoCMList.get(i).videoUrl));
+        }
+        douyinTaskInfo.setCurrentPointer(taskInfo.getCurrentPage());
+        this.index = videoCMList.size() - 1;
+        this.enterPosition = enterPosition;
+    }
+
+    public LoadDataUiTask.OnExecute loadDataOnExe() {
+        return new LoadDataUiTask.OnExecute() {
+            @Override public void onExecute(LoadDataUiTask task) {
+                try {
+                    task.notifyStart("正在加载...");
+
+                    task.notifySuccess("加载完成");
+                } catch (Exception e) {
+                    LogUtils.log("加载失败", e);
+                    task.notifyFail(e);
+                }
+            }
+        };
+    }
 
     public LoadListPageUiTask.OnLoadListPage loadDataPerPageOnExe() {
         return new LoadListPageUiTask.OnLoadSimpleListPage() {
             @Override protected void loadSimplePage(LoadListPageUiTask task, List<Object> modelList, List<Object> tempList, int page, int pageSize) throws Exception {
-                Thread.sleep(1000);
                 if (page == LoadListPageUiTask.DEFAULT_START_PAGE) {        // 加载第一页时重置位置计数
                     index = 0;
                 }
-                tempList.add(new DouyinCM(index++, "https://p9.pstatp.com/large/4c87000639ab0f21c285.jpeg", "https://aweme.snssdk.com/aweme/v1/play/?video_id=97022dc18711411ead17e8dcb75bccd2&line=0&ratio=720p&media_type=4&vr_type=0"));
-                tempList.add(new DouyinCM(index++, "https://p1.pstatp.com/large/4bea0014e31708ecb03e.jpeg", "https://aweme.snssdk.com/aweme/v1/play/?video_id=374e166692ee4ebfae030ceae117a9d0&line=0&ratio=720p&media_type=4&vr_type=0"));
-                tempList.add(new DouyinCM(index++, "https://p1.pstatp.com/large/4bb500130248a3bcdad0.jpeg", "https://aweme.snssdk.com/aweme/v1/play/?video_id=8a55161f84cb4b6aab70cf9e84810ad2&line=0&ratio=720p&media_type=4&vr_type=0"));
-                tempList.add(new DouyinCM(index++, "https://p9.pstatp.com/large/4b8300007d1906573584.jpeg", "https://aweme.snssdk.com/aweme/v1/play/?video_id=47a9d69fe7d94280a59e639f39e4b8f4&line=0&ratio=720p&media_type=4&vr_type=0"));
-                tempList.add(new DouyinCM(index++, "https://p9.pstatp.com/large/4b61000b6a4187626dda.jpeg", "https://aweme.snssdk.com/aweme/v1/play/?video_id=3fdb4876a7f34bad8fa957db4b5ed159&line=0&ratio=720p&media_type=4&vr_type=0"));
+                tempList.add(new DouyinCM(index++,
+                        "http://p9-dy.byteimg.com/large/tos-cn-p-0015/2e6b13b31a2a40b2aadaade01387584f_1575456802.jpeg?from=2563711402_large",
+                        "https://aweme.snssdk.com/aweme/v1/play/?video_id=v0200fc40000bnjp049evctvb2f04l90&line=0&ratio=480p&watermark=1&media_type=4&vr_type=0&improve_bitrate=0&logo_name=aweme"));
+                tempList.add(new DouyinCM(index++,
+                        "http://p1-dy.byteimg.com/large/tos-cn-p-0015/d6addaee76f3495d840d6dff8d2216e0_1575363173.jpeg?from=2563711402_large",
+                        "https://aweme.snssdk.com/aweme/v1/play/?video_id=v0200f470000bnj24h87q8i137v8k2t0&line=0&ratio=540p&watermark=1&media_type=4&vr_type=0&improve_bitrate=0&logo_name=aweme"));
+                tempList.add(new DouyinCM(index++,
+                        "http://p3-dy.byteimg.com/large/tos-cn-p-0015/818d1fad6be3458e940dcd4b5e3bdaf9_1575374652.jpeg?from=2563711402_large",
+                        "https://aweme.snssdk.com/aweme/v1/play/?video_id=v0200f120000bnj4u9egncodds6bjgm0&line=0&ratio=540p&watermark=1&media_type=4&vr_type=0&improve_bitrate=0&logo_name=aweme"));
+                tempList.add(new DouyinCM(index++,
+                        "http://p9-dy.byteimg.com/large/tos-cn-p-0015/2d4110d5d01c4bf38b69791bae43c89e_1575435339.jpeg?from=2563711402_large",
+                        "https://aweme.snssdk.com/aweme/v1/play/?video_id=v0200fc20000bnjjodd8n75ja660q7k0&line=0&ratio=540p&watermark=1&media_type=4&vr_type=0&improve_bitrate=0&logo_name=aweme"));
+                tempList.add(new DouyinCM(index++,
+                        "http://p9-dy.byteimg.com/large/tos-cn-p-0015/11ec23a65dd7452b9d08740038bbfec0_1575378425.jpeg?from=2563711402_large",
+                        "https://aweme.snssdk.com/aweme/v1/play/?video_id=v0200ffb0000bnj5ro0a2pele7j5h0lg&line=0&ratio=540p&watermark=1&media_type=4&vr_type=0&improve_bitrate=0&logo_name=aweme"));
             }
         };
     }
