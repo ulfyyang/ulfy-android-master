@@ -75,4 +75,8 @@ public class VideoListPageRecommendView extends BaseView {
         videoAdapter.notifyDataSetChanged();
         loader.notifyDataSetChanged();
     }
+
+    public void autoRefresh() {
+        refresher.autoRefresh();
+    }
 }

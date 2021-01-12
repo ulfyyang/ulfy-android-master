@@ -2,9 +2,9 @@ package com.ulfy.master.ui.view;
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -18,6 +18,8 @@ import com.ulfy.android.utils.StatusBarUtils;
 import com.ulfy.master.R;
 import com.ulfy.master.application.vm.VideoListVM;
 import com.ulfy.master.ui.base.BaseView;
+import com.ulfy.master.ui.fragment.VideoListPageFragment;
+import com.ulfy.master.ui.fragment.VideoListPageRecommendFragment;
 
 import net.lucode.hackware.magicindicator.MagicIndicator;
 
@@ -64,22 +66,22 @@ public class VideoListView extends BaseView {
     @Override public void bind(IViewModel model) {
         vm = (VideoListVM) model;
         linkage.initStringTabs(vm.categoryList)
-                .initViewPages(generatePagesByCategoryList())
+                .initFragmentPages(generatePagesByCategoryList())
                 .build().select(1);
     }
 
-    private List<View> generatePagesByCategoryList() {
-        List<View> viewList = new ArrayList<>();
+    private List<Fragment> generatePagesByCategoryList() {
+        List<Fragment> fragmentList = new ArrayList<>();
         for (int i = 0; i < vm.categoryList.size(); i++) {
             switch (vm.categoryList.get(i)) {
                 case "推荐":
-                    viewList.add(new VideoListPageRecommendContentView(getContext()));
+                    fragmentList.add(new VideoListPageRecommendFragment());
                     break;
                 default:
-                    viewList.add(new VideoListPageContentView(getContext()));
+                    fragmentList.add(new VideoListPageFragment());
                     break;
             }
         }
-        return viewList;
+        return fragmentList;
     }
 }

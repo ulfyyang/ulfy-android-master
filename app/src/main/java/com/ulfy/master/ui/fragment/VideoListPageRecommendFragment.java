@@ -1,6 +1,5 @@
-package com.ulfy.master.ui.view;
+package com.ulfy.master.ui.fragment;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
@@ -8,14 +7,25 @@ import com.ulfy.android.task.TaskUtils;
 import com.ulfy.android.task_transponder.ContentDataLoader;
 import com.ulfy.android.task_transponder.OnReloadListener;
 import com.ulfy.master.application.vm.VideoListPageRecommendVM;
-import com.ulfy.master.ui.base.ContentView;
+import com.ulfy.master.ui.base.ContentFragment;
+import com.ulfy.master.ui.view.VideoListPageRecommendView;
 
-public class VideoListPageRecommendContentView extends ContentView {
+public class VideoListPageRecommendFragment extends ContentFragment {
     private VideoListPageRecommendVM vm;
     private VideoListPageRecommendView view;
 
-    public VideoListPageRecommendContentView(Context context) {
-        super(context);
+    /**
+     * 初始化方法
+     */
+    @Override public void onViewCreated(View view, Bundle savedInstanceState) {
+        // initModel(savedInstanceState);
+        // initContent(savedInstanceState);
+    }
+
+    /**
+     * 用户首次可见
+     */
+    @Override public void onVisibleFirstToUser() {
         initModel(null);
         initContent(null);
     }
@@ -31,9 +41,10 @@ public class VideoListPageRecommendContentView extends ContentView {
      * 初始化界面的数据
      */
     private void initContent(final Bundle savedInstanceState) {
-        TaskUtils.loadData(getContext(), vm.videoTaskInfo, vm.loadDataPerPageOnExe(), new ContentDataLoader(contentFL, vm, false) {
+        TaskUtils.loadData(getContext(), vm.loadDataOnExe(), new ContentDataLoader(contentFL, vm, false) {
                     @Override protected void onCreatView(ContentDataLoader loader, View createdView) {
                         view = (VideoListPageRecommendView) createdView;
+                        view.autoRefresh();
                     }
                 }.setOnReloadListener(new OnReloadListener() {
                     @Override public void onReload() {
