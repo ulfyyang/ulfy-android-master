@@ -93,13 +93,13 @@ public class DouyinView extends BaseView {
             if (state == VerticalViewPager.SCROLL_STATE_DRAGGING) {
                 currentItem = douyinVP.getCurrentItem();
             }
-            if (BuildConfig.VIDEO_PRE_LOAD) {
-                if (state == VerticalViewPager.SCROLL_STATE_IDLE) {
-                    PreloadManager.getInstance(getContext()).resumePreload(currentPosition, isReverseScroll);
-                } else {
-                    PreloadManager.getInstance(getContext()).pausePreload(currentPosition, isReverseScroll);
-                }
-            }
+//            if (BuildConfig.VIDEO_PRE_LOAD) {
+//                if (state == VerticalViewPager.SCROLL_STATE_IDLE) {
+//                    PreloadManager.getInstance(getContext()).resumePreload(currentPosition, isReverseScroll);
+//                } else {
+//                    PreloadManager.getInstance(getContext()).pausePreload(currentPosition, isReverseScroll);
+//                }
+//            }
         }
     }
 
