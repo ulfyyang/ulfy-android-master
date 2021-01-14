@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.danikula.videocache.HttpProxyCacheServer;
 import com.dueeeke.videoplayer.util.L;
+import com.ulfy.android.utils.LogUtils;
 
 import java.io.File;
 import java.util.Iterator;
@@ -20,9 +21,9 @@ public class PreloadManager {
     private static PreloadManager sPreloadManager;
 
     /**
-     * 单线程池，按照添加顺序依次执行{@link PreloadTask}
+     * 单线程池，按照添加顺序依次执行{@link PreloadTask}（这里改为了并发执行器）
      */
-    private ExecutorService mExecutorService = Executors.newSingleThreadExecutor();
+    private ExecutorService mExecutorService = Executors.newCachedThreadPool();
 
     /**
      * 保存正在预加载的{@link PreloadTask}
@@ -37,9 +38,9 @@ public class PreloadManager {
     private HttpProxyCacheServer mHttpProxyCacheServer;
 
     /**
-     * 预加载的大小，每个视频预加载512KB，这个参数可根据实际情况调整
+     * 预加载的大小，每个视频预加载512KB * 2 = 1M，这个参数可根据实际情况调整
      */
-    public static final int PRELOAD_LENGTH = 512 * 1024;
+    public static final int PRELOAD_LENGTH = 512 * 1024 * 2;
 
     private PreloadManager(Context context) {
         mHttpProxyCacheServer = ProxyVideoCacheManager.getProxy(context);
@@ -183,9 +184,9 @@ public class PreloadManager {
      */
     public String getPlayUrl(String rawUrl) {
         PreloadTask task = mPreloadTasks.get(rawUrl);
-        if (task != null) {
-            task.cancel();
-        }
+//        if (task != null) {
+//            task.cancel();
+//        }
         if (isPreloaded(rawUrl)) {
             return mHttpProxyCacheServer.getProxyUrl(rawUrl);
         } else {

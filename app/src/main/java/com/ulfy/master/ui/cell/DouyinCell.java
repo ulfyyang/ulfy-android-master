@@ -52,14 +52,14 @@ public class DouyinCell extends BaseCell {
     @Override public void bind(IViewModel model) {
         cm = (DouyinCM) model;
         ImageUtils.loadImage(cm.imageUrl, android.R.color.black, tikTokController.getThumbIV());
+    }
+
+    public void onItemSelected() {
         if (BuildConfig.VIDEO_PRE_LOAD) {
             douyinVV.setUrl(PreloadManager.getInstance(getContext()).getPlayUrl(cm.videoUrl));
         } else {
             douyinVV.setUrl(cm.videoUrl);
         }
-    }
-
-    public void onItemSelected() {
         VideoViewRepository.getInstance().releaseVideoView(getContext(), false);
         douyinVV.start();
     }
