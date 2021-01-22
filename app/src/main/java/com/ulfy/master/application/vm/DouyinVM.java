@@ -20,9 +20,9 @@ public class DouyinVM extends BaseVM {
 
     public void init(List<LittleVideoCM> videoCMList, LoadListPageUiTask.LoadListPageUiTaskInfo taskInfo, int enterPosition) {
         for (int i = 0; i < videoCMList.size(); i++) {
-            douyinCMList.add(new DouyinCM(i, videoCMList.get(i).imageUrl, videoCMList.get(i).videoUrl));
+            this.douyinCMList.add(new DouyinCM(i, videoCMList.get(i).imageUrl, videoCMList.get(i).videoUrl));
         }
-        douyinTaskInfo.setCurrentPointer(taskInfo.getCurrentPage());
+        this.douyinTaskInfo.setCurrentPointer(taskInfo.getCurrentPage());
         this.index = videoCMList.size();        // 因为已经加载了类表里边的数据，此时的index应该会在下载分页时直接使用，index应该是下次分页的其实位置
         this.enterPosition = enterPosition;
     }
