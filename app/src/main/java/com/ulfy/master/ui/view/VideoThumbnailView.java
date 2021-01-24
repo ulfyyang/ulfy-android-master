@@ -3,12 +3,13 @@ package com.ulfy.master.ui.view;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.ulfy.android.adapter.RecyclerAdapter;
 import com.ulfy.android.bus.Subscribe;

@@ -1,22 +1,23 @@
 package com.ulfy.master.ui.activity;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.view.ViewPager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.viewpager.widget.ViewPager;
+
+import com.google.android.material.tabs.TabLayout;
+import com.ulfy.android.system.AppUtils;
 import com.ulfy.android.ui_injection.Layout;
 import com.ulfy.android.ui_injection.ViewById;
 import com.ulfy.android.ui_linkage.TabPagerLinkage;
-import com.ulfy.android.system.AppUtils;
 import com.ulfy.master.R;
 import com.ulfy.master.application.vm.MainVM;
 import com.ulfy.master.ui.base.BaseActivity;
-import com.ulfy.master.ui.fragment.ControlsFragment;
 import com.ulfy.master.ui.fragment.ChargeFragment;
+import com.ulfy.master.ui.fragment.ControlsFragment;
 import com.ulfy.master.ui.fragment.FindFragment;
 import com.ulfy.master.ui.fragment.HomeFragment;
 import com.ulfy.master.ui.fragment.MeFragment;

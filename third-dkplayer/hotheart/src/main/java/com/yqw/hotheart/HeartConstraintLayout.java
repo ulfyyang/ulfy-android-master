@@ -10,9 +10,10 @@ import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.os.Handler;
 import android.os.Message;
-import android.support.constraint.ConstraintLayout;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.yqw.hotheart.minterface.DoubleClickListener;
 import com.yqw.hotheart.minterface.SimpleClickListener;

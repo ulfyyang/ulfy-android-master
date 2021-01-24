@@ -60,7 +60,7 @@
 
             </com.ulfy.android.views.ShapeLayout>
 
-            <android.support.v4.widget.Space
+            <Space
                 android:layout_width="10dp"
                 android:layout_height="0dp" />
 

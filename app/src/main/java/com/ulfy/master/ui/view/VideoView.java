@@ -2,9 +2,10 @@ package com.ulfy.master.ui.view;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.ulfy.android.adapter.RecyclerAdapter;

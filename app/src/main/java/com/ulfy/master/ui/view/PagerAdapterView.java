@@ -1,8 +1,9 @@
 package com.ulfy.master.ui.view;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+
+import androidx.viewpager.widget.ViewPager;
 
 import com.ulfy.android.adapter.PagerAdapter;
 import com.ulfy.android.mvvm.IViewModel;

@@ -1,9 +1,10 @@
 package com.ulfy.master.ui.view;
 
 import android.content.Context;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager.widget.ViewPager;
 
 import com.ulfy.android.adapter.PagerFragmentAdapter;
 import com.ulfy.android.mvvm.IViewModel;

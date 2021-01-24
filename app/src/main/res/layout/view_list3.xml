@@ -12,7 +12,7 @@
 
         <!-- app:elevation="0dp" 去除阴影 -->
         <!-- app:layout_scrollFlags="scroll" 跟随滚动模式 -->
-        <android.support.design.widget.CoordinatorLayout
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:focusable="true"
@@ -57,13 +57,13 @@
 
             <!-- 可滚动的组件，可以是ViewPager、NestedScrollView或RecyclerView -->
             <!-- app:layout_behavior="@string/fling_behavior" 滚动联动设置 -->
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/contentRV"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layout_behavior="@string/fling_behavior" />
 
-        </android.support.design.widget.CoordinatorLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 

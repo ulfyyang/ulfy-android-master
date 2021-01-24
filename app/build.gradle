@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion externalCompileSdkVersion
@@ -168,6 +169,8 @@ dependencies {
     implementation project(':third-dkplayer:dkplayer-videocache')       // DK播放器
 
     implementation project(':third-dkplayer:hotheart')                  // 抖音单击暂停、双击红心
+
+    implementation 'com.google.firebase:firebase-analytics:17.4.1'
 
     /*
     测试库

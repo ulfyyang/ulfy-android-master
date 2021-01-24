@@ -1,22 +1,23 @@
 package com.ulfy.master.ui.view;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.ulfy.android.adapter.RecyclerAdapter;
 import com.ulfy.android.bus.Subscribe;
 import com.ulfy.android.dialog.AlertDialog;
 import com.ulfy.android.dialog.DialogUtils;
 import com.ulfy.android.download_manager.DownloadManager;
-import com.ulfy.android.utils.RecyclerViewUtils;
 import com.ulfy.android.mvvm.IViewModel;
 import com.ulfy.android.ui_injection.Layout;
 import com.ulfy.android.ui_injection.ViewById;
 import com.ulfy.android.ui_injection.ViewClick;
+import com.ulfy.android.utils.RecyclerViewUtils;
 import com.ulfy.master.R;
 import com.ulfy.master.application.cm.DownloadManagerDownloadedCM;
 import com.ulfy.master.application.cm.DownloadManagerDownloadingCM;

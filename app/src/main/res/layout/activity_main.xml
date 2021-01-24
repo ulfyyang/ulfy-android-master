@@ -13,7 +13,7 @@
         android:layout_weight="1">
 
         <!-- 如果支持滑动，则使用该容器 -->
-        <android.support.v4.view.ViewPager
+        <androidx.viewpager.widget.ViewPager
             android:id="@+id/containerVP"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
@@ -37,7 +37,7 @@
             如果是白色背景使用：@style/ThemeOverlay.AppCompat.Light
             修改色调需要修改 TabLayout 和下方 LinearLayout 的背景色
         -->
-        <android.support.design.widget.AppBarLayout
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
@@ -45,7 +45,7 @@
             <!-- 该容器用于管理具体的点击Tab组件 -->
             <!-- tabIndicatorHeight用于指定下方滑动条的高度 -->
             <!-- tabMode用于指定容器的宽度是否等于屏幕的长度 -->
-            <android.support.design.widget.TabLayout
+            <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabTL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -55,7 +55,7 @@
                 app:tabIndicatorHeight="0dp"
                 app:tabMode="fixed" />
 
-        </android.support.design.widget.AppBarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
 
         <!-- 分别指定底部Tab容器的各个子Tab，这些Tab会在代码中最终添加到容器中 -->
         <!-- 子Tab容器的宽度必须要是match_parent，否则会无法显示出来 -->

@@ -2,11 +2,12 @@ package com.ulfy.master.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.viewpager.widget.ViewPager;
 
 import com.ulfy.android.adapter.PagerViewAdapter;
 import com.ulfy.android.system.ActivityUtils;

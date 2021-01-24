@@ -20,7 +20,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/tab_activity_true" />
 
-        <android.support.v4.widget.Space
+        <Space
             android:layout_width="20dp"
             android:layout_height="0dp" />
 
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/tab_activity_false" />
 
-        <android.support.v4.widget.Space
+        <Space
             android:layout_width="20dp"
             android:layout_height="0dp" />
 
@@ -38,7 +38,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/tab_charge_true" />
 
-        <android.support.v4.widget.Space
+        <Space
             android:layout_width="20dp"
             android:layout_height="0dp" />
 

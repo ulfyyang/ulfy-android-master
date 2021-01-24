@@ -28,7 +28,7 @@
             android:layout_height="match_parent">
 
             <!-- 如果支持滑动，则使用该容器 -->
-            <android.support.v4.view.ViewPager
+            <androidx.viewpager.widget.ViewPager
                 android:id="@+id/containerVP"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

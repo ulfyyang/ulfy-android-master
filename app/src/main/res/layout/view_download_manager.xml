@@ -42,7 +42,7 @@
             android:gravity="center"
             android:text="下载中任务" />
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/downloadingTaskRV"
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -55,7 +55,7 @@
             android:gravity="center"
             android:text="已完成任务" />
 
-        <android.support.v7.widget.RecyclerView
+        <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/downloadedTaskRV"
             android:layout_width="match_parent"
             android:layout_height="0dp"

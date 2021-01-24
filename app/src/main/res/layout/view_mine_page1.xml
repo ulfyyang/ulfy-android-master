@@ -11,11 +11,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.design.widget.CoordinatorLayout
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <android.support.design.widget.AppBarLayout
+            <com.google.android.material.appbar.AppBarLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="#161824"
@@ -139,9 +139,9 @@
 
                 </FrameLayout>
 
-            </android.support.design.widget.AppBarLayout>
+            </com.google.android.material.appbar.AppBarLayout>
 
-            <android.support.v4.view.ViewPager
+            <androidx.viewpager.widget.ViewPager
                 android:id="@+id/containerVP"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -154,7 +154,7 @@
                 android:focusable="true"
                 android:focusableInTouchMode="true">
 
-                <android.support.v7.widget.RecyclerView
+                <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/zuopinRV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -191,7 +191,7 @@
                 android:focusable="true"
                 android:focusableInTouchMode="true">
 
-                <android.support.v7.widget.RecyclerView
+                <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/shoucangRV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
@@ -221,7 +221,7 @@
 
             </FrameLayout>
 
-        </android.support.design.widget.CoordinatorLayout>
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
     </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <android.support.v4.widget.NestedScrollView
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
@@ -68,7 +68,7 @@
 
                     </com.ulfy.android.views.RatioLayout>
 
-                    <android.support.v4.widget.Space
+                    <Space
                         android:layout_width="50dp"
                         android:layout_height="0dp" />
 
@@ -90,7 +90,7 @@
 
                 </LinearLayout>
 
-                <android.support.v4.widget.Space
+                <Space
                     android:layout_width="0dp"
                     android:layout_height="10dp" />
 
@@ -118,7 +118,7 @@
 
                     </com.ulfy.android.views.RatioLayout>
 
-                    <android.support.v4.widget.Space
+                    <Space
                         android:layout_width="50dp"
                         android:layout_height="0dp" />
 
@@ -149,7 +149,7 @@
                 android:padding="10dp"
                 android:text="通过 RecyclerView 容器（任何 ViewGroup）来启动大图预览\n点击下方图片即可显示大图预览" />
 
-            <android.support.v7.widget.RecyclerView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/contentRV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -159,6 +159,6 @@
 
         </LinearLayout>
 
-    </android.support.v4.widget.NestedScrollView>
+    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

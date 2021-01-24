@@ -1,14 +1,16 @@
 package com.ulfy.master.ui.view;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
+
+import androidx.viewpager.widget.ViewPager;
 
 import com.ulfy.android.adapter.PagerAdapter;
 import com.ulfy.android.mvvm.IViewModel;
 import com.ulfy.android.ui_injection.Layout;
 import com.ulfy.android.ui_injection.ViewById;
+import com.ulfy.android.views.VerticalViewPager;
 import com.ulfy.master.BuildConfig;
 import com.ulfy.master.R;
 import com.ulfy.master.application.cm.DouyinCM;
@@ -16,7 +18,6 @@ import com.ulfy.master.application.vm.DouyinVM;
 import com.ulfy.master.ui.base.BaseView;
 import com.ulfy.master.ui.cell.DouyinCell;
 import com.ulfy.master.ui.custom_dkplayer.DouyinPageLoader;
-import com.ulfy.android.views.VerticalViewPager;
 import com.ulfy.master.ui.custom_dkplayer.cache.PreloadManager;
 
 @Layout(id = R.layout.view_douyin)

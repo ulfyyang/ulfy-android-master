@@ -1,6 +1,6 @@
 package com.ulfy.master;
 
-import android.support.multidex.MultiDexApplication;
+import androidx.multidex.MultiDexApplication;
 
 import com.dueeeke.videoplayer.exo.ExoMediaPlayerFactory;
 import com.dueeeke.videoplayer.player.VideoViewConfig;

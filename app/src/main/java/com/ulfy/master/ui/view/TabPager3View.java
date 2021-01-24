@@ -1,11 +1,12 @@
 package com.ulfy.master.ui.view;
 
 import android.content.Context;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import androidx.viewpager.widget.ViewPager;
 
 import com.ulfy.android.mvvm.IViewModel;
 import com.ulfy.android.ui_injection.Layout;

@@ -12,6 +12,7 @@ buildscript {
     dependencies {
         classpath externalAndroidBuildGradlePlugin
         classpath externalBintrayRelease                // 发布到jcenter
+        classpath 'com.google.gms:google-services:4.3.3'
     }
 }
 
