@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "415068329719",
+    "project_id": "kz-cf57f",
+    "storage_bucket": "kz-cf57f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415068329719:android:92fc8fd241e313c164e5f2",
+        "android_client_info": {
+          "package_name": "com.ulfy.master"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415068329719-m4nhk0lq3j9drpa1ugvrih6aq5oa9ec0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmaVeuCvRcKginIcT-cwLPi5WXSRPWliA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415068329719-m4nhk0lq3j9drpa1ugvrih6aq5oa9ec0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
