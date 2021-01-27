@@ -2,13 +2,18 @@ package com.ulfy.master.ui.cell;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.dueeeke.videoplayer.player.VideoView;
+import com.ulfy.android.dialog.DialogUtils;
 import com.ulfy.android.image.ImageUtils;
 import com.ulfy.android.mvvm.IViewModel;
 import com.ulfy.android.ui_injection.Layout;
 import com.ulfy.android.ui_injection.ViewById;
+import com.ulfy.android.ui_injection.ViewClick;
 import com.ulfy.android.utils.UiUtils;
 import com.ulfy.master.BuildConfig;
 import com.ulfy.master.R;
@@ -17,10 +22,14 @@ import com.ulfy.master.ui.base.BaseCell;
 import com.ulfy.master.ui.custom_dkplayer.TikTokController;
 import com.ulfy.master.ui.custom_dkplayer.VideoViewRepository;
 import com.ulfy.master.ui.custom_dkplayer.cache.PreloadManager;
+import com.ulfy.master.ui.view.VideoCommentContentView;
+import com.ulfy.master.ui.view.VideoCommentView;
 
 @Layout(id = R.layout.cell_douyin)
 public class DouyinCell extends BaseCell {
     @ViewById(id = R.id.douyinVV) private VideoView douyinVV;
+    @ViewById(id = R.id.messageLL) private LinearLayout messageLL;
+    @ViewById(id = R.id.messageTV) private TextView messageTV;
     private TikTokController tikTokController;
     private DouyinCM cm;
 
@@ -52,6 +61,7 @@ public class DouyinCell extends BaseCell {
     @Override public void bind(IViewModel model) {
         cm = (DouyinCM) model;
         ImageUtils.loadImage(cm.imageUrl, android.R.color.black, tikTokController.getThumbIV());
+        messageTV.setText(String.valueOf(200));
     }
 
     public void onItemSelected() {
@@ -66,5 +76,10 @@ public class DouyinCell extends BaseCell {
 
     public int getIndex() {
         return cm.index;
+    }
+
+    @ViewClick(ids = R.id.messageLL) private void comment(View view) {
+        DialogUtils.showBottomSheetDialog(getContext(), VideoCommentView.DIALOG_ID,
+                new VideoCommentContentView(getContext()), true);
     }
 }
