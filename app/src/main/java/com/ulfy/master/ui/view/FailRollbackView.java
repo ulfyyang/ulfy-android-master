@@ -51,10 +51,8 @@ public class FailRollbackView extends BaseView {
                         statusTV.setText(String.format("当前数字：%d", vm.number));
                     }
                     @Override protected void onFail(Object data) {
-                        UiUtils.show(data);
-                    }
-                    @Override protected void onFinish(Object data) {
                         statusTV.setText(String.format("当前数字：%d", vm.number));
+                        UiUtils.show(data);
                     }
                 }
         );
