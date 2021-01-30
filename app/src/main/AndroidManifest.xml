@@ -33,7 +33,9 @@
         <activity android:name=".ui.activity.TabPager2Activity" />
         <activity android:name=".ui.activity.DownloadManagerActivity" />
         <activity android:name=".ui.activity.MultiDomainPickerActivity" />
-        <activity android:name=".ui.activity.DouyinActivity" />
+        <activity android:name=".ui.activity.DouyinActivity"
+            android:windowSoftInputMode="adjustNothing"
+            android:configChanges="keyboardHidden|orientation|screenSize"/>
         <activity android:name=".ui.activity.MakeGifActivity" />
         <activity android:name=".ui.activity.ObjectCacheActivity" />
         <activity android:name=".ui.activity.EventBusActivity" />
@@ -138,6 +140,7 @@
         <activity android:name=".ui.activity.PagerAdapterActivity" />
         <activity
             android:name=".ui.activity.CommentEditTextActivity"
+            android:windowSoftInputMode="adjustNothing"
             android:configChanges="keyboardHidden|orientation|screenSize" />
         <activity android:name=".ui.activity.VideoThumbnailActivity" />
         <activity android:name=".ui.activity.SmartCustomHeaderActivity" />
