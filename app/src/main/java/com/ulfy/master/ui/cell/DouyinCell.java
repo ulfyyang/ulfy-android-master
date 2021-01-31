@@ -80,6 +80,7 @@ public class DouyinCell extends BaseCell {
 
     @ViewClick(ids = R.id.messageLL) private void comment(View view) {
         DialogUtils.showBottomSheetDialog(getContext(), VideoCommentView.DIALOG_ID,
-                new VideoCommentContentView(getContext()), true);
+                new VideoCommentContentView(getContext()), true)
+                .ignoreSoftInputMethod();
     }
 }
