@@ -9,7 +9,6 @@
     <TextView
         android:id="@+id/receiveDataTV"
         style="@style/TipButton"
-        android:layout_marginTop="2dp"
         android:text="接收数据：ReceiveDataActivity" />
 
     <View style="@style/HLine" />
