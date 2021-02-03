@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.ulfy.android.bus.BusUtils;
 import com.ulfy.android.image.ImageUtils;
 import com.ulfy.android.mvvm.IViewModel;
 import com.ulfy.android.ui_injection.Layout;
@@ -15,13 +16,14 @@ import com.ulfy.android.ui_injection.ViewClick;
 import com.ulfy.master.R;
 import com.ulfy.master.application.cm.PickImgCM;
 import com.ulfy.master.ui.base.BaseCell;
+import com.ulfy.master.ui.view.ImagePickView;
 
 @Layout(id = R.layout.cell_pick_img)
 public class PickImgCell extends BaseCell {
-    @ViewById(id = R.id.flAdd) private FrameLayout flAdd;
-    @ViewById(id = R.id.flPicked) private FrameLayout flPicked;
-    @ViewById(id = R.id.ivPicked) private ImageView ivPicked;
-    @ViewById(id = R.id.ivDel) private ImageView ivDel;
+    @ViewById(id = R.id.addFL) private FrameLayout addFL;
+    @ViewById(id = R.id.imageFL) private FrameLayout imageFL;
+    @ViewById(id = R.id.imageIV) private ImageView imageIV;
+    @ViewById(id = R.id.deleteIV) private ImageView deleteIV;
     private PickImgCM cm;
 
     public PickImgCell(Context context) {
@@ -40,26 +42,21 @@ public class PickImgCell extends BaseCell {
 
     @Override public void bind(IViewModel model) {
         cm = (PickImgCM) model;
-            if (!TextUtils.isEmpty(cm.filePath)) {
-                flAdd.setVisibility(GONE);
-                flPicked.setVisibility(VISIBLE);
-                ImageUtils.loadImage(cm.filePath, R.drawable.drawable_loading, ivPicked);
-            } else {
-                flAdd.setVisibility(VISIBLE);
-                flPicked.setVisibility(GONE);
+        addFL.setVisibility(!TextUtils.isEmpty(cm.filePath) ? View.GONE : View.VISIBLE);
+        imageFL.setVisibility(!TextUtils.isEmpty(cm.filePath) ? View.VISIBLE : View.GONE);
+        if (!TextUtils.isEmpty(cm.filePath)) {
+            ImageUtils.loadImage(cm.filePath, R.drawable.drawable_loading, imageIV);
         }
     }
 
-    @ViewClick(ids = {R.id.flAdd, R.id.ivDel})
+    @ViewClick(ids = {R.id.addFL, R.id.deleteIV})
     private void clickGroup(View v) {
         switch (v.getId()) {
-            case R.id.flAdd:
-               cm.addImg();
+            case R.id.addFL:
+                BusUtils.post(getContext(), new ImagePickView.OnItemClickEvent(1, cm));
                 break;
-            case R.id.ivDel:
-                cm.removeImg();
-                break;
-            default:
+            case R.id.deleteIV:
+                BusUtils.post(getContext(), new ImagePickView.OnItemClickEvent(2, cm));
                 break;
         }
     }

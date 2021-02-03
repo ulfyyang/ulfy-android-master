@@ -13,7 +13,6 @@ import com.ulfy.android.bus.Subscribe;
 import com.ulfy.android.mvvm.IViewModel;
 import com.ulfy.android.system.ActivityUtils;
 import com.ulfy.android.system.event.OnPickMediaEvent;
-import com.ulfy.android.system.media_picker.MediaEntity;
 import com.ulfy.android.system.media_picker.MediaRepository;
 import com.ulfy.android.ui_injection.Layout;
 import com.ulfy.android.ui_injection.ViewById;
@@ -49,22 +48,24 @@ public class ImagePickView extends BaseView {
 
     @Override public void bind(IViewModel model) {
         vm = (ImagePickVM) model;
-        refreshAdapter();
-    }
-
-
-    @ViewClick(ids = {R.id.mediaPictureBT})
-    private void media(View v) {
-        switch (v.getId()) {
-            case R.id.mediaPictureBT:
-                addImage();
-                break;
-        }
-    }
-
-    private void refreshAdapter() {
         pickImgAdapter.setData(vm.pickImgCMList);
         pickImgAdapter.notifyDataSetChanged();
+    }
+
+    @ViewClick(ids = R.id.mediaPictureBT) private void mediaPictureBT(View v) {
+        goPickImageActivity();
+    }
+
+    /**
+     * 图片适配器中的item点击回调
+     */
+    @Subscribe public void onItemClickEvent(OnItemClickEvent event) {
+        if (event.type == 1) {
+            goPickImageActivity();
+        } else if (event.type == 2) {
+            vm.removeImage(event.cm);
+            pickImgAdapter.notifyDataSetChanged();
+        }
     }
 
     /**
@@ -73,56 +74,31 @@ public class ImagePickView extends BaseView {
     @Subscribe private void OnPickMediaEvent(OnPickMediaEvent event) {
         if (event.requestCode == REQUEST_CODE_PICK_PICTURE) {
             if (event.entities != null && event.entities.size() > 0) {
-                for (MediaEntity entity : event.entities) {
-                    if (entity != null) {
-                        vm.addImg(entity.id, entity.filePath);
-                    }
-                }
-                refreshAdapter();
+                vm.addImage(event.entities);
+                pickImgAdapter.notifyDataSetChanged();
             }
-
-        }
-    }
-
-    /**
-     * 图片适配器中的item点击回调
-     */
-    @Subscribe public void onItemClickEvent(OnItemClickEvent event) {
-        switch (event.type) {
-            case 1:
-                addImage();
-                break;
-            case 2:
-                removeImage(event);
-                break;
         }
     }
 
     /**
      * 添加图片
      */
-    private void addImage() {
-        if (vm.pickImgCMList.size() <= vm.maxImgCount) {
-            ActivityUtils.pickMedia(REQUEST_CODE_PICK_PICTURE, MediaRepository.SEARCH_TYPE_PICTURE, vm.maxImgCount + 1 - vm.pickImgCMList.size(), null);
+    private void goPickImageActivity() {
+        int emptyCount = vm.caculateEmptyCount();
+        if (emptyCount > 0) {
+            ActivityUtils.pickMedia(REQUEST_CODE_PICK_PICTURE,
+                    MediaRepository.SEARCH_TYPE_PICTURE, emptyCount, null);
         }
-    }
-
-    /**
-     * 删除图片
-     */
-    private void removeImage(OnItemClickEvent event) {
-        vm.removeImg(event.pickImgCM);
-        refreshAdapter();
     }
 
     // 图片item点击回调
     public static final class OnItemClickEvent {
-        public int type;        //1.添加图片  2.删除图片
-        public PickImgCM pickImgCM;
+        public int type;        // 1.添加图片  2.删除图片
+        public PickImgCM cm;
 
-        public OnItemClickEvent(int type, PickImgCM pickImgCM) {
+        public OnItemClickEvent(int type, PickImgCM cm) {
             this.type = type;
-            this.pickImgCM = pickImgCM;
+            this.cm = cm;
         }
     }
 }
