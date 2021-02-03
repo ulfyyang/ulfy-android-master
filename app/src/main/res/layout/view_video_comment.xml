@@ -37,6 +37,11 @@
 
         </RelativeLayout>
 
+        <!--
+            在BottomSheetDialog中不能嵌套SmartRefresherLayout
+            否则会导致下拉无法触发列表滚动
+        -->
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/messageRLV"
             android:layout_width="match_parent"
