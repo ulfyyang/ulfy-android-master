@@ -12,25 +12,35 @@
         android:layout_marginTop="2dp"
         android:text="接收数据：ReceiveDataActivity" />
 
+    <View style="@style/HLine" />
+
     <TextView
         android:id="@+id/fileChooseTV"
         style="@style/TipButton"
         android:text="文件选择：FileChooseActivity" />
+
+    <View style="@style/HLine" />
 
     <TextView
         android:id="@+id/shakeTV"
         style="@style/TipButton"
         android:text="摇一摇：ShakeActivity" />
 
+    <View style="@style/HLine" />
+
     <TextView
         android:id="@+id/netStateTV"
         style="@style/TipButton"
         android:text="网络监听：NetStateActivity" />
 
+    <View style="@style/HLine" />
+
     <TextView
         android:id="@+id/imgPickTV"
         style="@style/TipButton"
         android:text="图片选择：ImagePickActivity" />
+
+    <View style="@style/HLine" />
 
     <TextView
         android:layout_width="match_parent"
