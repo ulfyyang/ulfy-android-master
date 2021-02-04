@@ -21,6 +21,13 @@
 
             <View style="@style/HLine" />
 
+            <TextView
+                android:id="@+id/videoToBitmapTV"
+                style="@style/TipButton"
+                android:text="生成截图：VideoToBitmapActivity" />
+
+            <View style="@style/HLine" />
+
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
