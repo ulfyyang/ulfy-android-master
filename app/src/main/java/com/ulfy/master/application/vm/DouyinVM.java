@@ -17,6 +17,7 @@ public class DouyinVM extends BaseVM {
     public LoadListPageUiTask.LoadListPageUiTaskInfo<DouyinCM> douyinTaskInfo = new LoadListPageUiTask.LoadListPageUiTaskInfo<>(douyinCMList);
     private int index = 0;       // 用来计算元素的位置，位置必须正确，否则分页以后会显示不正常
     public int enterPosition;    // 用于记录点进来的是哪个位置，显示时直接跳转到该位置
+    public int currentPosition;  // 当前正在显示的位置
 
     public void init(List<LittleVideoCM> videoCMList, LoadListPageUiTask.LoadListPageUiTaskInfo taskInfo, int enterPosition) {
         for (int i = 0; i < videoCMList.size(); i++) {

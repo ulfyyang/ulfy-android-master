@@ -24,7 +24,6 @@ import com.ulfy.master.ui.custom_dkplayer.cache.PreloadManager;
 public class DouyinView extends BaseView {
     @ViewById(id = R.id.douyinVP) private VerticalViewPager douyinVP;
     private PagerAdapter<DouyinCM> douyinAdapter = new DouyinAdapter<>();
-    private int currentPosition;
     private DouyinPageLoader loader;
     private DouyinVM vm;
 
@@ -53,6 +52,7 @@ public class DouyinView extends BaseView {
         douyinAdapter.notifyDataSetChanged();
 
         // 为了保证在播放时页面已经准备完毕，通过post执行
+        vm.currentPosition = vm.enterPosition;
         douyinVP.setCurrentItem(vm.enterPosition);
         post(new Runnable() {
             @Override public void run() {
@@ -62,12 +62,12 @@ public class DouyinView extends BaseView {
     }
 
     private void startPlay(int position) {
-        for (int i = 0; i < douyinVP.getChildCount(); i ++) {
+        vm.currentPosition = position;
+        for (int i = 0; i < douyinVP.getChildCount(); i++) {
             if (douyinVP.getChildAt(i) instanceof DouyinCell) {
                 DouyinCell cell = (DouyinCell) douyinVP.getChildAt(i);
                 if (cell.getIndex() == position) {
                     cell.onItemSelected();
-                    currentPosition = position;
                     break;
                 }
             }

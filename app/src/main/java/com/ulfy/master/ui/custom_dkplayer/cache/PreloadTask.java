@@ -79,7 +79,7 @@ public class PreloadTask implements Runnable {
                 }
             }
         } catch (Exception e) {
-            L.i("异常结束预加载：" + mPosition);
+            L.i("异常结束预加载：" + mPosition, e);
         } finally {
             if (connection != null) {
                 connection.disconnect();

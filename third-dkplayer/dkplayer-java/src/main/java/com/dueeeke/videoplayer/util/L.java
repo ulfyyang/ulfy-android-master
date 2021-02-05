@@ -37,6 +37,12 @@ public final class L {
         }
     }
 
+    public static void i(String msg, Throwable e) {
+        if (isDebug) {
+            Log.i(TAG, msg, e);
+        }
+    }
+
     public static void w(String msg) {
         if (isDebug) {
             Log.w(TAG, msg);
