@@ -1,10 +1,13 @@
 package com.ulfy.master.ui.view;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.ulfy.android.image.ImageUtils;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.bumptech.glide.request.transition.Transition;
 import com.ulfy.android.mvvm.IViewModel;
 import com.ulfy.android.ui_injection.Layout;
 import com.ulfy.android.ui_injection.ViewById;
@@ -33,6 +36,10 @@ public class ViewToBitmapViewView extends BaseView {
 
     @Override public void bind(IViewModel model) {
         vm = (ViewToBitmapViewVM) model;
-        ImageUtils.loadImage(vm.pictureUrl, R.drawable.drawable_loading, viewToBitmapIV);
+        Glide.with(getContext()).load(vm.pictureUrl).into(new SimpleTarget<Drawable>() {
+            @Override public void onResourceReady(Drawable resource, Transition<? super Drawable> transition) {
+                viewToBitmapIV.setImageDrawable(resource);
+            }
+        });
     }
 }

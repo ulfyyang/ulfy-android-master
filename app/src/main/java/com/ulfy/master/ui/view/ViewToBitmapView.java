@@ -77,9 +77,9 @@ public class ViewToBitmapView extends BaseView {
             适当等待内部的数据加载完毕（如果其中显示的图片已经在别得地方显示了，则说明其已经在内存中了，这时候就不需要等待了）
             因为在内存中的图片可以直接显示出来
          */
-        Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
         postDelayed(new Runnable() {
             @Override public void run() {
+                Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
                 view.draw(new Canvas(bitmap));
                 AppUtils.insertPictureToSystem(bitmap, "App生成", "这是App生成的截图文件");
                 UiUtils.show("生成完毕，请到相册中查看");

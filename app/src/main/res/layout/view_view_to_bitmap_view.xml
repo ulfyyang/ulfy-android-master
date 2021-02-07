@@ -8,13 +8,24 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
+    <com.ulfy.android.views.ShapeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:padding="20dp"
-        android:text="文本标题"
-        android:textSize="18sp" />
+        android:layout_margin="50dp"
+        app:layout_shape="rect"
+        app:rect_radius="100dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ff0000"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="文本标题"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </com.ulfy.android.views.ShapeLayout>
 
     <ImageView
         android:id="@+id/viewToBitmapIV"
