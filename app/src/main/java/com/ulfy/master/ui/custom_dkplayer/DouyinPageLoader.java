@@ -1,21 +1,22 @@
 package com.ulfy.master.ui.custom_dkplayer;
 
-import androidx.viewpager.widget.ViewPager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager2.widget.ViewPager2;
 
 import com.ulfy.android.task.LoadListPageUiTask;
 import com.ulfy.android.task.TaskExecutor;
 import com.ulfy.android.task.Transponder;
-import com.ulfy.android.views.VerticalViewPager;
 
 public class DouyinPageLoader extends Transponder {
-    private VerticalViewPager viewPager;
+    private RecyclerView recyclerView;                              // ViewPager2内部的RecyclerView
     private LoadListPageUiTask loadListPageUiTask;                  // 分页加载的任务
     private LoadListPageUiTask.LoadListPageUiTaskInfo taskInfo;     // 任务执行的信息
 
-    public DouyinPageLoader(VerticalViewPager viewPager) {
-        this.viewPager = viewPager;
-        loadListPageUiTask = new LoadListPageUiTask(viewPager.getContext(), this);
-        this.viewPager.addOnPageChangeListener(new OnPageChangeImpl());
+    public DouyinPageLoader(ViewPager2 viewPager2) {
+        this.recyclerView = (RecyclerView) viewPager2.getChildAt(0);
+        loadListPageUiTask = new LoadListPageUiTask(recyclerView.getContext(), this);
+        recyclerView.addOnScrollListener(new OnScrollImpl());
     }
 
     public void updateExecuteBody(LoadListPageUiTask.LoadListPageUiTaskInfo taskInfo, LoadListPageUiTask.OnLoadListPage executeBody) {
@@ -25,21 +26,31 @@ public class DouyinPageLoader extends Transponder {
     }
 
     @Override public void onSuccess(Object data) {
-        if (viewPager.getAdapter() != null) {
-            viewPager.getAdapter().notifyDataSetChanged();
+        if (recyclerView.getAdapter() != null) {
+            recyclerView.getAdapter().notifyDataSetChanged();
         }
     }
 
-    public class OnPageChangeImpl implements ViewPager.OnPageChangeListener {
-        @Override public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { }
-        @Override public void onPageScrollStateChanged(int state) { }
-        @Override public void onPageSelected(int position) {
-            if (viewPager.getAdapter() != null && position >= viewPager.getAdapter().getCount() - 3) {
+    public class OnScrollImpl extends RecyclerView.OnScrollListener {
+
+        @Override public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+            if (newState == RecyclerView.SCROLL_STATE_IDLE &&
+                    getLastVisiableItemPosition() >= recyclerView.getLayoutManager().getItemCount() - 5) {
                 if (!taskInfo.isLoadedEndPage() && !loadListPageUiTask.isRunning()) {
                     taskInfo.loadNextPage();
                     TaskExecutor.defaultSingleTaskExecutor().post(loadListPageUiTask);
                 }
             }
         }
+
+        private int getLastVisiableItemPosition() {
+            int lastVisibleItemPosition = 0;
+            if (recyclerView.getLayoutManager() instanceof LinearLayoutManager) {
+                lastVisibleItemPosition = ((LinearLayoutManager) recyclerView.getLayoutManager())
+                        .findLastVisibleItemPosition();
+            }
+            return lastVisibleItemPosition;
+        }
+
     }
 }

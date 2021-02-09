@@ -74,6 +74,10 @@ public class DouyinCell extends BaseCell {
         douyinVV.start();
     }
 
+    public String getPlayUrl() {
+        return cm.videoUrl;
+    }
+
     public int getIndex() {
         return cm.index;
     }
