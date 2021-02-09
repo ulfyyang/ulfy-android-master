@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.danikula.videocache.HttpProxyCacheServer;
 import com.dueeeke.videoplayer.util.L;
-import com.ulfy.android.utils.LogUtils;
 
 import java.io.File;
 import java.util.Iterator;
@@ -38,9 +37,9 @@ public class PreloadManager {
     private HttpProxyCacheServer mHttpProxyCacheServer;
 
     /**
-     * 预加载的大小，每个视频预加载512KB * 2 = 1M，这个参数可根据实际情况调整
+     * 预加载的大小，每个视频预加载1024B * 1024 * 4 = 4M，这个参数可根据实际情况调整
      */
-    public static final int PRELOAD_LENGTH = 512 * 1024 * 2;
+    public static final int PRELOAD_LENGTH = 1024 * 1024 * 4;
 
     private PreloadManager(Context context) {
         mHttpProxyCacheServer = ProxyVideoCacheManager.getProxy(context);
