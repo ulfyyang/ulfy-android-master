@@ -57,25 +57,33 @@ public class DouyinView extends BaseView {
         // 为了保证在播放时页面已经准备完毕，通过post执行
         vm.currentPosition = vm.enterPosition;
         douyinVP.setCurrentItem(vm.enterPosition, false);
-        post(new Runnable() {
-            @Override public void run() {
-                startPlay(vm.enterPosition);
-            }
-        });
+        startPlay(vm.enterPosition);
     }
 
     private void startPlay(int position) {
         vm.currentPosition = position;
+        /*
+            为了确保播放位置的正确性，要延后一个队列执行
+                因为在notifyDataSetChanged之后立刻执行，此时RecyclerView内部的数据还未调整完毕，会导致出现位置错乱的情况
+         */
+        post(new Runnable() {
+            @Override public void run() {
+                findCurrentCell().onItemSelected();
+            }
+        });
+    }
+
+    /**
+     * 查找当前正在播放的视频Cell，该方法并不会返回null
+     */
+    private DouyinCell findCurrentCell() {
         RecyclerView recyclerView = (RecyclerView) douyinVP.getChildAt(0);
         for (int i = 0; i < recyclerView.getChildCount(); i++) {
-            if (recyclerView.getChildAt(i) instanceof DouyinCell) {
-                DouyinCell cell = (DouyinCell) recyclerView.getChildAt(i);
-                if (cell.getIndex() == position) {
-                    cell.onItemSelected();
-                    break;
-                }
+            if (((DouyinCell) recyclerView.getChildAt(i)).getIndex() == vm.currentPosition) {
+                return (DouyinCell) recyclerView.getChildAt(i);
             }
         }
+        return null;
     }
 
     private class DouyinOnPageChangeListener extends ViewPager2.OnPageChangeCallback {
@@ -83,6 +91,7 @@ public class DouyinView extends BaseView {
 
         @Override public void onPageSelected(int position) {
             if (position != currentItem) {
+                currentItem = position;         // 有时候会回调两次，做一下去重
                 startPlay(position);
             }
         }
