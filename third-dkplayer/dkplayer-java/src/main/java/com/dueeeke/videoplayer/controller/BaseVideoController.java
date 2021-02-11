@@ -407,29 +407,34 @@ public abstract class BaseVideoController extends FrameLayout
         return false;
     }
 
-    @Override
-    public void onWindowFocusChanged(boolean hasWindowFocus) {
-        super.onWindowFocusChanged(hasWindowFocus);
-        if (mControlWrapper.isPlaying()
-                && (mEnableOrientation || mControlWrapper.isFullScreen())) {
-            if (hasWindowFocus) {
-                postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        mOrientationHelper.enable();
-                    }
-                }, 800);
-            } else {
-                mOrientationHelper.disable();
-            }
-        }
-    }
+//    @Override
+//    public void onWindowFocusChanged(boolean hasWindowFocus) {
+//        super.onWindowFocusChanged(hasWindowFocus);
+//        if (mControlWrapper.isPlaying()
+//                && (mEnableOrientation || mControlWrapper.isFullScreen())) {
+//            if (hasWindowFocus) {
+//                postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        mOrientationHelper.enable();
+//                    }
+//                }, 800);
+//            } else {
+//                mOrientationHelper.disable();
+//            }
+//        }
+//    }
 
     /**
      * 是否自动旋转， 默认不自动旋转
      */
     public void setEnableOrientation(boolean enableOrientation) {
         mEnableOrientation = enableOrientation;
+        if (enableOrientation) {
+            mOrientationHelper.enable();
+        } else {
+            mOrientationHelper.disable();
+        }
     }
 
     private int mOrientation = 0;
@@ -438,6 +443,10 @@ public abstract class BaseVideoController extends FrameLayout
     @Override
     public void onOrientationChanged(int orientation) {
         if (mActivity == null || mActivity.isFinishing()) return;
+
+        if (!mControlWrapper.isPlaying()) {     // 未播放状态下执行会造成页面混乱
+            return;
+        }
 
         //记录用户手机上一次放置的位置
         int lastOrientation = mOrientation;
@@ -553,7 +562,7 @@ public abstract class BaseVideoController extends FrameLayout
     protected void onPlayStateChanged(int playState) {
         switch (playState) {
             case VideoView.STATE_IDLE:
-                mOrientationHelper.disable();
+//                mOrientationHelper.disable();
                 mOrientation = 0;
                 mIsLocked = false;
                 mShowing = false;
@@ -585,24 +594,24 @@ public abstract class BaseVideoController extends FrameLayout
     protected void onPlayerStateChanged(int playerState) {
         switch (playerState) {
             case VideoView.PLAYER_NORMAL:
-                if (mEnableOrientation) {
-                    mOrientationHelper.enable();
-                } else {
-                    mOrientationHelper.disable();
-                }
+//                if (mEnableOrientation) {
+//                    mOrientationHelper.enable();
+//                } else {
+//                    mOrientationHelper.disable();
+//                }
                 if (hasCutout()) {
                     CutoutUtil.adaptCutoutAboveAndroidP(getContext(), false);
                 }
                 break;
             case VideoView.PLAYER_FULL_SCREEN:
                 //在全屏时强制监听设备方向
-                mOrientationHelper.enable();
+//                mOrientationHelper.enable();
                 if (hasCutout()) {
                     CutoutUtil.adaptCutoutAboveAndroidP(getContext(), true);
                 }
                 break;
             case VideoView.PLAYER_TINY_SCREEN:
-                mOrientationHelper.disable();
+//                mOrientationHelper.disable();
                 break;
         }
     }
