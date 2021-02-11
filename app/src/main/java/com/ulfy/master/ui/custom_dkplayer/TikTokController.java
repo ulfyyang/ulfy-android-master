@@ -8,6 +8,7 @@ import android.widget.SeekBar;
 
 import com.dueeeke.videoplayer.controller.BaseVideoController;
 import com.dueeeke.videoplayer.player.VideoView;
+import com.ulfy.android.utils.UiUtils;
 import com.ulfy.master.R;
 import com.yqw.hotheart.HeartFrameLayout;
 import com.yqw.hotheart.MyClickListener;
@@ -160,6 +161,19 @@ public class TikTokController extends BaseVideoController {
                 onSeekBarChangeListener.onStopTrackingTouch(seekBar);
             }
         }
+    }
+
+    @Override public void setPlayerState(int playerState) {
+        LayoutParams layoutParams = (LayoutParams) loadingFL.getLayoutParams();
+        switch (playerState) {
+            case VideoView.PLAYER_NORMAL:
+                layoutParams.bottomMargin = (int) UiUtils.dp2px(40);
+                break;
+            case VideoView.PLAYER_FULL_SCREEN:
+                layoutParams.bottomMargin = (int) -UiUtils.dp2px(9);
+                break;
+        }
+        loadingFL.setLayoutParams(layoutParams);
     }
 
     /**

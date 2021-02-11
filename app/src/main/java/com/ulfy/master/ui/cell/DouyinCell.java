@@ -45,6 +45,7 @@ public class DouyinCell extends BaseCell {
 
     private void init(Context context, AttributeSet attrs) {
         tikTokController = new TikTokController(getContext());
+        tikTokController.setEnableOrientation(true);            // 开启自动旋转
         tikTokController.getThumbIV().setScaleType(ImageView.ScaleType.FIT_CENTER);
         tikTokController.setEnableDoubleEffect(true);
         tikTokController.setOnDoubleClickListener(new TikTokController.OnDoubleClickListener() {
