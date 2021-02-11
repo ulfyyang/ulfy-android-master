@@ -40,7 +40,7 @@ public class DouyinView extends BaseView {
     }
 
     private void init(final Context context, AttributeSet attrs) {
-        douyinVP.setOffscreenPageLimit(5);
+//        douyinVP.setOffscreenPageLimit(5);    // 这里不能设置，否则在全屏小屏切换的时候布局会错乱。如果不需要全屏可以设置
         douyinVP.setAdapter(douyinAdapter);
         douyinVP.setOverScrollMode(View.OVER_SCROLL_NEVER);
         douyinVP.registerOnPageChangeCallback(new DouyinOnPageChangeListener());
