@@ -90,6 +90,10 @@ public class TikTokController extends BaseVideoController {
                 loadingDLBV.setVisibility(View.VISIBLE);
                 loadingDLBV.startAnimator();
                 break;
+            case VideoView.STATE_ERROR:
+            case VideoView.STATE_IDLE:
+            case VideoView.STATE_START_ABORT:
+            case VideoView.STATE_PREPARED:
             case VideoView.STATE_PLAYING:
             case VideoView.STATE_BUFFERED:
                 loadingDLBV.stopAnimator();
