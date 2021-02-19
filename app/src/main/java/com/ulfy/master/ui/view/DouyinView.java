@@ -12,7 +12,6 @@ import com.ulfy.android.adapter.RecyclerAdapter;
 import com.ulfy.android.mvvm.IViewModel;
 import com.ulfy.android.ui_injection.Layout;
 import com.ulfy.android.ui_injection.ViewById;
-import com.ulfy.android.utils.StringUtils;
 import com.ulfy.master.BuildConfig;
 import com.ulfy.master.R;
 import com.ulfy.master.application.cm.DouyinCM;
@@ -20,7 +19,6 @@ import com.ulfy.master.application.vm.DouyinVM;
 import com.ulfy.master.ui.base.BaseView;
 import com.ulfy.master.ui.cell.DouyinCell;
 import com.ulfy.master.ui.custom_dkplayer.DouyinPageLoader;
-import com.ulfy.master.ui.custom_dkplayer.cache.PreloadManager;
 
 @Layout(id = R.layout.view_douyin)
 public class DouyinView extends BaseView {
@@ -118,21 +116,8 @@ public class DouyinView extends BaseView {
 
         @Override public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
             super.onBindViewHolder(holder, position);
-            if (BuildConfig.VIDEO_PRE_LOAD && holder.itemView instanceof DouyinCell) {
-                String playUrl = ((DouyinCell) holder.itemView).getPlayUrl();
-                if (!StringUtils.isEmpty(playUrl)) {
-                    PreloadManager.getInstance(getContext()).addPreloadTask(playUrl, position);
-                }
-            }
-        }
-
-        @Override public void onViewDetachedFromWindow(RecyclerView.ViewHolder holder) {
-            super.onViewDetachedFromWindow(holder);
-            if (BuildConfig.VIDEO_PRE_LOAD && holder.itemView instanceof DouyinCell) {
-                String playUrl = ((DouyinCell) holder.itemView).getPlayUrl();
-                if (!StringUtils.isEmpty(playUrl)) {
-                    PreloadManager.getInstance(getContext()).removePreloadTask(playUrl);
-                }
+            if (BuildConfig.VIDEO_PRE_LOAD) {
+                vm.preloadByCurrentPosition();
             }
         }
 

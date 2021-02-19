@@ -4,9 +4,12 @@ import com.ulfy.android.mvvm.IView;
 import com.ulfy.android.task.LoadDataUiTask;
 import com.ulfy.android.task.LoadListPageUiTask;
 import com.ulfy.android.utils.LogUtils;
+import com.ulfy.android.utils.StringUtils;
+import com.ulfy.master.MainApplication;
 import com.ulfy.master.application.base.BaseVM;
 import com.ulfy.master.application.cm.DouyinCM;
 import com.ulfy.master.application.cm.LittleVideoCM;
+import com.ulfy.master.ui.custom_dkplayer.cache.PreloadManager;
 import com.ulfy.master.ui.view.DouyinView;
 
 import java.util.ArrayList;
@@ -67,6 +70,25 @@ public class DouyinVM extends BaseVM {
             }
         };
     }
+
+
+    public void preloadByCurrentPosition() {
+        int start = currentPosition - 5;
+        if (start < 0) {
+            start = 0;
+        }
+        int end = currentPosition + 5;
+        if (end > douyinCMList.size()) {
+            end = douyinCMList.size();
+        }
+        for (int i = start; i < end; i++) {
+            String playUrl = douyinCMList.get(i).videoUrl;
+            if (!StringUtils.isEmpty(playUrl)) {
+                PreloadManager.getInstance(MainApplication.application).addPreloadTask(playUrl, i);
+            }
+        }
+    }
+
 
     @Override public Class<? extends IView> getViewClass() {
         return DouyinView.class;
