@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="gone">
 
         <pl.droidsonroids.gif.GifImageView
             android:layout_width="25dp"
@@ -65,7 +66,8 @@
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:layout_gravity="center"
-            android:layout_marginBottom="1dp" />
+            android:layout_marginBottom="1dp"
+            android:visibility="gone" />
 
         <SeekBar
             android:id="@+id/loadingSB"

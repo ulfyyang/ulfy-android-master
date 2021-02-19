@@ -1,6 +1,7 @@
 package com.ulfy.master.ui.custom_dkplayer;
 
 import android.content.Context;
+import android.net.TrafficStats;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -31,18 +32,26 @@ public class TikTokController extends BaseVideoController {
     private SeekBar loadingSB;
     private SeekBar.OnSeekBarChangeListener onSeekBarChangeListener;    // 由外部设置的进度条拖动事件
     private boolean mIsDragging;
-    private UiTimer speedTimer = new UiTimer(1000);
+    private UiTimer speedTimer = new UiTimer(1000).setDelayStart(1000);
+    private long lastTotalBytes = 0;        // 记录上一次App用的总流量，1秒后的总流量减去上一次即可得到网速
 
     /*
         只有 IJK 支持网速检测，需要在 MainAppliction 中配置 IJK 播放器，具体配置看 onCreate 方法
+            1. 获取播放器网速方法：mControlWrapper.getTcpSpeed();
+            2. 如果采用了预加载，则播放器无法判断网速。如果加载过程被预加载拦截，则播放器网速会是零；
+        如果采用了预加载，则只能采用App网速来显示
      */
 
     public TikTokController(Context context) {
         super(context);
         speedTimer.setUiTimerExecuteBody(new UiTimer.UiTimerExecuteBody() {
             @Override public void onExecute(UiTimer timer, UiTimer.TimerDriver timerDriver) {
-                long speed = mControlWrapper.getTcpSpeed() * 3;
-                String speedString = "";
+                // 计算网速
+                long nowTotalBytes = TrafficStats.getUidRxBytes(getContext().getApplicationInfo().uid);
+                long speed = nowTotalBytes - lastTotalBytes;
+                lastTotalBytes = nowTotalBytes;
+                // 渲染网速(放大3倍)
+                speed *= 3; String speedString = "";
                 if (speed < 1024) {
                     speedString = speed + "B/s";
                 } else if (speed < 1024 * 1024) {
@@ -51,6 +60,14 @@ public class TikTokController extends BaseVideoController {
                     speedString = String.format("%.1fMB/s", speed * 1.0f / 1024 / 1024);
                 }
                 speedTV.setText(speedString);
+            }
+        }).setOnTimerStartListener(new UiTimer.OnTimerStartListener() {
+            @Override public void onTimerStart(UiTimer uiTimer, UiTimer.TimerDriver timerDriver) {
+                speedLL.setVisibility(View.VISIBLE);
+            }
+        }).setOnTimerFinishListener(new UiTimer.OnTimerFinishListener() {
+            @Override public void onTimerFinish(UiTimer timer, UiTimer.TimerDriver timerDriver) {
+                speedLL.setVisibility(View.GONE);
             }
         });
     }
@@ -110,15 +127,15 @@ public class TikTokController extends BaseVideoController {
     }
 
     private void updateLoadingUI(int playState) {
-        loadingDLBV.setVisibility(View.GONE);
-        loadingDLBV.stopAnimator();
         switch (playState) {
             case VideoView.STATE_PREPARING:
             case VideoView.STATE_BUFFERING:
 //                loadingDLBV.setVisibility(View.VISIBLE);
 //                loadingDLBV.startAnimator();
-                speedLL.setVisibility(View.VISIBLE);
-                speedTimer.schedule();
+                if (!speedTimer.isSchedule()) {
+                    speedTimer.schedule();
+                    lastTotalBytes = TrafficStats.getUidRxBytes(getContext().getApplicationInfo().uid);
+                }
                 break;
             case VideoView.STATE_ERROR:
             case VideoView.STATE_IDLE:
@@ -128,7 +145,6 @@ public class TikTokController extends BaseVideoController {
             case VideoView.STATE_BUFFERED:
 //                loadingDLBV.stopAnimator();
 //                loadingDLBV.setVisibility(View.GONE);
-                speedLL.setVisibility(View.GONE);
                 speedTimer.cancel();
                 break;
         }
