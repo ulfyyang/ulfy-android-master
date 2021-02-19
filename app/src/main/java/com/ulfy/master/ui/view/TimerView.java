@@ -33,7 +33,7 @@ public class TimerView extends BaseView {
     @ViewById(id = R.id.getVerifyCodeBT) private Button getVerifyCodeBT;
     private UiTimer uiTimer1 = new UiTimer(300);
     private UiTimer uiTimer2 = new UiTimer(100);
-    private UiTimer numberDriverTimer = new UiTimer(1);
+    private UiTimer numberDriverTimer = new UiTimer(1).setDelayStart(1000);
     private UiTimer getVerifyCodeTimer = new UiTimer(1000);
     private UiBackgrounder getVerifyCodeBackgrounder = new UiBackgrounder();
     private TimerVM vm;
