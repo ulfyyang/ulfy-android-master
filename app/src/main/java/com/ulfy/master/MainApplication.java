@@ -2,7 +2,7 @@ package com.ulfy.master;
 
 import androidx.multidex.MultiDexApplication;
 
-import com.dueeeke.videoplayer.exo.ExoMediaPlayerFactory;
+import com.dueeeke.videoplayer.ijk.IjkPlayerFactory;
 import com.dueeeke.videoplayer.player.VideoViewConfig;
 import com.dueeeke.videoplayer.player.VideoViewManager;
 import com.ulfy.android.bus.BusConfig;
@@ -131,8 +131,8 @@ public class MainApplication extends MultiDexApplication {
 //        LeakCanary.install(this);
         ZXingLibrary.initDisplayOpinion(this);
         // 初始化DK播放器
-        VideoViewManager.setConfig(VideoViewConfig.newBuilder()
-                .setPlayerFactory(ExoMediaPlayerFactory.create())
+        VideoViewManager.setConfig(VideoViewConfig.newBuilder().setLogEnabled(true)
+                .setPlayerFactory(IjkPlayerFactory.create())
                 .build());
     }
 }

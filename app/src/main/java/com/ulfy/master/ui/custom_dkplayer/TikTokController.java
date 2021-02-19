@@ -4,10 +4,13 @@ import android.content.Context;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.dueeeke.videoplayer.controller.BaseVideoController;
 import com.dueeeke.videoplayer.player.VideoView;
+import com.ulfy.android.task_extension.UiTimer;
 import com.ulfy.android.utils.UiUtils;
 import com.ulfy.master.R;
 import com.yqw.hotheart.HeartFrameLayout;
@@ -18,6 +21,8 @@ import com.yqw.hotheart.MyClickListener;
  */
 public class TikTokController extends BaseVideoController {
     private ImageView thumbIV;
+    private LinearLayout speedLL;
+    private TextView speedTV;
     private HeartFrameLayout heartFL;
     private ImageView playIV;
     private OnDoubleClickListener onDoubleClickListener;                // 由外部设置的双击回调事件
@@ -26,9 +31,28 @@ public class TikTokController extends BaseVideoController {
     private SeekBar loadingSB;
     private SeekBar.OnSeekBarChangeListener onSeekBarChangeListener;    // 由外部设置的进度条拖动事件
     private boolean mIsDragging;
+    private UiTimer speedTimer = new UiTimer(1000);
+
+    /*
+        只有 IJK 支持网速检测，需要在 MainAppliction 中配置 IJK 播放器，具体配置看 onCreate 方法
+     */
 
     public TikTokController(Context context) {
         super(context);
+        speedTimer.setUiTimerExecuteBody(new UiTimer.UiTimerExecuteBody() {
+            @Override public void onExecute(UiTimer timer, UiTimer.TimerDriver timerDriver) {
+                long speed = mControlWrapper.getTcpSpeed() * 3;
+                String speedString = "";
+                if (speed < 1024) {
+                    speedString = speed + "B/s";
+                } else if (speed < 1024 * 1024) {
+                    speedString = String.format("%.1fKB/s", speed * 1.0f / 1024);
+                } else {
+                    speedString = String.format("%.1fMB/s", speed * 1.0f / 1024 / 1024);
+                }
+                speedTV.setText(speedString);
+            }
+        });
     }
 
     public ImageView getThumbIV() {
@@ -42,6 +66,8 @@ public class TikTokController extends BaseVideoController {
     @Override protected void initView() {
         super.initView();
         thumbIV = findViewById(R.id.thumbIV);
+        speedLL = findViewById(R.id.speedLL);
+        speedTV = findViewById(R.id.speedTV);
         heartFL = findViewById(R.id.heartFL);
         playIV = findViewById(R.id.playIV);
         loadingFL = findViewById(R.id.loadingFL);
@@ -84,11 +110,15 @@ public class TikTokController extends BaseVideoController {
     }
 
     private void updateLoadingUI(int playState) {
+        loadingDLBV.setVisibility(View.GONE);
+        loadingDLBV.stopAnimator();
         switch (playState) {
             case VideoView.STATE_PREPARING:
             case VideoView.STATE_BUFFERING:
-                loadingDLBV.setVisibility(View.VISIBLE);
-                loadingDLBV.startAnimator();
+//                loadingDLBV.setVisibility(View.VISIBLE);
+//                loadingDLBV.startAnimator();
+                speedLL.setVisibility(View.VISIBLE);
+                speedTimer.schedule();
                 break;
             case VideoView.STATE_ERROR:
             case VideoView.STATE_IDLE:
@@ -96,8 +126,10 @@ public class TikTokController extends BaseVideoController {
             case VideoView.STATE_PREPARED:
             case VideoView.STATE_PLAYING:
             case VideoView.STATE_BUFFERED:
-                loadingDLBV.stopAnimator();
-                loadingDLBV.setVisibility(View.GONE);
+//                loadingDLBV.stopAnimator();
+//                loadingDLBV.setVisibility(View.GONE);
+                speedLL.setVisibility(View.GONE);
+                speedTimer.cancel();
                 break;
         }
     }
