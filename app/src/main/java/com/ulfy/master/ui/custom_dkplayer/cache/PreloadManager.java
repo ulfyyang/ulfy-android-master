@@ -182,14 +182,16 @@ public class PreloadManager {
      * 获取播放地址
      */
     public String getPlayUrl(String rawUrl) {
-        PreloadTask task = mPreloadTasks.get(rawUrl);
+//        PreloadTask task = mPreloadTasks.get(rawUrl);
 //        if (task != null) {
 //            task.cancel();
 //        }
-        if (isPreloaded(rawUrl)) {
-            return mHttpProxyCacheServer.getProxyUrl(rawUrl);
-        } else {
-            return rawUrl;
-        }
+//        if (isPreloaded(rawUrl)) {
+//            return mHttpProxyCacheServer.getProxyUrl(rawUrl);
+//        } else {
+//            return rawUrl;
+//        }
+        // 无论是否预加载完成，都是用预加载的地址
+        return mHttpProxyCacheServer.getProxyUrl(rawUrl);
     }
 }
