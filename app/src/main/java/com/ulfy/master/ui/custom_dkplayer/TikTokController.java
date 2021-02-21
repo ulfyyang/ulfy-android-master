@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
+import com.dueeeke.videocontroller.component.ErrorView;
 import com.dueeeke.videoplayer.controller.BaseVideoController;
 import com.dueeeke.videoplayer.player.VideoView;
 import com.ulfy.android.task_extension.UiTimer;
@@ -80,8 +81,13 @@ public class TikTokController extends BaseVideoController {
         return R.layout.view_tiktok_controller;
     }
 
+    @Override public boolean showNetWarning() {
+        return false;       //不显示移动网络播放警告
+    }
+
     @Override protected void initView() {
         super.initView();
+        addControlComponent(new ErrorView(getContext()));       //错误界面
         thumbIV = findViewById(R.id.thumbIV);
         speedLL = findViewById(R.id.speedLL);
         speedTV = findViewById(R.id.speedTV);
