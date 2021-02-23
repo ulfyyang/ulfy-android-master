@@ -21,7 +21,7 @@ public class DownloadMovie implements DownloadTaskInfo, Serializable {
      * 指定唯一标识
      *      该方法用于确定信息的唯一性，通常可考虑使用id或者下载链接
      */
-    @Override public String provideUniquelyIdentifies() {
+    @Override public String getUniquelyIdentifies() {
         return name;
     }
 
