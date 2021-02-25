@@ -56,7 +56,7 @@ public class ViewToBitmapView extends BaseView {
     @ViewClick(ids = R.id.viewToBitmap1BT) private void viewToBitmap1BT(View v) {
         Bitmap bitmap = Bitmap.createBitmap(contentIV.getWidth(), contentIV.getHeight(), Bitmap.Config.ARGB_8888);
         contentIV.draw(new Canvas(bitmap));
-        AppUtils.insertPictureToSystem(bitmap, "App生成", "这是App生成的截图文件");
+        AppUtils.insertPictureToSystem(bitmap, "App生成");
         UiUtils.show("生成完毕，请到相册中查看");
     }
 
@@ -81,7 +81,7 @@ public class ViewToBitmapView extends BaseView {
             @Override public void run() {
                 Bitmap bitmap = Bitmap.createBitmap(view.getWidth(), view.getHeight(), Bitmap.Config.ARGB_8888);
                 view.draw(new Canvas(bitmap));
-                AppUtils.insertPictureToSystem(bitmap, "App生成", "这是App生成的截图文件");
+                AppUtils.insertPictureToSystem(bitmap, "App生成");
                 UiUtils.show("生成完毕，请到相册中查看");
             }
         }, 500);
