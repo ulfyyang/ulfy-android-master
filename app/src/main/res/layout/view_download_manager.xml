@@ -22,15 +22,15 @@
             <Button
                 android:id="@+id/downloadApkBT"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="下载apk" />
 
             <Button
                 android:id="@+id/downloadImageBT"
                 android:layout_width="0dp"
-                android:layout_weight="1"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="下载图片" />
 
         </LinearLayout>
@@ -62,5 +62,23 @@
             android:layout_weight="1" />
 
     </LinearLayout>
+
+    <com.ulfy.android.views.FingerFollowLayout
+        android:id="@+id/downloadFFL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="40dp"
+        android:visibility="gone">
+
+        <com.ulfy.master.ui.custom.CircleProgressView
+            android:id="@+id/downloadCPV"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:showBackgroundCircle="true"
+            app:showTextPercent="true" />
+
+    </com.ulfy.android.views.FingerFollowLayout>
 
 </FrameLayout>

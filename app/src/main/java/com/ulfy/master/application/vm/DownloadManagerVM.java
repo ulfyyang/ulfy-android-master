@@ -1,7 +1,7 @@
 package com.ulfy.master.application.vm;
 
 import com.ulfy.android.download_manager.DownloadManager;
-import com.ulfy.android.download_manager.DownloadTask;
+import com.ulfy.android.download_manager.DownloadTaskWrapper;
 import com.ulfy.android.mvvm.IView;
 import com.ulfy.android.task.LoadDataUiTask;
 import com.ulfy.android.utils.LogUtils;
@@ -36,14 +36,14 @@ public class DownloadManagerVM extends BaseVM {
 
     public void reloadDownloadingTaskInfo() {
         downloadingCMList.clear();
-        for (DownloadTask<DownloadMovie> downloadTask : DownloadManager.getInstance().provideAllDownloadingTask()) {
+        for (DownloadTaskWrapper<DownloadMovie> downloadTask : DownloadManager.getInstance().provideAllDownloadingTask()) {
             downloadingCMList.add(new DownloadManagerDownloadingCM(downloadTask));
         }
     }
 
     public void reloadDownloadedTaskInfo() {
         downloadedCMList.clear();
-        for (DownloadTask<DownloadMovie> downloadTask : DownloadManager.getInstance().provideAllDownloadedTaskInfo()) {
+        for (DownloadTaskWrapper<DownloadMovie> downloadTask : DownloadManager.getInstance().provideAllDownloadedTaskInfo()) {
             downloadedCMList.add(new DownloadManagerDownloadedCM(downloadTask));
         }
     }
