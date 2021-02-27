@@ -73,18 +73,34 @@ public class DouyinVM extends BaseVM {
 
 
     public void preloadByCurrentPosition() {
-        int start = currentPosition - 5;
+        // 预加载范围计算：当前位置、当前位置前两个、当前位置后两个，一共是五个（如果超出范围要纠正）
+        int start = currentPosition - 2;
         if (start < 0) {
             start = 0;
         }
-        int end = currentPosition + 5;
-        if (end > douyinCMList.size()) {
-            end = douyinCMList.size();
+        int end = currentPosition + 2;
+        if (end > douyinCMList.size() - 1) {
+            end = douyinCMList.size() - 1;
         }
-        for (int i = start; i < end; i++) {
+        // 开启选中范围的预加载
+        for (int i = start; i <= end; i++) {
             String playUrl = douyinCMList.get(i).videoUrl;
             if (!StringUtils.isEmpty(playUrl)) {
                 PreloadManager.getInstance(MainApplication.application).addPreloadTask(playUrl, i);
+            }
+        }
+        // 在滚动的过程中，取消范围之外一个位置的预加载（滑到下一个则上方会多一个超出范围，反之一样的道理）
+        int lastTop = start - 1, nextBottom = end + 1;
+        if (lastTop >= 0) {         // 表示范围之外存在一个否则就是超出了原始数据范围
+            String playUrl = douyinCMList.get(lastTop).videoUrl;
+            if (!StringUtils.isEmpty(playUrl)) {
+                PreloadManager.getInstance(MainApplication.application).removePreloadTask(playUrl);
+            }
+        }
+        if (nextBottom <= douyinCMList.size() - 1) {
+            String playUrl = douyinCMList.get(nextBottom).videoUrl;
+            if (!StringUtils.isEmpty(playUrl)) {
+                PreloadManager.getInstance(MainApplication.application).removePreloadTask(playUrl);
             }
         }
     }
