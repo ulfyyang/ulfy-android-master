@@ -162,6 +162,8 @@ dependencies {
     implementation externalGifDrawable                          // GIF图片加载控件
     implementation externalAppBarLayoutBehavior                 // AppBarLayout回弹问题
     implementation externalViewPager2                           // ViewPager2
+    implementation externalRxJava                               // RxJava
+    implementation externalRxAndroid                            // RxAndroid
 
     implementation project(':third-dkplayer:dkplayer-java')             // DK播放器
     implementation project(':third-dkplayer:dkplayer-ui')               // DK播放器

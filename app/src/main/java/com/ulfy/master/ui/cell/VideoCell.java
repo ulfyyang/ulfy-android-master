@@ -25,6 +25,7 @@ import com.ulfy.android.views.ShapeLayout;
 import com.ulfy.master.R;
 import com.ulfy.master.application.cm.VideoCM;
 import com.ulfy.master.ui.base.BaseCell;
+import com.ulfy.master.ui.custom_dkplayer.ScreenshotView;
 import com.ulfy.master.ui.custom_dkplayer.VideoViewRepository;
 
 @Layout(id = R.layout.cell_video)
@@ -68,13 +69,13 @@ public class VideoCell extends BaseCell {
         videoController.addControlComponent(titleView);
         videoController.addControlComponent(new VodControlView(getContext()));
         videoController.addControlComponent(new GestureView(getContext()));
+        videoController.addControlComponent(new ScreenshotView(getContext()));
         playerVV.setVideoController(videoController);
 
         playerVV.setOnStateChangeListener(new VideoView.OnStateChangeListener() {
             @Override public void onPlayerStateChanged(int playerState) { }
             @Override public void onPlayStateChanged(int playState) {
-                playerVV.setVisibility(playState != VideoView.STATE_IDLE ? View.VISIBLE : View.GONE);
-                coverFL.setVisibility(playState == VideoView.STATE_IDLE ? View.VISIBLE : View.GONE);
+                updatePlayVideoUI(playState);
             }
         });
 
@@ -83,9 +84,7 @@ public class VideoCell extends BaseCell {
 
     @Override public void bind(IViewModel model) {
         cm = (VideoCM) model;
-        playerVV.release();
-        playerVV.setVisibility(View.GONE);
-        coverFL.setVisibility(View.VISIBLE);
+        updatePlayVideoUI(playerVV.getCurrentPlayState());
         ImageUtils.loadImage(cm.cover, R.drawable.drawable_loading, coverIV);
         titleTV.setText(cm.title);
         ImageUtils.loadImage(cm.cover, R.drawable.drawable_loading, prepareView.findViewById(R.id.thumb));
@@ -93,12 +92,19 @@ public class VideoCell extends BaseCell {
         playerVV.setUrl(cm.playUrl);
     }
 
+    private void updatePlayVideoUI(int playState) {
+        playerVV.setVisibility(playState != VideoView.STATE_IDLE ? View.VISIBLE : View.GONE);
+        coverFL.setVisibility(playState == VideoView.STATE_IDLE ? View.VISIBLE : View.GONE);
+    }
+
     @ViewClick(ids = R.id.coverFL) private void coverFL(View v) {
         VideoViewRepository.getInstance().releaseVideoView(getContext(), false);
         playerVV.start();
     }
 
-    public boolean isPlaying() {
-        return playerVV.isPlaying();
+    public void releaseVideoForTinyScreen() {
+        if (!playerVV.isFullScreen()) {     // 从竖屏变全屏不需要释放，只有小屏滚动才需要
+            playerVV.release();
+        }
     }
 }

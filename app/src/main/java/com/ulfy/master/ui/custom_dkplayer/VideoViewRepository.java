@@ -103,7 +103,7 @@ public final class VideoViewRepository {
         List<VideoView> videoViewList = videoViewMap.get(context);
         if (videoViewList != null) {
             for (VideoView videoView : videoViewList) {
-                if (videoView.onBackPressed()) {
+                if (videoView.isPlaying() && videoView.onBackPressed()) {       // 避免因未播放的播放器导致页面关闭
                     return true;
                 }
             }

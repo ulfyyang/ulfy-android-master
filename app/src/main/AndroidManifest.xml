@@ -35,7 +35,7 @@
         <activity android:name=".ui.activity.MultiDomainPickerActivity" />
         <activity android:name=".ui.activity.DouyinActivity"
             android:windowSoftInputMode="adjustNothing"
-            android:configChanges="keyboardHidden|orientation|screenSize"/>
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"/>
         <activity android:name=".ui.activity.MakeGifActivity" />
         <activity android:name=".ui.activity.ObjectCacheActivity" />
         <activity android:name=".ui.activity.EventBusActivity" />
@@ -109,7 +109,7 @@
         <activity android:name=".ui.activity.List2Activity" />
         <activity
             android:name=".ui.activity.RouterActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.Translucent">
             <intent-filter>
@@ -141,19 +141,20 @@
         <activity
             android:name=".ui.activity.CommentEditTextActivity"
             android:windowSoftInputMode="adjustNothing"
-            android:configChanges="keyboardHidden|orientation|screenSize" />
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout" />
         <activity android:name=".ui.activity.VideoThumbnailActivity" />
         <activity android:name=".ui.activity.SmartCustomHeaderActivity" />
         <activity android:name=".ui.activity.StaggeredAutoFullActivity" />
         <activity android:name=".ui.activity.StaggeredRandomRatioActivity" />
         <activity android:name=".ui.activity.ImageLoadActivity" />
         <activity android:name=".ui.activity.ImagePreviewActivity" />
-        <activity android:name=".ui.activity.VideoListActivity" />
+        <activity android:name=".ui.activity.VideoListActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout" />
         <activity android:name=".ui.activity.MinePage1Activity" />
         <activity android:name=".ui.activity.MinePage2Activity" />
         <activity android:name=".ui.activity.ShowTypeActivity" />
         <activity android:name=".ui.activity.VideoActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden" />
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout" />
         <activity android:name=".ui.activity.ImagePickActivity" />
         <activity android:name=".ui.activity.DialogProcessActivity" />
         <activity android:name=".ui.activity.ScrollPullLinkageActivity" />

@@ -20,7 +20,6 @@ import com.ulfy.master.application.cm.VideoCM;
 import com.ulfy.master.application.vm.VideoVM;
 import com.ulfy.master.ui.base.BaseView;
 import com.ulfy.master.ui.cell.VideoCell;
-import com.ulfy.master.ui.custom_dkplayer.VideoViewRepository;
 
 @Layout(id = R.layout.view_video)
 public class VideoView extends BaseView {
@@ -46,9 +45,7 @@ public class VideoView extends BaseView {
             @Override public void onChildViewAttachedToWindow(View view) { }
             @Override public void onChildViewDetachedFromWindow(View view) {
                 if (view instanceof VideoCell) {
-                    if (((VideoCell) view).isPlaying()) {
-                        VideoViewRepository.getInstance().releaseVideoView(getContext(), false);
-                    }
+                    ((VideoCell) view).releaseVideoForTinyScreen();
                 }
             }
         });

@@ -94,8 +94,7 @@ public class ImagePreviewView extends BaseView {
                         UiUtils.show(data);
                     }
                     @Override public void onSuccess(Object tipData) {
-                        UiUtils.show(tipData);
-                        AppUtils.insertPictureToSystem(vm.downloadImageFile, "图片标题");
+                        AppUtils.insertPictureToSystem(vm.downloadImageFile, "图片标题", () -> UiUtils.show(tipData));
                     }
                     @Override protected void onFail(Object data) {
                         UiUtils.show(data);
