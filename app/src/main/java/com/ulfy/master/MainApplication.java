@@ -62,6 +62,14 @@ public class MainApplication extends MultiDexApplication {
 //        };
 //    }
 
+//    static {        // 弹出框配置
+//        DialogConfig.Config.progressDialogConfig = new DialogConfig.DefaultProgressDialogConfig() {
+//            @Override public IProgressView getProgressView(Context context) {
+//                return new ProgressView(context, ProgressView.SHOW_MODE_NUMBER);
+//            }
+//        };
+//    }
+
 //    static {        // 下载管理器配置
 //        DownloadManagerConfig.Config.directoryConfig = new DownloadManagerConfig.Config.DefaultDirectoryConfig() {
 //            @Override public File getDownloadingDirectory(Context context) {
