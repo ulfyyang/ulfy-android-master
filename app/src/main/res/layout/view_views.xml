@@ -21,60 +21,91 @@
                 style="@style/TipButton"
                 android:text="形状定制：ShapeLayoutActivity" />
 
+            <View style="@style/HLine" />
+
             <TextView
                 android:id="@+id/ratioLayoutTV"
                 style="@style/TipButton"
                 android:text="比例布局：RatioLayoutActivity" />
+
+            <View style="@style/HLine" />
 
             <TextView
                 android:id="@+id/flowLayoutTV"
                 style="@style/TipButton"
                 android:text="流式布局：FlowLayoutActivity" />
 
+            <View style="@style/HLine" />
+
             <TextView
                 android:id="@+id/listViewLayoutTV"
                 style="@style/TipButton"
                 android:text="列表布局：ListViewLayoutActivity" />
+
+            <View style="@style/HLine" />
 
             <TextView
                 android:id="@+id/gridViewLayoutTV"
                 style="@style/TipButton"
                 android:text="表格布局：GridViewLayoutActivity" />
 
+            <View style="@style/HLine" />
+
             <TextView
                 android:id="@+id/fingerFollowLayoutTV"
                 style="@style/TipButton"
                 android:text="跟随手指移动：FingerFollowLayoutActivity" />
+
+            <View style="@style/HLine" />
 
             <TextView
                 android:id="@+id/autoScrollTV"
                 style="@style/TipButton"
                 android:text="横向滚动：AutoScrollActivity" />
 
+            <View style="@style/HLine" />
+
             <TextView
                 android:id="@+id/autoScrollUpTV"
                 style="@style/TipButton"
                 android:text="纵向滚动：AutoScrollUpActivity" />
+
+            <View style="@style/HLine" />
 
             <TextView
                 android:id="@+id/verticalViewPagerTV"
                 style="@style/TipButton"
                 android:text="纵向 ViewPager：VerticalViewPagerActivity" />
 
+            <View style="@style/HLine" />
+
             <TextView
                 android:id="@+id/dialogLayoutTV"
                 style="@style/TipButton"
                 android:text="弹窗布局：DialogLayoutActivity" />
+
+            <View style="@style/HLine" />
 
             <TextView
                 android:id="@+id/dashLineTV"
                 style="@style/TipButton"
                 android:text="绘制虚线：DashLineActivity" />
 
+            <View style="@style/HLine" />
+
             <TextView
                 android:id="@+id/chartViewTV"
                 style="@style/TipButton"
                 android:text="绘制图表：ChartViewActivity" />
+
+            <View style="@style/HLine" />
+
+            <TextView
+                android:id="@+id/appbarBehaviorTV"
+                style="@style/TipButton"
+                android:text="定制AppbarBehavior：AppbarBehaviorActivity" />
+
+            <View style="@style/HLine" />
 
         </LinearLayout>
 

@@ -161,6 +161,7 @@
         <activity android:name=".ui.activity.VideoThumbnailPickerActivity" />
         <activity android:name=".ui.activity.LittleVideoPageActivity" />
         <activity android:name=".ui.activity.ViewToBitmapActivity" />
+        <activity android:name=".ui.activity.AppbarBehaviorActivity" />
 
     </application>
 

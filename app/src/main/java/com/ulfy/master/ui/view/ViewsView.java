@@ -9,6 +9,7 @@ import com.ulfy.android.ui_injection.Layout;
 import com.ulfy.android.ui_injection.ViewClick;
 import com.ulfy.master.R;
 import com.ulfy.master.application.vm.ViewsVM;
+import com.ulfy.master.ui.activity.AppbarBehaviorActivity;
 import com.ulfy.master.ui.activity.AutoScrollActivity;
 import com.ulfy.master.ui.activity.AutoScrollUpActivity;
 import com.ulfy.master.ui.activity.ChartViewActivity;
@@ -139,5 +140,13 @@ public class ViewsView extends BaseView {
      */
     @ViewClick(ids = R.id.chartViewTV) private void chartViewTV(View v) {
         ChartViewActivity.startActivity();
+    }
+
+    /**
+     * click: appbarBehaviorTV
+     * 定制AppbarBehavior
+     */
+    @ViewClick(ids = R.id.appbarBehaviorTV) private void appbarBehaviorTV(View v) {
+        AppbarBehaviorActivity.startActivity();
     }
 }
