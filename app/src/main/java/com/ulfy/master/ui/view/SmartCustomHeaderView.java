@@ -65,7 +65,7 @@ public class SmartCustomHeaderView extends BaseView {
                 });
                 break;
             case R.id.simpleGifBT:          // 修改当前刷新器的配置，完全重新实现接口来定制
-                refresher.setSmartRefreshConfig(new SmartConfig.SmartRefreshConfig() {
+                refresher.setSmartRefreshConfig(new SmartConfig.DefaultSmartRefreshConfig() {
                     @Override public RefreshHeader getRefreshHeaderView(Context context) {
                         return new SmartRefreshSimpleGifView(context);
                     }
