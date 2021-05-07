@@ -18,6 +18,7 @@ import com.ulfy.android.task.TaskConfig;
 import com.ulfy.android.task_transponder.TaskTransponderConfig;
 import com.ulfy.android.time.TimeConfig;
 import com.ulfy.android.utils.UtilsConfig;
+import com.umeng.commonsdk.UMConfigure;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 
 import java.util.Arrays;
@@ -143,5 +144,8 @@ public class MainApplication extends MultiDexApplication {
 //                .setPlayerFactory(IjkPlayerFactory.create())
                 .setPlayerFactory(ExoMediaPlayerFactory.create())
                 .build());
+
+        UMConfigure.setLogEnabled(BuildConfig.DEBUG);
+        UMConfigure.init(this, BuildConfig.UMENG_KEY, "优菲安卓Demo", UMConfigure.DEVICE_TYPE_PHONE, null);
     }
 }
