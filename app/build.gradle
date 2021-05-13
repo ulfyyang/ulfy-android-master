@@ -170,6 +170,8 @@ dependencies {
     implementation externalRxJava                               // RxJava
     implementation externalRxAndroid                            // RxAndroid
 
+    implementation 'commons-io:commons-io:2.8.0'                // Apache Commons
+
     implementation project(':third-dkplayer:dkplayer-java')             // DK播放器
     implementation project(':third-dkplayer:dkplayer-ui')               // DK播放器
     implementation project(':third-dkplayer:dkplayer-players:exo')      // DK播放器

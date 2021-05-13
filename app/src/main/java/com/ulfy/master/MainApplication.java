@@ -80,7 +80,7 @@ public class MainApplication extends MultiDexApplication {
 //                return new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), AppUtils.getAppName());
 //            }
 //        };
-//        DownloadManagerConfig.Config.limitCount = 3;
+//        DownloadManagerConfig.Config.limitCount.put(DownloadManagerConfig.DEFAULT_DOWNLOAD_MANAGER_ID, 3);
 //    }
 
 //    static {        // 多域名选择器
@@ -128,12 +128,12 @@ public class MainApplication extends MultiDexApplication {
         TaskConfig.init(this);                      // 配置任务引擎
         TaskTransponderConfig.init(this);           // 配置任务响应器
         TimeConfig.init(this);                      // 配置时间跟踪
-        DownloadManagerConfig.init(this);           // 配置下载管理器
         DialogConfig.init(this);                    // 配置弹出框
         ImageConfig.init(this);                     // 配置图片处理
         SystemConfig.init(this);                    // 初始化系统模块
         HttpConfig.init(this);                      // 配置网络层
         UtilsConfig.init(this);                     // 工具模块配置
+        DownloadManagerConfig.init(this);           // 配置下载管理器
         // 配置多域名选择器
         MultiDomainPickerConfig.init(this, Arrays.asList(BuildConfig.HTTP_BASES));
 

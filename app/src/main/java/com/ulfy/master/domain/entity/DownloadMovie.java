@@ -1,7 +1,11 @@
 package com.ulfy.master.domain.entity;
 
 import com.ulfy.android.download_manager.DownloadTaskInfo;
+import com.ulfy.master.infrastructure.encryption.MD5Utils;
 
+import org.apache.commons.io.FilenameUtils;
+
+import java.io.File;
 import java.io.Serializable;
 
 /**
@@ -35,8 +39,21 @@ public class DownloadMovie implements DownloadTaskInfo, Serializable {
     /**
      * 提供保存文件时的文件名
      *      文件名要有唯一性，通常使用id或使用下载链接的md5处理
+     *      文件名不能太长，因为系统有最长文件名255的限制
      */
     @Override public String provideDownloadFileName() {
-        return name + downloadLink.substring(downloadLink.lastIndexOf('.'));
+        String ext = FilenameUtils.getExtension(new File(downloadLink).getName());
+        if (ext.length() == 0) {    // 如果没有后缀，则可根据业务需求设置一个默认的后缀
+            ext = ".mp4";
+        }
+        if (name.length() > 255 - ext.length()) {   // 如果文件名超过了255则缩短，这里使用md5
+            try {
+                name = MD5Utils.encode(name);
+            } catch (Exception e) {                 // 如果编码失败则直接截取
+                e.printStackTrace();
+                name = name.substring(0, 255 - ext.length());
+            }
+        }
+        return name + ext;
     }
 }

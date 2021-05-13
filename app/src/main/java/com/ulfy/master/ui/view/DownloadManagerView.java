@@ -110,6 +110,9 @@ public class DownloadManagerView extends BaseView {
                 DownloadMovie downloadMovie = null;
                 switch (v.getId()) {
                     case R.id.downloadApkBT:
+                        // 这是一个视频地址
+//                        downloadMovie = new DownloadMovie("下载文件" + new Random().nextInt(100), "http://d.pcs.baidu.com/file/026ad5593p2ddc71ec7b69bd4a949bbf?fid=1103272670693-250528-727312138335189&rt=pr&sign=FDtAERK-DCb740ccc5511e5e8fedcff06b081203-QcOFgp5CQpyb%2FEZeaf9OQiN290M%3D&expires=8h&chkv=0&chkbd=0&chkpc=&dp-logid=8836646579876675489&dp-callid=0&dstime=1620874637&r=428408896&vuk=1103272670693&origin=dlna");
+                        // 这是一个apk地址
                         downloadMovie = new DownloadMovie("下载文件" + new Random().nextInt(100), "http://file.ws.126.net/3g/client/netease_newsreader_android.apk");
                         break;
                     case R.id.downloadImageBT:
