@@ -8,8 +8,8 @@ import android.widget.ImageView;
 
 import androidx.viewpager.widget.ViewPager;
 
-import com.stx.xhb.xbanner.XBanner;
-import com.stx.xhb.xbanner.entity.LocalImageInfo;
+import com.stx.xhb.androidx.XBanner;
+import com.stx.xhb.androidx.entity.LocalImageInfo;
 import com.ulfy.android.system.ActivityUtils;
 import com.ulfy.android.ui_injection.Layout;
 import com.ulfy.android.ui_injection.ViewById;

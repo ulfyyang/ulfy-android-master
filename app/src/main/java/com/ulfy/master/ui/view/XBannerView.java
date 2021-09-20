@@ -5,8 +5,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 
-import com.stx.xhb.xbanner.XBanner;
-import com.stx.xhb.xbanner.entity.SimpleBannerInfo;
+import com.stx.xhb.androidx.XBanner;
+import com.stx.xhb.androidx.entity.SimpleBannerInfo;
 import com.ulfy.android.image.ImageUtils;
 import com.ulfy.android.mvvm.IViewModel;
 import com.ulfy.android.ui_injection.Layout;

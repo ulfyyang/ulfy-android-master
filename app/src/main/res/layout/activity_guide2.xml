@@ -9,7 +9,7 @@
         pointsVisibility 用于控制是否显示指示器；
         这里的图片中已经包含的指示器，因此就隐藏了指示器；
     -->
-    <com.stx.xhb.xbanner.XBanner
+    <com.stx.xhb.androidx.XBanner
         android:id="@+id/guideXB"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

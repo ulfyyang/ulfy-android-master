@@ -18,7 +18,7 @@
         android:padding="8dp">
 
         <!-- 默认样式 -->
-        <com.stx.xhb.xbanner.XBanner
+        <com.stx.xhb.androidx.XBanner
             android:id="@+id/normal1XB"
             android:layout_width="0dp"
             android:layout_height="100dp"
@@ -26,7 +26,7 @@
             android:layout_weight="1" />
 
         <!-- 定义播放速度和间隔时间、选中取消的点、指示器位置 -->
-        <com.stx.xhb.xbanner.XBanner
+        <com.stx.xhb.androidx.XBanner
             android:id="@+id/normal2XB"
             android:layout_width="0dp"
             android:layout_height="100dp"
@@ -46,7 +46,7 @@
         android:text="3D 默认样式" />
 
     <!-- 3D默认样式 -->
-    <com.stx.xhb.xbanner.XBanner
+    <com.stx.xhb.androidx.XBanner
         android:id="@+id/clip1XB"
         android:layout_width="match_parent"
         android:layout_height="150dp"
@@ -59,7 +59,7 @@
         android:text="3D 定制样式：使用自定义的布局" />
 
     <!-- 定制显示样式 -->
-    <com.stx.xhb.xbanner.XBanner
+    <com.stx.xhb.androidx.XBanner
         android:id="@+id/clip2XB"
         android:layout_width="match_parent"
         android:layout_height="200dp"

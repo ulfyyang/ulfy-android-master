@@ -1,6 +1,6 @@
 package com.ulfy.master.application.vm;
 
-import com.stx.xhb.xbanner.entity.SimpleBannerInfo;
+import com.stx.xhb.androidx.entity.SimpleBannerInfo;
 import com.ulfy.android.mvvm.IView;
 import com.ulfy.android.task.LoadDataUiTask;
 import com.ulfy.android.utils.LogUtils;
