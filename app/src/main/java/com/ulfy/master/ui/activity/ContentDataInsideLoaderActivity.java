@@ -45,7 +45,7 @@ public class ContentDataInsideLoaderActivity extends TitleContentActivity {
      */
     private void initContent(final Bundle savedInstanceState) {
         TaskUtils.loadData(getContext(), vm.loadDataOnExe(), new ContentDataInsideLoader(contentFL, vm) {
-                    @Override protected void onCreatView(ContentDataInsideLoader loader, View createdView) {
+                    @Override protected void onCreateView(ContentDataInsideLoader loader, View createdView) {
                         view = (ContentDataInsideLoaderView) createdView;
                     }
                 }.setOnReloadListener(new OnReloadListener() {

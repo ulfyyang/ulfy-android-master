@@ -45,7 +45,7 @@ public class Details1Activity extends TitleContentActivity {
     private void initContent(final Bundle savedInstanceState) {
         // 需要采用 ContentDataInsideLoader 加载器来实现内部加载的效果
         TaskUtils.loadData(getContext(), vm.loadDataOnExe(), new ContentDataInsideLoader(contentFL, vm) {
-                    @Override protected void onCreatView(ContentDataInsideLoader loader, View createdView) {
+                    @Override protected void onCreateView(ContentDataInsideLoader loader, View createdView) {
                         view = (Details1View) createdView;
                     }
                 }.setOnReloadListener(new OnReloadListener() {

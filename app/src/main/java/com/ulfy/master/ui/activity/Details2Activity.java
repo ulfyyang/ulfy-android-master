@@ -49,7 +49,7 @@ public class Details2Activity extends TitleContentActivity {
             2. 如果为 false 则先显示加载动画，随后加载数据，随后将数据渲染到内容 view 上，最后显示渲染好的 view
          */
         TaskUtils.loadData(getContext(), vm.loadDataOnExe(), new ContentDataLoader(contentFL, vm, false) {
-                    @Override protected void onCreatView(ContentDataLoader loader, View createdView) {
+                    @Override protected void onCreateView(ContentDataLoader loader, View createdView) {
                         view = (Details2View) createdView;
                     }
                 }.setOnReloadListener(new OnReloadListener() {

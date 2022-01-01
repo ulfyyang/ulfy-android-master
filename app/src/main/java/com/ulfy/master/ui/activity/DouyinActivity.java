@@ -62,7 +62,7 @@ public class DouyinActivity extends ContentActivity {
      */
     private void initContent(final Bundle savedInstanceState) {
         TaskUtils.loadData(getContext(), vm.loadDataOnExe(), new ContentDataLoader(contentFL, vm, true) {
-                    @Override protected void onCreatView(ContentDataLoader loader, View createdView) {
+                    @Override protected void onCreateView(ContentDataLoader loader, View createdView) {
                         view = (DouyinView) createdView;
                     }
                 }.setOnReloadListener(new OnReloadListener() {

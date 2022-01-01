@@ -44,7 +44,7 @@ public class PagerAdapterActivity extends TitleContentActivity {
      */
     private void initContent(final Bundle savedInstanceState) {
         TaskUtils.loadData(getContext(), vm.loadDataOnExe(), new ContentDataLoader(contentFL, vm, false) {
-                    @Override protected void onCreatView(ContentDataLoader loader, View createdView) {
+                    @Override protected void onCreateView(ContentDataLoader loader, View createdView) {
                         view = (PagerAdapterView) createdView;
                     }
                 }.setOnReloadListener(new OnReloadListener() {

@@ -44,7 +44,7 @@ public class ContactBookActivity extends TitleContentActivity {
      */
     private void initContent(final Bundle savedInstanceState) {
         TaskUtils.loadData(getContext(), vm.loadDataOnExe(), new ContentDataLoader(contentFL, vm, false) {
-                    @Override protected void onCreatView(ContentDataLoader loader, View createdView) {
+                    @Override protected void onCreateView(ContentDataLoader loader, View createdView) {
                         view = (ContactBookView) createdView;
                     }
                 }.setOnReloadListener(new OnReloadListener() {

@@ -44,7 +44,7 @@ public class StaggeredAutoFullActivity extends TitleContentActivity {
      */
     private void initContent(final Bundle savedInstanceState) {
         TaskUtils.loadData(getContext(), vm.staggeredTaskInfo, vm.loadDataPerPageOnExe(), new ContentDataLoader(contentFL, vm, false) {
-                    @Override protected void onCreatView(ContentDataLoader loader, View createdView) {
+                    @Override protected void onCreateView(ContentDataLoader loader, View createdView) {
                         view = (StaggeredAutoFullView) createdView;
                     }
                 }.setOnReloadListener(new OnReloadListener() {
