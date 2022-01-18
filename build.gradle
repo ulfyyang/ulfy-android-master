@@ -4,27 +4,27 @@ buildscript {
     apply from: 'ulfy-lib/config.gradle'
 
     repositories {
-        google()
-        jcenter()
+        google(); mavenCentral(); jcenter()
         maven { url "https://jitpack.io" }
         maven { url "https://oss.jfrog.org/libs-snapshot" }
         maven { url 'https://repo1.maven.org/maven2/' }
     }
-
     dependencies {
         classpath externalAndroidBuildGradlePlugin
-        classpath externalBintrayRelease                // 发布到jcenter
+        classpath KotlinGradlePlugin
         classpath 'com.google.gms:google-services:4.3.3'
     }
 }
 
 allprojects {
     repositories {
-        google()
-        jcenter()
+        google(); mavenCentral(); jcenter()
         maven { url "https://jitpack.io" }
         maven { url "https://oss.jfrog.org/libs-snapshot" }
         maven { url 'https://repo1.maven.org/maven2/' }
+    }
+    configurations.all {        // 强制指定版本库，避免兼容性问题
+        resolutionStrategy.force externalGoogleFindBugs
     }
 }
 

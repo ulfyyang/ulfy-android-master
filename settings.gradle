@@ -1,3 +1,5 @@
+rootProject.name = 'ulfy-android-master'
+
 include ':app'
 
 include ':ulfy-lib:ulfy-cache'

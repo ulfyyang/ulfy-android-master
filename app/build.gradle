@@ -1,34 +1,21 @@
-apply plugin: 'com.android.application'
-apply plugin: 'com.google.gms.google-services'
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'com.google.gms.google-services'
+}
 
 android {
     compileSdkVersion externalCompileSdkVersion
     buildToolsVersion externalBuildToolsVersion
 
-    signingConfigs {
-        release {
-            storeFile file('android.keystore')
-            keyAlias 'alias'
-            keyPassword 'abc123'
-            storePassword 'abc123'
-            v1SigningEnabled true
-            v2SigningEnabled true
-        }
-    }
-
-    lintOptions {
-        abortOnError false
-    }
-
     defaultConfig {
-        applicationId "com.ulfy.master"
         minSdkVersion externalMinSdkVersion
         targetSdkVersion externalTargetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        applicationId "com.ulfy.master"
+        versionCode 1; versionName "1.0"
         multiDexEnabled true
-        testInstrumentationRunner externalRunner
-        flavorDimensions "default"    // AndroidStuio3.0设置
+        flavorDimensions "default"    // AndroidStudio3.0多渠道强制设置
+        testInstrumentationRunner TestRunner
 
         ndk {
             abiFilters 'armeabi', 'armeabi-v7a'
@@ -43,37 +30,38 @@ android {
         buildConfigField("String", "UMENG_KEY", '"6095292453b6726499f09b44"')
     }
 
+    signingConfigs {
+        release {
+            storeFile file('android.keystore')
+            keyAlias 'alias'; keyPassword 'abc123'; storePassword 'abc123'
+            v1SigningEnabled true; v2SigningEnabled true
+        }
+    }
     buildTypes {
         debug {
             signingConfig signingConfigs.release
         }
         release {
             signingConfig signingConfigs.release
-            zipAlignEnabled true
-            shrinkResources true
-            minifyEnabled true
+            zipAlignEnabled true; shrinkResources true; minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
+    lintOptions.abortOnError false
+    buildFeatures.viewBinding = true
+    kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8
     compileOptions {
-        sourceCompatibility 1.8
-        targetCompatibility 1.8
-    }
-
-    testOptions {
-        unitTests {
-            includeAndroidResources = true
-        }
-    }
-
-    configurations.all {
-        resolutionStrategy.force externalGoogleFindBugs
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    // Kotlin基础库
+    implementation KotlinStdlib
 
     /*
     基础库
@@ -182,18 +170,9 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-analytics:17.4.1'
 
-    /*
-    测试库
-     */
-    testImplementation externalJunit
-    testImplementation externalHamcrestLibrary
-    testImplementation externalMockito
-    androidTestImplementation externalMockitoAndroid
-    testImplementation externalRobolectic
-    androidTestImplementation externalAndroidTestRunner
-    androidTestImplementation externalAndroidTestRules
-    androidTestImplementation externalAndroidTestEspresso
-    androidTestImplementation externalAndroidTestSupport
-    debugImplementation externalAndroidTestSupportExtra
-    androidTestImplementation externalAndroidTestUiAutomator
+    // 测试库
+    testImplementation TestJunit
+    testImplementation TestKotlinCoroutines
+    androidTestImplementation TestJunitExt
+    androidTestImplementation TestEspresso
 }
