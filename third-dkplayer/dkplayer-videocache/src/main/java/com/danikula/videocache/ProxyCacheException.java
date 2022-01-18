@@ -7,7 +7,7 @@ package com.danikula.videocache;
  */
 public class ProxyCacheException extends Exception {
 
-    private static final String LIBRARY_VERSION = ". Version: " + BuildConfig.VERSION_NAME;
+    private static final String LIBRARY_VERSION = ". Version: 1.0";
 
     public ProxyCacheException(String message) {
         super(message + LIBRARY_VERSION);
