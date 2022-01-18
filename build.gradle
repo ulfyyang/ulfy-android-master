@@ -24,7 +24,7 @@ allprojects {
         maven { url 'https://repo1.maven.org/maven2/' }
     }
     configurations.all {        // 强制指定版本库，避免兼容性问题
-        resolutionStrategy.force externalGoogleFindBugs
+        resolutionStrategy.force AndroidXCore, AndroidXCoreKtx, AndroidXActivity, externalGoogleFindBugs
     }
 }
 
