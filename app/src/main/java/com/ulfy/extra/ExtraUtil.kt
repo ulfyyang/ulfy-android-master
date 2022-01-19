@@ -12,7 +12,7 @@ object System {
     /**
      * 卸载多个App，每次卸载时弹出一个提示(由于卸载过程是异步过程，因此只会卸载列表中找到的第一个App)
      * 必须在清单文件中添加以下权限
-     * <uses- Manifest.permission android:name="android.permission.REQUEST_DELETE_PACKAGES"/>    <!--适配9.0卸载问题-->
+     * <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES"/>    <!--适配9.0卸载问题-->
      * @param context 上下文，必须是Activity上下文
      * @param packageNames 卸载的App包名数组
      * @param message 卸载之前弹出的确认提示框文字

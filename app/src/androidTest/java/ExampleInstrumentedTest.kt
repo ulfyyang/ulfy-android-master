@@ -41,7 +41,7 @@ class TestUninstallApp {
     }
 
     @Test fun uninstallApp() {      // 以弹出框提示方式卸载app
-        // <uses- Manifest.permission android:name="android.permission.REQUEST_DELETE_PACKAGES"/>    <!--适配9.0卸载问题-->
+        // <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES"/>    <!--适配9.0卸载问题-->
         // Intent.FLAG_ACTIVITY_NEW_TASK 在非Activity环境中启动Activity
         val packageName = "com.ulfy.master"
         val intent = Uri.fromParts("package", packageName, null)
@@ -51,7 +51,7 @@ class TestUninstallApp {
 
     /*
     主步骤测试：必须在清单文件中添加以下权限
-    <uses- Manifest.permission android:name="android.permission.REQUEST_DELETE_PACKAGES"/>    <!--适配9.0卸载问题-->
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES"/>    <!--适配9.0卸载问题-->
      */
     @Test fun uninstallAppByMessage() {
         val packageNames = arrayOf("", "com.ulfy.animal", "com.ulfy.master", "com.google.android.youtube")
