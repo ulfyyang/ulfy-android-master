@@ -36,10 +36,11 @@
             如何是黑色背景使用：@style/ThemeOverlay.AppCompat.Dark.ActionBar
             如果是白色背景使用：@style/ThemeOverlay.AppCompat.Light
             修改色调需要修改 TabLayout 和下方 LinearLayout 的背景色
+            为了兼容性问题，容器与内部的Tab的高度要手动写为相同的固定高度
         -->
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <!-- 该容器用于管理具体的点击Tab组件 -->
@@ -48,7 +49,7 @@
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabTL"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:background="#000"
                 app:borderWidth="0dp"
                 app:tabGravity="fill"
@@ -61,14 +62,14 @@
         <!-- 子Tab容器的宽度必须要是match_parent，否则会无法显示出来 -->
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:orientation="horizontal"
             tools:background="#000000">
 
             <LinearLayout
                 android:id="@+id/homeLL"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
@@ -94,7 +95,7 @@
             <LinearLayout
                 android:id="@+id/chargeLL"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
@@ -120,7 +121,7 @@
             <LinearLayout
                 android:id="@+id/findLL"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
@@ -146,7 +147,7 @@
             <LinearLayout
                 android:id="@+id/controlsLL"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
@@ -172,7 +173,7 @@
             <LinearLayout
                 android:id="@+id/meLL"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="48dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
