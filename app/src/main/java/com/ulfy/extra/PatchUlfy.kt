@@ -8,11 +8,20 @@ import com.ulfy.android.task.LoadDataUiTask
 import com.ulfy.android.task.LoadListPageUiTask
 import com.ulfy.android.task_transponder.RecyclerViewPageLoader
 import com.ulfy.android.task_transponder_smart.SmartRefresher
+import com.ulfy.android.utils.RecyclerViewUtils
 
 
 /*
     数据加载相关补丁
  */
+
+
+// RecyclerView 布局快速设置
+fun RecyclerView.linearLayout() = RecyclerViewUtils.linearLayout(this)!!
+fun RecyclerView.gridLayout() = RecyclerViewUtils.gridLayout(this)!!
+fun RecyclerView.staggeredLayout() = RecyclerViewUtils.staggeredLayout(this)!!
+fun RecyclerView.viewPagerLayout() = RecyclerViewUtils.viewPagerLayout(this)!!
+
 
 typealias ListPage<D> = LoadListPageUiTask.LoadListPageUiTaskInfo<D>   // 定义别名，简化代码
 /**

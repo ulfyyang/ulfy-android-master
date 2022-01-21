@@ -6,6 +6,7 @@ import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.ulfy.android.adapter.RecyclerAdapter
 import com.ulfy.android.mvvm.IView
 import com.ulfy.android.mvvm.IViewModel
@@ -84,9 +85,9 @@ class List1View(context: Context) : BaseView(context) {
         with(binding) {
             // RecyclerAdapter 可以设置 header 和 footer，如果设置了 header、footer 则 dividerXX 方法中要填写对应的 header、footer 数量
             // RecyclerViewPageLoader 上拉加载分页内部通过 RecyclerAdapter 设置了 footer，因此需要配置 footer 为 1
-            RecyclerViewUtils.linearLayout(contentRV).vertical()
+            contentRV.linearLayout().vertical()
                 .dividerDp(resources.getColor(R.color.line), 0.5f, 0, 1)
-            //                .dividerDp(getResources().getColor(R.color.line), 0.5f, 0, 1, 20, 20);
+//                .dividerDp(getResources().getColor(R.color.line), 0.5f, 0, 1, 20, 20);
             contentRV.adapter = contentAdapter
         }
         contentAdapter.setOnItemClickListener { parent, view, position, model -> UiUtils.show(String.format("点击了：%d", position)) }
