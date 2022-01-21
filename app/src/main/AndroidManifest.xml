@@ -24,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.activity.MainKotlinActivity" />
         <activity android:name=".ui.activity.ContentDataRefreshActivity" />
         <activity android:name=".ui.activity.ContentDataLoaderActivity" />
         <activity android:name=".ui.activity.TabPager1Activity" />
@@ -107,6 +108,7 @@
         <activity android:name=".ui.activity.Details1Activity" />
         <activity android:name=".ui.activity.Details2Activity" />
         <activity android:name=".ui.activity.List1Activity" />
+        <activity android:name=".ui.activity.List1KotlinActivity" />
         <activity android:name=".ui.activity.List2Activity" />
         <activity
             android:name=".ui.activity.RouterActivity"

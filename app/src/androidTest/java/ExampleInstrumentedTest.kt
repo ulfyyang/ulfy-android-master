@@ -40,8 +40,19 @@ class TestTabPage {
     @Test fun launch_Custom() = TabPager4Activity::class.java.launchWait()
     // 采用 TabLayout 实现的底部 Tab 分页
     @Test fun launch_TableLayout_Bottom() = MainActivity::class.java.launchWait()
+    @Test fun launch_TableLayout_BottomKotlin() = MainKotlinActivity::class.java.launchWait()
     // 一个标签页和列表的综合业务模拟页面
     @Test fun launch_Demo() = VideoListActivity::class.java.launchWait()
+}
+
+/**
+ * 列表页加载
+ */
+@RunWith(AndroidJUnit4::class)
+class TestListPage {
+    // RecyclerView 列表页(包含下拉刷新、上拉加载)
+    @Test fun launch_RecyclerView() = List1Activity::class.java.launchWait()
+    @Test fun launch_RecyclerViewKotlin() = List1KotlinActivity::class.java.launchWait()
 }
 
 /**
