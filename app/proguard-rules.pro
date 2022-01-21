@@ -1,31 +1,8 @@
-# Add project specific ProGuard rules here.
-# You can control the set of applied configuration files using the
-# proguardFiles setting in build.gradle.
-#
-# For more details, see
-#   http://developer.android.com/guide/developing/tools/proguard.html
-
-# If your project uses WebView with JS, uncomment the following
-# and specify the fully qualified class name to the JavaScript interface
-# class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
-
-# Uncomment this to preserve the line number information for
-# debugging stack traces.
-#-keepattributes SourceFile,LineNumberTable
-
-# If you keep the line number information, uncomment this to
-# hide the original source file name.
-#-renamesourcefileattribute SourceFile
-
 
 
 ################################ 业务 ################################
 -keep class com.yulong.tomMovie.domain.**  { *; }
 -keep class com.yulong.tomMovie.infrastructure.**  { *; }
-
 
 
 ################################ DKPlayer ################################
@@ -37,7 +14,25 @@
 # ExoPlayer
 -keep class com.google.android.exoplayer2.** { *; }
 -dontwarn com.google.android.exoplayer2.**
-
+################################# 友盟 ################################
+# 友盟
+-keep class com.umeng.** {*;}
+-keepclassmembers class * {
+   public <init> (org.json.JSONObject);
+}
+-keepclassmembers enum * {
+    public static **[] values();
+    public static ** valueOf(java.lang.String);
+}
+# 微信
+-keep class com.tencent.mm.opensdk.** { *; }
+-keep class com.tencent.wxop.** { *; }
+-keep class com.tencent.mm.sdk.** { *; }
+# QQ
+-keep class com.tencent.** {*;}
+################################ 三方库 ################################
+# XBanner 图片轮播混淆配置
+-keep class com.stx.xhb.androidx.**{*;}
 
 
 ################################ 公共 ################################
@@ -72,7 +67,6 @@
 # 指定混淆是采用的算法，后面的参数是一个过滤器
 # 这个过滤器是谷歌推荐的算法，一般不做更改
 -optimizations !code/simplification/cast,!field/*,!class/merging/*
-
 
 
 ################################ 安卓 ################################
@@ -154,157 +148,3 @@
   public *** println(...);
   public *** print(...);
 }
-
-
-
-################################ ulfy ################################
-
-
-################################ agentWeb ################################
--keep class com.just.agentweb.** {
-    *;
-}
--dontwarn com.just.agentweb.**
-
-# webView处理，项目中没有使用到webView忽略即可
--keepclassmembers class fqcn.of.javascript.interface.for.webview {
-    public *;
-}
--keepclassmembers class * extends android.webkit.webViewClient {
-    public void *(android.webkit.WebView, java.lang.String, android.graphics.Bitmap);
-    public boolean *(android.webkit.WebView, java.lang.String);
-}
--keepclassmembers class * extends android.webkit.webViewClient {
-    public void *(android.webkit.webView, jav.lang.String);
-}
-
-
-################################ ulfy-bus ################################
-# 必须保留事件总线订阅方法，因为这种方法通常不会被其它地方引用
--keepclassmembers class ** {
-    @com.ulfy.android.bus.Subscribe <methods>;
-}
-
-
-################################ ulfy-cache ################################
-# 保留Serializable序列化
--keep class * implements java.io.Serializable { *; }
-
-
-################################ ulfy-download-manager ################################
-# 保留Serializable序列化
--keep class * implements java.io.Serializable { *; }
-# 保留DownloadTaskInfo
--keep public interface com.ulfy.android.download_manager.DownloadTaskInfo { *; }
-# 因为不知道okdownload的具体规则，因此保留全部
--keep class com.liulishuo.okdownload.** { *; }
-
-
-################################ ulfy-image ################################
-# glide
--keep public class * implements com.bumptech.glide.module.GlideModule
--keep public class * extends com.bumptech.glide.AppGlideModule
--keep public enum com.bumptech.glide.load.resource.bitmap.ImageHeaderParser$** {
-    **[] $VALUES;
-    public *;
-}
-# okhttp
--dontwarn okhttp3.**
--dontwarn okio.**
--dontwarn javax.annotation.**
-# A resource is loaded with a relative path so the package of this class must be preserved.
--keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
--dontwarn com.franmontiel.persistentcookiejar.**
--keep class com.franmontiel.persistentcookiejar.**
--keepclassmembers class * implements java.io.Serializable {
-    static final long serialVersionUID;
-    private static final java.io.ObjectStreamField[] serialPersistentFields;
-    !static !transient <fields>;
-    private void writeObject(java.io.ObjectOutputStream);
-    private void readObject(java.io.ObjectInputStream);
-    java.lang.Object writeReplace();
-    java.lang.Object readResolve();
-}
-
-
-################################ ulfy-multi-domain-picker ################################
-# 保留Serializable序列化
--keep class * implements java.io.Serializable { *; }
-
-
-################################ ulfy-okhttp ################################
-# okhttp
--dontwarn okhttp3.**
--dontwarn okio.**
--dontwarn javax.annotation.**
-# A resource is loaded with a relative path so the package of this class must be preserved.
--keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
--dontwarn com.franmontiel.persistentcookiejar.**
--keep class com.franmontiel.persistentcookiejar.**
--keepclassmembers class * implements java.io.Serializable {
-    static final long serialVersionUID;
-    private static final java.io.ObjectStreamField[] serialPersistentFields;
-    !static !transient <fields>;
-    private void writeObject(java.io.ObjectOutputStream);
-    private void readObject(java.io.ObjectInputStream);
-    java.lang.Object writeReplace();
-    java.lang.Object readResolve();
-}
-
-
-################################ ulfy-smart-refresh-layout ################################
--keep class com.github.mmin18.** {*;}
--dontwarn android.support.v8.renderscript.*
--keepclassmembers class android.support.v8.renderscript.RenderScript {
-  native *** rsn*(...);
-  native *** n*(...);
-}
--keep class com.wang.avi.** { *; }
--keep class com.wang.avi.indicators.** { *; }
--keep class com.scwang.refreshlayout.activity.practice.BannerPracticeActivity$Movie {*;}
-
-
-################################ ulfy-time ################################
-# 保留Serializable序列化
--keep class * implements java.io.Serializable { *; }
-
-
-################################ ulfy-ui-injection ################################
-# 不需要保留ViewById字段，如果有其它地方用到了会自动保留
-#-keepclassmembers class ** {
-#    @com.ulfy.android.ui_injection.ViewById <fields>;
-#}
-# 必须保留View点击方法，因为这种方法通常不会被其它地方引用
--keepclassmembers class ** {
-    @com.ulfy.android.ui_injection.ViewClick <methods>;
-}
-
-
-################################ ulfy-umeng ################################
-# 友盟
--keep class com.umeng.** {*;}
--keepclassmembers class * {
-   public <init> (org.json.JSONObject);
-}
--keepclassmembers enum * {
-    public static **[] values();
-    public static ** valueOf(java.lang.String);
-}
-# 微信
--keep class com.tencent.mm.opensdk.** { *; }
--keep class com.tencent.wxop.** { *; }
--keep class com.tencent.mm.sdk.** { *; }
-# QQ
--keep class com.tencent.** {*;}
-
-
-################################ ulfy-utils ################################
-# 关闭日志打印
--assumenosideeffects class com.ulfy.android.utils.LogUtils {
-    public static void log(...);
-}
-
-
-################################ 三方库 ################################
-# XBanner 图片轮播混淆配置
--keep class com.stx.xhb.androidx.**{*;}

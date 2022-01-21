@@ -97,7 +97,6 @@ dependencies {
     implementation project(':ulfy-lib:ulfy-okhttp')                      // 网络访问工具
     implementation project(':ulfy-lib:ulfy-utils')                       // 工具处理集合
     implementation project(':ulfy-lib:ulfy-resource')                    // 公共资源
-//    implementation project(':ulfy-lib:ulfy-umeng')                       // 友盟统计
     implementation  'com.umeng.umsdk:common:9.3.8'                       // 友盟统计 必选
     implementation  'com.umeng.umsdk:asms:1.2.2'                         // 友盟统计 必选
     implementation project(':ulfy-lib:ulfy-agentweb')                    // 网页加载

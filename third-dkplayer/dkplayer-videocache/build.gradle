@@ -7,5 +7,13 @@ android {
     defaultConfig {
         minSdkVersion externalMinSdkVersion
         targetSdkVersion externalTargetSdkVersion
+        consumerProguardFiles 'proguard-rules.pro'
+        testInstrumentationRunner TestRunner
+    }
+
+    lintOptions.abortOnError false
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
     }
 }

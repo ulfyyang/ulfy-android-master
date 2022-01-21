@@ -24,7 +24,6 @@ include ':ulfy-lib:ulfy-system'
 include ':ulfy-lib:ulfy-okhttp'
 include ':ulfy-lib:ulfy-utils'
 include ':ulfy-lib:ulfy-resource'
-include ':ulfy-lib:ulfy-umeng'
 include ':ulfy-lib:ulfy-agentweb'
 include ':ulfy-lib:ulfy-agentweb-filechooser'
 
