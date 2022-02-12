@@ -106,8 +106,7 @@ class List1View(context: Context) : BaseView(context) {
             contentRV.bindLoader(vm.contentListPage, vm.loadContentDataPerPageOnExe())
         }
         // 设置数据源并更新列表页
-        contentAdapter.setData(vm.contentCMList)
-        contentAdapter.notifyDataSetChanged()
+        contentAdapter.setData(vm.contentCMList).notifyDataSetChanged()
         // 该方法用于通知上拉加载器更新页面，这样在首页为空的情况下有更好的页面显示
         binding.contentRV.updateLoader()
     }
@@ -120,7 +119,7 @@ class List1VM : BaseVM() {
     /**
      * 分页的方式加载列表数据，加载出来的数据必须要放到参数中的临时列表中，最终的数据合并将会在框架内完成
      */
-    fun loadContentDataPerPageOnExe()= onLoadSimplePage { task, modelList, tempList, page, pageSize ->
+    fun loadContentDataPerPageOnExe() = onLoadSimplePage { task, modelList, tempList, page, pageSize ->
         Thread.sleep(1000)
         // 在第一页时可以额外加载一些其它的数据
         if (page == DEFAULT_START_PAGE) {

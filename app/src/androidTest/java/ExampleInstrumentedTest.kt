@@ -53,6 +53,19 @@ class TestListPage {
     // RecyclerView 列表页(包含下拉刷新、上拉加载)
     @Test fun launch_RecyclerView() = List1Activity::class.java.launchWait()
     @Test fun launch_RecyclerViewKotlin() = List1KotlinActivity::class.java.launchWait()
+    // 采用 CoordinatorLayout 实现的 Header 滚动
+    @Test fun launch_RecyclerViewCoordinatorLayout() = List2Activity::class.java.launchWait()
+}
+
+/**
+ * 特效收集
+ */
+@RunWith(AndroidJUnit4::class)
+class TestSpecialEffect {
+    // 文本跑马灯
+    @Test fun launch_MarqueeText() = AutoScrollActivity::class.java.launchWait()
+    // 轮播图-XBanner
+    @Test fun launch_XBannerActivity() = XBannerActivity::class.java.launchWait()
 }
 
 /**

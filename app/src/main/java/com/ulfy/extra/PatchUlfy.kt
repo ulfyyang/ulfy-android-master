@@ -23,6 +23,10 @@ fun RecyclerView.staggeredLayout() = RecyclerViewUtils.staggeredLayout(this)!!
 fun RecyclerView.viewPagerLayout() = RecyclerViewUtils.viewPagerLayout(this)!!
 
 
+/**
+ * 简化普通数据加载体代码
+ */
+fun onLoadData(executeBody: (task: LoadDataUiTask) -> Unit): LoadDataUiTask.OnExecute = LoadDataUiTask.OnExecute { task -> executeBody(task) }
 typealias ListPage<D> = LoadListPageUiTask.LoadListPageUiTaskInfo<D>   // 定义别名，简化代码
 /**
  * 简化创建列表加载体的代码
