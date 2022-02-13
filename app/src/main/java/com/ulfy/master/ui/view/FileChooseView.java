@@ -16,6 +16,7 @@ import com.ulfy.android.system.event.OnPickMediaEvent;
 import com.ulfy.android.system.event.OnPickPictureEvent;
 import com.ulfy.android.system.event.OnTakePhotoEvent;
 import com.ulfy.android.system.event.OnTakePhotoOrPickPictureEvent;
+import com.ulfy.android.system.event.OnTakeVideoEvent;
 import com.ulfy.android.system.media_picker.MediaRepository;
 import com.ulfy.android.ui_injection.Layout;
 import com.ulfy.android.ui_injection.ViewById;
@@ -33,6 +34,7 @@ public class FileChooseView extends BaseView {
     @ViewById(id = R.id.pickCropBT) private Button pickCropBT;
     @ViewById(id = R.id.takeBT) private Button takeBT;
     @ViewById(id = R.id.takeCropBT) private Button takeCropBT;
+    @ViewById(id = R.id.takeVideoBT) private Button takeVideoBT;
     @ViewById(id = R.id.cropBT) private Button cropBT;
     @ViewById(id = R.id.mediaPictureBT) private Button mediaPictureBT;
     @ViewById(id = R.id.mediaVideoBT) private Button mediaVideoBT;
@@ -40,6 +42,7 @@ public class FileChooseView extends BaseView {
     private static final int REQUEST_CODE = 100;
     private static final int REQUEST_CODE_PICK_PICTURE = 101;
     private static final int REQUEST_CODE_PICK_VIDEO = 102;
+    private static final int REQUEST_CODE_TAKE_VIDEO = 103;
     private CropImageParam cropImageParam = new CropImageParam(100, 150);
     private FileChooseVM vm;
 
@@ -97,6 +100,10 @@ public class FileChooseView extends BaseView {
         }
     }
 
+    @ViewClick(ids = R.id.takeVideoBT) private void takeVideoBT(View v) {
+        ActivityUtils.takeVideo(REQUEST_CODE_TAKE_VIDEO);
+    }
+
     @ViewClick(ids = R.id.cropBT) private void cropBT(View v) {
         UiUtils.show("参考ActivityUtils.cropImage()方法");
     }
@@ -135,6 +142,16 @@ public class FileChooseView extends BaseView {
             ImageUtils.loadImage(event.file, contentIV);
         }
     }
+
+    /**
+     * 拍摄视频后会触发
+     */
+    @Subscribe private void OnTakeVideoEvent(OnTakeVideoEvent event) {
+        if (event.requestCode == REQUEST_CODE_TAKE_VIDEO) {
+            UiUtils.show(String.format("拍摄视频路径：%s，长度：%d", event.file.getAbsolutePath(), event.duration));
+        }
+    }
+
 
     /**
      * 图片裁切后会触发
