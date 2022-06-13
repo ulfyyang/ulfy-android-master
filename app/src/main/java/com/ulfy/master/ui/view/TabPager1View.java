@@ -1,6 +1,7 @@
 package com.ulfy.master.ui.view;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
@@ -17,7 +18,6 @@ import com.ulfy.android.mvvm.IViewModel;
 import com.ulfy.android.ui_injection.Layout;
 import com.ulfy.android.ui_injection.ViewById;
 import com.ulfy.android.ui_injection.ViewClick;
-import com.ulfy.android.ui_linkage.OnTabSelectedListener;
 import com.ulfy.android.ui_linkage.TabPagerLinkage;
 import com.ulfy.android.utils.UiUtils;
 import com.ulfy.master.R;
@@ -68,26 +68,37 @@ public class TabPager1View extends BaseView {
             在屏幕没有足够空间的时候改变标签显示为滚动模式，这样用户可以通过拖拽的方式移动标签页
         切换按钮的设置：
             1. 切换按钮支持 可变数组 和 List，方便灵活的编码
-            2. 字符串适合单纯的只显示文字的切换按钮，这时候和原始的表现一致
+            2. 字符串适合单纯的只显示文字的切换按钮，这时候和原生的表现一致
         其它事项：
             1. 标签显示样式由 select 属性设定，可以通过开发 selector 资源自定义显示的样式
-            2. TabLayout 在下划线包裹内容是在 AppBarLayout 下有显示的 bug
+            2. TabLayout 在下划线包裹内容时在 AppBarLayout 下有显示的 bug
             3. 如果对标签设置了点击事件会屏蔽 TabLayout 的点击事件，导致无法进行切换。如果有较高的定制需求可使用 PagerLinkage
      */
     private void init(Context context, AttributeSet attrs) {
-        /*
-            基本属性设置
-         */
-        linkage.setTabLayout(tabsTL).setContainer(containerVP)              // 设置关联的 TabLayout、显示页面容器（ViewPager 可滚动、ViewGroup 不可滚动）
-                .setAutoScrollMode(true)                                    // 当一屏无法显示所有的 Tab按钮 时自动切换为可滚动模式
-                .setUseWrapperOnScrollMode(true)                            // 设置在标签可横向滚动模式下线宽是否为包裹内容模式，启动包裹线条宽度可以在有间距的情况下和内容同齐
-                .setDividerWidth(UiUtils.dp2px(10))                         // 设置 Tab按钮 之间的间隔。对 LINE_WIDTH_WRAP_CONTENT、MODE_FIXED 模式下设置无效
-                .setLineWidth(TabPagerLinkage.LINE_WIDTH_MATCH_PARENT)      // 设置指示器下划线。线宽的三种模式：填充、包裹、固定长度。默认填充。具体值查看源码即可
-                .addOnTabSelectedListener(new OnTabSelectedListener() {     // 设置标签页被选中时的回调
-                    @Override public void onTabSelected(int index) {
-                        UiUtils.show("选中了标签页：" + index);
-                    }
-                })
+        // 用于快速切换TabLayout的模式，通过注释快速开关代码
+        tabsTL.setTabMode(TabLayout.MODE_FIXED);
+//        tabsTL.setTabMode(TabLayout.MODE_SCROLLABLE);
+//        tabsTL.setTabMode(TabLayout.MODE_AUTO);
+        // 基本属性设置
+        linkage.setTabLayout(tabsTL).setContainer(containerVP)          // 设置关联的 TabLayout、显示页面容器（ViewPager 可滚动、ViewGroup 不可滚动）
+            .setAutoScrollMode(true)                                    // 当一屏无法显示所有的 Tab按钮 时自动切换为可滚动模式
+//            .setLineWidth(TabPagerLinkage.LINE_WIDTH_MATCH_PARENT)      // 设置指示器下划线。线宽的三种模式：填充、包裹、固定长度。默认填充。具体值查看源码即可
+            .setLineWidth(TabPagerLinkage.LINE_WIDTH_WRAP_CONTENT)      // 设置指示器下划线。线宽的三种模式：填充、包裹、固定长度。默认填充。具体值查看源码即可
+//            .setLineWidthDP(30)                                         // 设置指示器下划线。线宽的三种模式：填充、包裹、固定长度。默认填充。具体值查看源码即可
+            .setDividerWidthDP(10)      // 设置 Tab按钮 之间的间隔。对 LINE_WIDTH_WRAP_CONTENT、MODE_FIXED 模式下设置无效
+            .addOnTabSelectedListener(index -> UiUtils.show("选中了标签页：" + index))     // 添加标签页被选中时的回调
+            .addOnTabSelectedListener(index -> {
+                tab1TV.setTypeface(Typeface.DEFAULT);tab1TV.setTextSize(14);
+                tab2TV.setTypeface(Typeface.DEFAULT);tab2TV.setTextSize(14);
+                if (index == 0) {
+                    tab1TV.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                    tab1TV.setTextSize(20);
+                } else if (index == 1) {
+                    tab2TV.setTypeface(Typeface.defaultFromStyle(Typeface.BOLD));
+                    tab2TV.setTextSize(20);
+                }
+                linkage.updateOnLayoutChanged();
+            })
         ;
     }
 
@@ -98,18 +109,26 @@ public class TabPager1View extends BaseView {
             标签按钮设置，实际测试的时候只需要放开对应的注释代码即可查看不同情况下的表现
             标签按钮的数量需要和标签页的数量相同，否则会出现数量对不上的情况
          */
-        linkage.initStringTabs("标签页1", "标签页22");                                                            // 设置两个字符串，不占满一屏
-//        linkage.initStringTabs("标签页1", "标签页22", "标签页333", "标签页4444", "标签页55555", "标签页666666");      // 多设置几个字符串，可以超过一屏
-//        linkage.initViewTabs(tab1FL, tab2FL);                                                                    // 设置两个 View，不占满一屏
-//        linkage.initViewTabs(tab1FL, tab2FL, tab3FL, tab4FL, tab5FL, tab6FL);                                    // 多设置几个 View，可以超过一屏
+//        linkage.initStringTabs("标签页一");
+        // 设置两个字符串，不占满一屏。常规标签页测试
+//        linkage.initStringTabs("标签页一", "标签页二标签页二");
+        // 多设置几个字符串，使其宽度超过屏幕。测试不同宽度标签与超过屏幕宽度，需下方标签页数组足够
+//        linkage.initStringTabs("1", "标签页22", "标签页333", "标签页4444", "标签页55555", "标签页666666标签页");
+        linkage.initViewTabs(tab1FL, tab2FL);
+//        linkage.initViewTabs(tab1FL, tab2FL, tab3FL, tab4FL, tab5FL, tab6FL);
 
         /*
             标签页设置，实际测试的时候只需要放开对应的注释代码即可查看不同情况下的表现
             标签按钮的数量需要和标签页的数量相同，否则会出现数量对不上的情况
          */
-        linkage.initViewPages(tabPage1LL, tabPage2LL);                                                          // 设置两个标签页（支持View、Fragment）
-//        linkage.initViewPages(tabPage1LL, tabPage2LL, generateTabPage(2), generateTabPage(3)        // 多设置几个标签页，和标签按钮数量相同
-//                , generateTabPage(4), generateTabPage(5));
+//        linkage.initViewPages(tabPage1LL);
+        // 设置两个标签页（支持View、Fragment）
+        linkage.initViewPages(tabPage1LL, tabPage2LL);
+        // 多设置几个标签页，和标签按钮数量相同
+//        linkage.initViewPages(
+//            tabPage1LL, tabPage2LL, generateTabPage(2), generateTabPage(3),
+//            generateTabPage(4), generateTabPage(5)
+//        );
 
         /*
             构造联动并显示第一个标签页
@@ -135,6 +154,6 @@ public class TabPager1View extends BaseView {
     @ViewClick(ids = R.id.modifyTabBT) private void modifyTabBT(View v) {
         tab1TV.setText("随机Tab：" + new Random().nextInt(10000));
         tab2TV.setText("随机Tab：" + new Random().nextInt(10000));
-        linkage.wrapContentIfNeed();
+        linkage.updateOnLayoutChanged();
     }
 }

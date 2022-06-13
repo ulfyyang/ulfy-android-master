@@ -34,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#0f0">
+                android:background="#40f0">
 
                 <TextView
                     android:id="@+id/tab1TV"
@@ -50,7 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="#0f0">
+                android:background="#40f0">
 
                 <TextView
                     android:id="@+id/tab2TV"
@@ -176,7 +176,7 @@
                     android:id="@+id/modifyTabBT"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="修改View模式Tab" />
+                    android:text="随机Tab内容" />
 
             </LinearLayout>
 

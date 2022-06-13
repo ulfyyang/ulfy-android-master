@@ -30,14 +30,6 @@ fun <A : Activity> Class<A>.launchWait() {
  */
 @RunWith(AndroidJUnit4::class)
 class TestTabPage {
-    // 系统原生 TabLayout 标签页
-    @Test fun launch_TabLayout() = TabPager1Activity::class.java.launchWait()
-    // MagicIndicator 标签页
-    @Test fun launch_MagicIndicator() = TabPager2Activity::class.java.launchWait()
-    // ViewGroup 标签页
-    @Test fun launch_ViewGroup() = TabPager3Activity::class.java.launchWait()
-    // 完全手动实现标签页
-    @Test fun launch_Custom() = TabPager4Activity::class.java.launchWait()
     // 采用 TabLayout 实现的底部 Tab 分页
     @Test fun launch_TableLayout_Bottom() = MainActivity::class.java.launchWait()
     @Test fun launch_TableLayout_BottomKotlin() = MainKotlinActivity::class.java.launchWait()
