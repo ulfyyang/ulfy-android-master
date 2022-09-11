@@ -5,19 +5,8 @@ import androidx.multidex.MultiDexApplication;
 import com.dueeeke.videoplayer.exo.ExoMediaPlayerFactory;
 import com.dueeeke.videoplayer.player.VideoViewConfig;
 import com.dueeeke.videoplayer.player.VideoViewManager;
-import com.ulfy.android.bus.BusConfig;
-import com.ulfy.android.cache.CacheConfig;
-import com.ulfy.android.dialog.DialogConfig;
-import com.ulfy.android.download_manager.DownloadManagerConfig;
-import com.ulfy.android.image.ImageConfig;
 import com.ulfy.android.multi_domain_picker.MultiDomainPickerConfig;
-import com.ulfy.android.okhttp.HttpConfig;
 import com.ulfy.android.system.AppUtils;
-import com.ulfy.android.system.SystemConfig;
-import com.ulfy.android.task.TaskConfig;
-import com.ulfy.android.task_transponder.TaskTransponderConfig;
-import com.ulfy.android.time.TimeConfig;
-import com.ulfy.android.utils.UtilsConfig;
 import com.umeng.commonsdk.UMConfigure;
 import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 
@@ -118,25 +107,10 @@ public class MainApplication extends MultiDexApplication {
 
     @Override public void onCreate() {
         super.onCreate();
-
         application = this;
-
         AppUtils.enableUnValidHttpsCertificate();           // 允许访问未认证证书的 https 网络
-
-        CacheConfig.initDefaultCache(this);         // 配置app用的默认缓存
-        BusConfig.init(this);                       // 初始化事件总线
-        TaskConfig.init(this);                      // 配置任务引擎
-        TaskTransponderConfig.init(this);           // 配置任务响应器
-        TimeConfig.init(this);                      // 配置时间跟踪
-        DialogConfig.init(this);                    // 配置弹出框
-        ImageConfig.init(this);                     // 配置图片处理
-        SystemConfig.init(this);                    // 初始化系统模块
-        HttpConfig.init(this);                      // 配置网络层
-        UtilsConfig.init(this);                     // 工具模块配置
-        DownloadManagerConfig.init(this);           // 配置下载管理器
         // 配置多域名选择器
-        MultiDomainPickerConfig.init(this, Arrays.asList(BuildConfig.HTTP_BASES));
-
+        MultiDomainPickerConfig.init(Arrays.asList(BuildConfig.HTTP_BASES));
 //        LeakCanary.install(this);
         ZXingLibrary.initDisplayOpinion(this);
         // 初始化DK播放器
@@ -144,7 +118,6 @@ public class MainApplication extends MultiDexApplication {
 //                .setPlayerFactory(IjkPlayerFactory.create())
                 .setPlayerFactory(ExoMediaPlayerFactory.create())
                 .build());
-
         UMConfigure.setLogEnabled(BuildConfig.DEBUG);
         UMConfigure.init(this, BuildConfig.UMENG_KEY, "优菲安卓Demo", UMConfigure.DEVICE_TYPE_PHONE, null);
     }
