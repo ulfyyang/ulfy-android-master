@@ -5,6 +5,7 @@ import androidx.multidex.MultiDexApplication;
 import com.dueeeke.videoplayer.exo.ExoMediaPlayerFactory;
 import com.dueeeke.videoplayer.player.VideoViewConfig;
 import com.dueeeke.videoplayer.player.VideoViewManager;
+import com.ulfy.android.multi_domain_picker.MultiDomainPicker;
 import com.ulfy.android.multi_domain_picker.MultiDomainPickerConfig;
 import com.ulfy.android.system.AppUtils;
 import com.umeng.commonsdk.UMConfigure;
@@ -107,10 +108,16 @@ public class MainApplication extends MultiDexApplication {
 
     @Override public void onCreate() {
         super.onCreate();
+
         application = this;
         AppUtils.enableUnValidHttpsCertificate();           // 允许访问未认证证书的 https 网络
-        // 配置多域名选择器
-        MultiDomainPickerConfig.init(Arrays.asList(BuildConfig.HTTP_BASES));
+
+        if (AppUtils.isPackageProcess(this)) {
+            // 配置多域名选择器
+            MultiDomainPickerConfig.init(Arrays.asList(BuildConfig.HTTP_BASES));
+            MultiDomainPicker.getInstance().reset();    // 若每次启动重选，则先重置
+        }
+
 //        LeakCanary.install(this);
         ZXingLibrary.initDisplayOpinion(this);
         // 初始化DK播放器
@@ -118,6 +125,7 @@ public class MainApplication extends MultiDexApplication {
 //                .setPlayerFactory(IjkPlayerFactory.create())
                 .setPlayerFactory(ExoMediaPlayerFactory.create())
                 .build());
+
         UMConfigure.setLogEnabled(BuildConfig.DEBUG);
         UMConfigure.init(this, BuildConfig.UMENG_KEY, "优菲安卓Demo", UMConfigure.DEVICE_TYPE_PHONE, null);
     }
