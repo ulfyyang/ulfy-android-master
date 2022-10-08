@@ -41,6 +41,9 @@ public class DouyinActivity extends ContentActivity {
      */
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (videoCMList == null) {
+            return;
+        }
         initModel(savedInstanceState);
         initContent(savedInstanceState);
         initActivity(savedInstanceState);
