@@ -43,7 +43,7 @@ public class CountryCodeView extends BaseView {
 
     /*
     依赖于一下三方依赖
-            implementation externalQuickSlideBar                        // 列表索引列表
+            implementation QuickSlideBar                        // 列表索引列表
      */
 
     private void init(Context context, AttributeSet attrs) {

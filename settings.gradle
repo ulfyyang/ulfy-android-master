@@ -1,31 +1,26 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()
+        mavenCentral()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter()
+        maven { url 'https://jitpack.io' }
+        maven { url "https://oss.jfrog.org/libs-snapshot" }
+        maven { url 'https://repo1.maven.org/maven2' }
+    }
+}
+
 rootProject.name = 'ulfy-android-master'
 
 include ':app'
-
-include ':ulfy-lib:ulfy-cache'
-include ':ulfy-lib:ulfy-bus'
-include ':ulfy-lib:ulfy-task'
-include ':ulfy-lib:ulfy-task-extension'
-include ':ulfy-lib:ulfy-mvvm'
-include ':ulfy-lib:ulfy-ui-injection'
-include ':ulfy-lib:ulfy-ui-linkage'
-include ':ulfy-lib:ulfy-task-transponder'
-include ':ulfy-lib:ulfy-task-transponder-smart'
-include ':ulfy-lib:ulfy-smart-refresh-layout'
-include ':ulfy-lib:ulfy-adapter'
-include ':ulfy-lib:ulfy-time'
-include ':ulfy-lib:ulfy-download-manager'
-include ':ulfy-lib:ulfy-multi-domain-picker'
-include ':ulfy-lib:ulfy-data-pre-loader'
-include ':ulfy-lib:ulfy-views'
-include ':ulfy-lib:ulfy-dialog'
-include ':ulfy-lib:ulfy-image'
-include ':ulfy-lib:ulfy-system'
-include ':ulfy-lib:ulfy-okhttp'
-include ':ulfy-lib:ulfy-utils'
-include ':ulfy-lib:ulfy-resource'
-include ':ulfy-lib:ulfy-agentweb'
-include ':ulfy-lib:ulfy-agentweb-filechooser'
+apply from: 'ulfy-lib/include.gradle'
 
 include ':wave'
 
@@ -34,5 +29,4 @@ include ':third-dkplayer:dkplayer-players:exo'
 include ':third-dkplayer:dkplayer-players:ijk'
 include ':third-dkplayer:dkplayer-ui'
 include ':third-dkplayer:dkplayer-videocache'
-
 include ':third-dkplayer:hotheart'

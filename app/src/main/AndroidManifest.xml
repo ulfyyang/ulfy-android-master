@@ -18,107 +18,106 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
 
-        <activity android:name=".ui.activity.MainActivity">
+        <activity android:name=".ui.activity.MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.MainKotlinActivity" />
-        <activity android:name=".ui.activity.ContentDataRefreshActivity" />
-        <activity android:name=".ui.activity.ContentDataLoaderActivity" />
-        <activity android:name=".ui.activity.TabPager1Activity" />
-        <activity android:name=".ui.activity.TimerActivity" />
-        <activity android:name=".ui.activity.ShapeLayoutActivity" />
-        <activity android:name=".ui.activity.CountryCodeActivity" />
-        <activity android:name=".ui.activity.ScrollShowLinkageActivity" />
-        <activity android:name=".ui.activity.TabPager2Activity" />
-        <activity android:name=".ui.activity.DownloadManagerActivity" />
-        <activity android:name=".ui.activity.MultiDomainPickerActivity" />
+        <activity android:name=".ui.activity.MainKotlinActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ContentDataRefreshActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ContentDataLoaderActivity" android:exported="false" />
+        <activity android:name=".ui.activity.TabPager1Activity" android:exported="false" />
+        <activity android:name=".ui.activity.TimerActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ShapeLayoutActivity" android:exported="false" />
+        <activity android:name=".ui.activity.CountryCodeActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ScrollShowLinkageActivity" android:exported="false" />
+        <activity android:name=".ui.activity.TabPager2Activity" android:exported="false" />
+        <activity android:name=".ui.activity.DownloadManagerActivity" android:exported="false" />
+        <activity android:name=".ui.activity.MultiDomainPickerActivity" android:exported="false" />
         <activity android:name=".ui.activity.DouyinActivity"
             android:windowSoftInputMode="adjustNothing"
-            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"/>
-        <activity android:name=".ui.activity.MakeGifActivity" />
-        <activity android:name=".ui.activity.ObjectCacheActivity" />
-        <activity android:name=".ui.activity.EventBusActivity" />
-        <activity android:name=".ui.activity.TaskActivity" />
-        <activity android:name=".ui.activity.TaskTransponderActivity" />
-        <activity android:name=".ui.activity.ContentDataInsideLoaderActivity" />
-        <activity android:name=".ui.activity.DialogProcesserActivity" />
-        <activity android:name=".ui.activity.SilentProcesserActivity" />
-        <activity android:name=".ui.activity.ListViewLoaderActivity" />
-        <activity android:name=".ui.activity.RecyclerViewLoaderActivity" />
-        <activity android:name=".ui.activity.SmartTransponderActivity" />
-        <activity android:name=".ui.activity.SmartLoadDataActivity" />
-        <activity android:name=".ui.activity.SmartLoadListPageActivity" />
-        <activity android:name=".ui.activity.TaskExtensionActivity" />
-        <activity android:name=".ui.activity.BackgrounderActivity" />
-        <activity android:name=".ui.activity.AdapterActivity" />
-        <activity android:name=".ui.activity.ListAdapterActivity" />
-        <activity android:name=".ui.activity.RecyclerAdapterActivity" />
-        <activity android:name=".ui.activity.PagerViewAdapterActivity" />
-        <activity android:name=".ui.activity.PagerFragmentAdapterActivity" />
-        <activity android:name=".ui.activity.Time1Activity" />
-        <activity android:name=".ui.activity.DataPreLoaderActivity" />
-        <activity android:name=".ui.activity.ViewsActivity" />
-        <activity android:name=".ui.activity.AutoScrollActivity" />
-        <activity android:name=".ui.activity.AutoScrollUpActivity" />
-        <activity android:name=".ui.activity.DashLineActivity" />
-        <activity android:name=".ui.activity.FlowLayoutActivity" />
-        <activity android:name=".ui.activity.GridViewLayoutActivity" />
-        <activity android:name=".ui.activity.ListViewLayoutActivity" />
-        <activity android:name=".ui.activity.RatioLayoutActivity" />
-        <activity android:name=".ui.activity.VerticalViewPagerActivity" />
-        <activity android:name=".ui.activity.FingerFollowLayoutActivity" />
-        <activity android:name=".ui.activity.ChartViewActivity" />
-        <activity android:name=".ui.activity.EditTextClearLinkageActivity" />
-        <activity android:name=".ui.activity.UiLinkageActivity" />
-        <activity android:name=".ui.activity.EditTextWordCountLinkageActivity" />
-        <activity android:name=".ui.activity.MultiEditTextNotEmptyLinkageActivity" />
-        <activity android:name=".ui.activity.TabPager3Activity" />
-        <activity android:name=".ui.activity.PasswordShowHideLinkageActivity" />
-        <activity android:name=".ui.activity.ScrollAlphaLinkageActivity" />
-        <activity android:name=".ui.activity.DialogActivity" />
-        <activity android:name=".ui.activity.NormalDialogActivity" />
-        <activity android:name=".ui.activity.PopupDialogActivity" />
-        <activity android:name=".ui.activity.AlertDialogActivity" />
-        <activity android:name=".ui.activity.ProgressDialogActivity" />
-        <activity android:name=".ui.activity.DisableTouchActivity" />
-        <activity android:name=".ui.activity.QuickPickActivity" />
-        <activity android:name=".ui.activity.ImageProcessActivity" />
-        <activity android:name=".ui.activity.SystemActivity" />
-        <activity android:name=".ui.activity.FileChooseActivity" />
-        <activity android:name=".ui.activity.ShakeActivity" />
-        <activity android:name=".ui.activity.ReceiveDataActivity" />
-        <activity android:name=".ui.activity.NetStateActivity" />
-        <activity android:name=".ui.activity.FailRollbackActivity" />
-        <activity android:name=".ui.activity.DeviceIdActivity" />
-        <activity android:name=".ui.activity.DialogLayoutActivity" />
-        <activity android:name=".ui.activity.AgentWebActivity" />
-        <activity android:name=".ui.activity.CircleProgressActivity" />
-        <activity android:name=".ui.activity.XBannerActivity" />
-        <activity android:name=".ui.activity.QRCodeActivity" />
-        <activity android:name=".ui.activity.ContentSearchActivity" />
-        <activity android:name=".ui.activity.Splash1Activity" />
-        <activity android:name=".ui.activity.Splash2Activity" />
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout" android:exported="false" />
+        <activity android:name=".ui.activity.MakeGifActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ObjectCacheActivity" android:exported="false" />
+        <activity android:name=".ui.activity.EventBusActivity" android:exported="false" />
+        <activity android:name=".ui.activity.TaskActivity" android:exported="false" />
+        <activity android:name=".ui.activity.TaskTransponderActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ContentDataInsideLoaderActivity" android:exported="false" />
+        <activity android:name=".ui.activity.DialogProcesserActivity" android:exported="false" />
+        <activity android:name=".ui.activity.SilentProcesserActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ListViewLoaderActivity" android:exported="false" />
+        <activity android:name=".ui.activity.RecyclerViewLoaderActivity" android:exported="false" />
+        <activity android:name=".ui.activity.SmartTransponderActivity" android:exported="false" />
+        <activity android:name=".ui.activity.SmartLoadDataActivity" android:exported="false" />
+        <activity android:name=".ui.activity.SmartLoadListPageActivity" android:exported="false" />
+        <activity android:name=".ui.activity.TaskExtensionActivity" android:exported="false" />
+        <activity android:name=".ui.activity.BackgrounderActivity" android:exported="false" />
+        <activity android:name=".ui.activity.AdapterActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ListAdapterActivity" android:exported="false" />
+        <activity android:name=".ui.activity.RecyclerAdapterActivity" android:exported="false" />
+        <activity android:name=".ui.activity.PagerViewAdapterActivity" android:exported="false" />
+        <activity android:name=".ui.activity.PagerFragmentAdapterActivity" android:exported="false" />
+        <activity android:name=".ui.activity.Time1Activity" android:exported="false" />
+        <activity android:name=".ui.activity.DataPreLoaderActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ViewsActivity" android:exported="false" />
+        <activity android:name=".ui.activity.AutoScrollActivity" android:exported="false" />
+        <activity android:name=".ui.activity.AutoScrollUpActivity" android:exported="false" />
+        <activity android:name=".ui.activity.DashLineActivity" android:exported="false" />
+        <activity android:name=".ui.activity.FlowLayoutActivity" android:exported="false" />
+        <activity android:name=".ui.activity.RatioLayoutActivity" android:exported="false" />
+        <activity android:name=".ui.activity.VerticalViewPagerActivity" android:exported="false" />
+        <activity android:name=".ui.activity.FingerFollowLayoutActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ChartViewActivity" android:exported="false" />
+        <activity android:name=".ui.activity.EditTextClearLinkageActivity" android:exported="false" />
+        <activity android:name=".ui.activity.UiLinkageActivity" android:exported="false" />
+        <activity android:name=".ui.activity.EditTextWordCountLinkageActivity" android:exported="false" />
+        <activity android:name=".ui.activity.MultiEditTextNotEmptyLinkageActivity" android:exported="false" />
+        <activity android:name=".ui.activity.TabPager3Activity" android:exported="false" />
+        <activity android:name=".ui.activity.PasswordShowHideLinkageActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ScrollAlphaLinkageActivity" android:exported="false" />
+        <activity android:name=".ui.activity.DialogActivity" android:exported="false" />
+        <activity android:name=".ui.activity.NormalDialogActivity" android:exported="false" />
+        <activity android:name=".ui.activity.PopupDialogActivity" android:exported="false" />
+        <activity android:name=".ui.activity.AlertDialogActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ProgressDialogActivity" android:exported="false" />
+        <activity android:name=".ui.activity.DisableTouchActivity" android:exported="false" />
+        <activity android:name=".ui.activity.QuickPickActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ImageProcessActivity" android:exported="false" />
+        <activity android:name=".ui.activity.SystemActivity" android:exported="false" />
+        <activity android:name=".ui.activity.FileChooseActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ShakeActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ReceiveDataActivity" android:exported="false" />
+        <activity android:name=".ui.activity.NetStateActivity" android:exported="false" />
+        <activity android:name=".ui.activity.FailRollbackActivity" android:exported="false" />
+        <activity android:name=".ui.activity.DeviceIdActivity" android:exported="false" />
+        <activity android:name=".ui.activity.DialogLayoutActivity" android:exported="false" />
+        <activity android:name=".ui.activity.AgentWebActivity" android:exported="false" />
+        <activity android:name=".ui.activity.CircleProgressActivity" android:exported="false" />
+        <activity android:name=".ui.activity.XBannerActivity" android:exported="false" />
+        <activity android:name=".ui.activity.QRCodeActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ContentSearchActivity" android:exported="false" />
+        <activity android:name=".ui.activity.Splash1Activity" android:exported="false" />
+        <activity android:name=".ui.activity.Splash2Activity" android:exported="false" />
         <activity
             android:name=".ui.activity.Splash3Activity"
-            android:theme="@style/SplashTheme" />
-        <activity android:name=".ui.activity.UpgradeCheckActivity" />
-        <activity android:name=".ui.activity.Details1Activity" />
-        <activity android:name=".ui.activity.Details2Activity" />
-        <activity android:name=".ui.activity.List1Activity" />
-        <activity android:name=".ui.activity.List1KotlinActivity" />
-        <activity android:name=".ui.activity.List2Activity" />
+            android:theme="@style/SplashTheme" android:exported="false" />
+        <activity android:name=".ui.activity.UpgradeCheckActivity" android:exported="false" />
+        <activity android:name=".ui.activity.Details1Activity" android:exported="false" />
+        <activity android:name=".ui.activity.Details2Activity" android:exported="false" />
+        <activity android:name=".ui.activity.List1Activity" android:exported="false" />
+        <activity android:name=".ui.activity.List1KotlinActivity" android:exported="false" />
+        <activity android:name=".ui.activity.List2Activity" android:exported="false" />
         <activity
             android:name=".ui.activity.RouterActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|screenLayout"
             android:launchMode="singleTask"
-            android:theme="@android:style/Theme.Translucent">
+            android:theme="@android:style/Theme.Translucent"
+            android:exported="true">
             <intent-filter>
                 <!-- 必须配置这三个 -->
-                <action android:name="android.intent.action.VIEW" />
-                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="android.intent.action.VIEW"  />
+                <category android:name="android.intent.category.DEFAULT"  />
                 <category android:name="android.intent.category.BROWSABLE" />
                 <!-- 配置 scheme，可配置多个 -->
                 <data
@@ -126,45 +125,45 @@
                     android:scheme="ulfy" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.activity.Guide1Activity" />
-        <activity android:name=".ui.activity.Guide2Activity" />
-        <activity android:name=".ui.activity.TabPager4Activity" />
-        <activity android:name=".ui.activity.Time2Activity" />
-        <activity android:name=".ui.activity.SplashActivity" />
-        <activity android:name=".ui.activity.GuideActivity" />
-        <activity android:name=".ui.activity.TabPagerActivity" />
-        <activity android:name=".ui.activity.DetailsActivity" />
-        <activity android:name=".ui.activity.ListActivity" />
-        <activity android:name=".ui.activity.List3Activity" />
-        <activity android:name=".ui.activity.NetInfoActivity" />
-        <activity android:name=".ui.activity.List4Activity" />
-        <activity android:name=".ui.activity.List5Activity" />
-        <activity android:name=".ui.activity.ContactBookActivity" />
-        <activity android:name=".ui.activity.PagerAdapterActivity" />
+        <activity android:name=".ui.activity.Guide1Activity" android:exported="false"/>
+        <activity android:name=".ui.activity.Guide2Activity" android:exported="false"/>
+        <activity android:name=".ui.activity.TabPager4Activity" android:exported="false"/>
+        <activity android:name=".ui.activity.Time2Activity" android:exported="false"/>
+        <activity android:name=".ui.activity.SplashActivity" android:exported="false"/>
+        <activity android:name=".ui.activity.GuideActivity" android:exported="false"/>
+        <activity android:name=".ui.activity.TabPagerActivity" android:exported="false"/>
+        <activity android:name=".ui.activity.DetailsActivity" android:exported="false"/>
+        <activity android:name=".ui.activity.ListActivity" android:exported="false"/>
+        <activity android:name=".ui.activity.List3Activity" android:exported="false" />
+        <activity android:name=".ui.activity.NetInfoActivity" android:exported="false" />
+        <activity android:name=".ui.activity.List4Activity" android:exported="false" />
+        <activity android:name=".ui.activity.List5Activity" android:exported="false" />
+        <activity android:name=".ui.activity.ContactBookActivity" android:exported="false" />
+        <activity android:name=".ui.activity.PagerAdapterActivity" android:exported="false" />
         <activity
             android:name=".ui.activity.CommentEditTextActivity"
             android:windowSoftInputMode="adjustNothing"
-            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout" />
-        <activity android:name=".ui.activity.VideoThumbnailActivity" />
-        <activity android:name=".ui.activity.SmartCustomHeaderActivity" />
-        <activity android:name=".ui.activity.StaggeredAutoFullActivity" />
-        <activity android:name=".ui.activity.StaggeredRandomRatioActivity" />
-        <activity android:name=".ui.activity.ImageLoadActivity" />
-        <activity android:name=".ui.activity.ImagePreviewActivity" />
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout" android:exported="false" />
+        <activity android:name=".ui.activity.VideoThumbnailActivity" android:exported="false" />
+        <activity android:name=".ui.activity.SmartCustomHeaderActivity" android:exported="false" />
+        <activity android:name=".ui.activity.StaggeredAutoFullActivity" android:exported="false" />
+        <activity android:name=".ui.activity.StaggeredRandomRatioActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ImageLoadActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ImagePreviewActivity" android:exported="false" />
         <activity android:name=".ui.activity.VideoListActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout" />
-        <activity android:name=".ui.activity.MinePage1Activity" />
-        <activity android:name=".ui.activity.MinePage2Activity" />
-        <activity android:name=".ui.activity.ShowTypeActivity" />
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout" android:exported="false" />
+        <activity android:name=".ui.activity.MinePage1Activity" android:exported="false" />
+        <activity android:name=".ui.activity.MinePage2Activity" android:exported="false" />
+        <activity android:name=".ui.activity.ShowTypeActivity" android:exported="false" />
         <activity android:name=".ui.activity.VideoActivity"
-            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout" />
-        <activity android:name=".ui.activity.ImagePickActivity" />
-        <activity android:name=".ui.activity.DialogProcessActivity" />
-        <activity android:name=".ui.activity.ScrollPullLinkageActivity" />
-        <activity android:name=".ui.activity.VideoThumbnailPickerActivity" />
-        <activity android:name=".ui.activity.LittleVideoPageActivity" />
-        <activity android:name=".ui.activity.ViewToBitmapActivity" />
-        <activity android:name=".ui.activity.AppbarBehaviorActivity" />
+            android:configChanges="keyboardHidden|orientation|screenSize|screenLayout" android:exported="false" />
+        <activity android:name=".ui.activity.ImagePickActivity" android:exported="false" />
+        <activity android:name=".ui.activity.DialogProcessActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ScrollPullLinkageActivity" android:exported="false" />
+        <activity android:name=".ui.activity.VideoThumbnailPickerActivity" android:exported="false" />
+        <activity android:name=".ui.activity.LittleVideoPageActivity" android:exported="false" />
+        <activity android:name=".ui.activity.ViewToBitmapActivity" android:exported="false" />
+        <activity android:name=".ui.activity.AppbarBehaviorActivity" android:exported="false" />
 
     </application>
 

@@ -17,8 +17,6 @@ import com.ulfy.master.ui.activity.DashLineActivity;
 import com.ulfy.master.ui.activity.DialogLayoutActivity;
 import com.ulfy.master.ui.activity.FingerFollowLayoutActivity;
 import com.ulfy.master.ui.activity.FlowLayoutActivity;
-import com.ulfy.master.ui.activity.GridViewLayoutActivity;
-import com.ulfy.master.ui.activity.ListViewLayoutActivity;
 import com.ulfy.master.ui.activity.RatioLayoutActivity;
 import com.ulfy.master.ui.activity.ShapeLayoutActivity;
 import com.ulfy.master.ui.activity.VerticalViewPagerActivity;
@@ -68,22 +66,6 @@ public class ViewsView extends BaseView {
      */
     @ViewClick(ids = R.id.flowLayoutTV) private void flowLayoutTV(View v) {
         FlowLayoutActivity.startActivity();
-    }
-
-    /**
-     * click: listViewLayoutTV
-     * 列表布局
-     */
-    @ViewClick(ids = R.id.listViewLayoutTV) private void listViewLayoutTV(View v) {
-        ListViewLayoutActivity.startActivity();
-    }
-
-    /**
-     * click: gridViewLayoutTV
-     * 表格布局
-     */
-    @ViewClick(ids = R.id.gridViewLayoutTV) private void gridViewLayoutTV(View v) {
-        GridViewLayoutActivity.startActivity();
     }
 
     /**

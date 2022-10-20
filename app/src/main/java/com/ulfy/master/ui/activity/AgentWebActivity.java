@@ -2,12 +2,12 @@ package com.ulfy.master.ui.activity;
 
 import android.os.Bundle;
 import android.view.ViewGroup;
-import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 
 import com.google.common.base.Joiner;
 import com.just.agentweb.AgentWeb;
+import com.just.agentweb.WebChromeClient;
 import com.ulfy.android.system.ActivityUtils;
 import com.ulfy.android.utils.StringUtils;
 import com.ulfy.master.ui.base.TitleContentActivity;
@@ -79,7 +79,8 @@ public class AgentWebActivity extends TitleContentActivity {
                     .setAgentWebParent((ViewGroup) contentFL, new FrameLayout.LayoutParams(-1, -1))
                     .useDefaultIndicator()
                     .setWebChromeClient(new WebChromeClient() {
-                        public void onReceivedTitle(WebView view, String title) {
+                        @Override public void onReceivedTitle(WebView view, String title) {
+                            super.onReceivedTitle(view, title);
                             titleTV.setText(title);
                         }
                     }).createAgentWeb().ready().go(url);

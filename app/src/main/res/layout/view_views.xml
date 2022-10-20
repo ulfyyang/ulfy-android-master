@@ -38,20 +38,6 @@
             <View style="@style/HLine" />
 
             <TextView
-                android:id="@+id/listViewLayoutTV"
-                style="@style/TipButton"
-                android:text="列表布局：ListViewLayoutActivity" />
-
-            <View style="@style/HLine" />
-
-            <TextView
-                android:id="@+id/gridViewLayoutTV"
-                style="@style/TipButton"
-                android:text="表格布局：GridViewLayoutActivity" />
-
-            <View style="@style/HLine" />
-
-            <TextView
                 android:id="@+id/fingerFollowLayoutTV"
                 style="@style/TipButton"
                 android:text="跟随手指移动：FingerFollowLayoutActivity" />

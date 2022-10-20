@@ -1,17 +1,24 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
     id 'com.google.gms.google-services'
 }
 
 android {
-    compileSdkVersion externalCompileSdkVersion
-    buildToolsVersion externalBuildToolsVersion
+    compileSdk CompileSdk
+
+    signingConfigs {
+        release {
+            storeFile file('android.keystore')
+            keyAlias 'alias'; keyPassword 'abc123'; storePassword 'abc123'
+            v1SigningEnabled true; v2SigningEnabled true
+        }
+    }
 
     defaultConfig {
-        minSdkVersion externalMinSdkVersion
-        targetSdkVersion externalTargetSdkVersion
         applicationId "com.ulfy.master"
+        minSdk MinSdk; targetSdk TargetSdk
         versionCode 1; versionName "1.0"
         multiDexEnabled true
         flavorDimensions "default"    // AndroidStudio3.0多渠道强制设置
@@ -30,13 +37,6 @@ android {
         buildConfigField("String", "UMENG_KEY", '"6095292453b6726499f09b44"')
     }
 
-    signingConfigs {
-        release {
-            storeFile file('android.keystore')
-            keyAlias 'alias'; keyPassword 'abc123'; storePassword 'abc123'
-            v1SigningEnabled true; v2SigningEnabled true
-        }
-    }
     buildTypes {
         debug {
             signingConfig signingConfigs.release
@@ -49,7 +49,9 @@ android {
     }
 
     lintOptions.abortOnError false
-    buildFeatures.viewBinding = true
+    viewBinding {
+        enabled = true
+    }
     kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -57,105 +59,43 @@ android {
     }
 }
 
+
+apply from: "../ulfy-lib/dependencies_basic.gradle"
+apply from: "../ulfy-lib/dependencies_ulfy.gradle"
+apply from: "../ulfy-lib/dependencies_test.gradle"
+
+
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
 
-    // Kotlin基础库
-    implementation KotlinStdlib
-
-    /*
-    基础库
-     */
-    implementation externalAndroidAppCompatV7           // 组件支持库
-    implementation externalAndroidDesign                // material design 库
-    implementation externalAppBarLayoutBehavior         // 解决AppBarLayout上拉回弹问题
-    implementation externalAppBarLayout                 // 官方AppBarLayout升级版
-    implementation externalAndroidCardView              // 卡片布局
-    implementation externalConstraintLayout             // 约束布局
-
-    /*
-    源码依赖
-     */
-    implementation project(':ulfy-lib:ulfy-cache')                       // 对象缓存
-    implementation project(':ulfy-lib:ulfy-bus')                         // 事件总线
-    implementation project(':ulfy-lib:ulfy-task')                        // 任务引擎
-    implementation project(':ulfy-lib:ulfy-task-extension')              // 任务扩展包
-    implementation project(':ulfy-lib:ulfy-mvvm')                        // MVVM协议规范
-    implementation project(':ulfy-lib:ulfy-ui-injection')                // 界面注入
-    implementation project(':ulfy-lib:ulfy-ui-linkage')                  // 界面联动
-    implementation project(':ulfy-lib:ulfy-task-transponder')            // 任务响应器
-    implementation project(':ulfy-lib:ulfy-task-transponder-smart')      // Smart下拉刷新响应器
-    implementation project(':ulfy-lib:ulfy-adapter')                     // 编辑适配器
-    implementation project(':ulfy-lib:ulfy-time')                        // 时间跟踪
-    implementation project(':ulfy-lib:ulfy-download-manager')            // 下载管理器
-    implementation project(':ulfy-lib:ulfy-multi-domain-picker')         // 多域名选择器
-    implementation project(':ulfy-lib:ulfy-data-pre-loader')             // 数据预加载
-    implementation project(':ulfy-lib:ulfy-views')                       // 自定义控件
-    implementation project(':ulfy-lib:ulfy-dialog')                      // 弹出框
-    implementation project(':ulfy-lib:ulfy-image')                       // 图片处理
-    implementation project(':ulfy-lib:ulfy-system')                      // 系统综合工具
-    implementation project(':ulfy-lib:ulfy-okhttp')                      // 网络访问工具
-    implementation project(':ulfy-lib:ulfy-utils')                       // 工具处理集合
-    implementation project(':ulfy-lib:ulfy-resource')                    // 公共资源
-    implementation  'com.umeng.umsdk:common:9.3.8'                       // 友盟统计 必选
-    implementation  'com.umeng.umsdk:asms:1.2.2'                         // 友盟统计 必选
-    implementation project(':ulfy-lib:ulfy-agentweb')                    // 网页加载
-
-    /*
-    远程依赖
-     */
-//    implementation externalUlfyCache                    // 对象缓存框架
-//    implementation externalUlfyBus                      // 事件总线框架
-//    implementation externalUlfyTask                     // 任务引擎框架
-//    implementation externalUlfyTaskExtension            // 任务扩展包
-//    implementation externalUlfyMVVM                     // mvvm规范
-//    implementation externalUlfyUiInjection              // 界面注入框架
-//    implementation externalUlfyUiLinkage                // 界面联动框架
-//    implementation externalUlfyTaskTransponder          // 任务响应器
-//    implementation externalUlfyTaskTransponderSmart     // Smart下拉刷新支持
-//    implementation externalUlfyAdapter                  // 适配器
-//    implementation externalUlfyTime                     // 时间工具包
-//    implementation externalUlfyDownloadManager          // 文件下载管理器
-//    implementation externalMultiDomainPicker            // 多域名选择框架
-//    implementation externalDataPreLoader                // 数据预加载框架
-//    implementation externalUlfyViews                    // 自定义控件
-//    implementation externalUlfyDialog                   // 弹出框框架
-//    implementation externalUlfyImage                    // 图片处理
-//    implementation externalUlfySystem                   // 系统模块
-//    implementation externalUlfyOkHttp                   // 网络模块
-//    implementation externalUlfyUtils                    // 工具模块
-//    implementation externalUlfyResource                 // 公共资源
-//    implementation externalUlfyUmeng                    // 友盟分享封装
-//    implementation externalUlfyAgentweb                 // Agentweb封装
+    implementation  'com.umeng.umsdk:common:9.4.2'      // 友盟统计 必选
+    implementation  'com.umeng.umsdk:asms:1.4.1'        // 友盟统计 必选
 
     /*
     三方库
      */
-    implementation externalGifDrawable                          // GIF图片加载控件
-    implementation externalPtrLoadMore                          // 下拉刷新（已过时不建议）
+    implementation GifDrawable                          // GIF图片加载控件
     implementation project(':ulfy-lib:ulfy-smart-refresh-layout')   // 下拉刷新（源码方式导入）
-//    implementation externalSmartRefreshLayout                     // 下拉刷新（远程依赖选择）
-    implementation externalSmartRefreshHeader                   // 下拉刷新样式
-    implementation externalMagicIndicator                       // ViewPager指示器
-    debugImplementation externalDebugLeakcanary                 // 内存溢出分析
-    releaseImplementation externalReleaseLeakcanary             // 内存溢出分析
-    implementation externalOKHTTP                               // 网络访问库
-    implementation externalFastJson                             // JSON解析库
-    implementation externalJodaTime                             // 时间处理库
-    implementation externalTinyPinyin                           // 汉字转拼音
-    implementation externalGuava                                // 基础工具包
-    implementation externalAndroidMultiDex                      // 分包打包库
-    implementation externalGlide                                // Glide图片加载
-    implementation externalViewAnimation                        // 动画操作框架
-    implementation externalZXing                                // 二维码扫描
-    implementation externalXBanner                              // 轮播图
-    implementation externalQuickSlideBar                        // 列表索引列表
+//    implementation SmartRefreshLayout                     // 下拉刷新（远程依赖选择）
+    implementation SmartRefreshHeader                   // 下拉刷新样式
+    implementation MagicIndicator                       // ViewPager指示器
+    debugImplementation DebugLeakcanary                 // 内存溢出分析
+    implementation OKHTTP                               // 网络访问库
+    implementation FastJson                             // JSON解析库
+    implementation JodaTime                             // 时间处理库
+    implementation TinyPinyin                           // 汉字转拼音
+    implementation Guava                                // 基础工具包
+    implementation Glide                                // Glide图片加载
+    implementation ViewAnimation                        // 动画操作框架
+    implementation ZXing                                // 二维码扫描
+    implementation XBanner                              // 轮播图
+    implementation QuickSlideBar                        // 列表索引列表
     implementation project(':wave')                             // 波浪索引选择器
-    implementation externalGifDrawable                          // GIF图片加载控件
-    implementation externalAppBarLayoutBehavior                 // AppBarLayout回弹问题
-    implementation externalViewPager2                           // ViewPager2
-    implementation externalRxJava                               // RxJava
-    implementation externalRxAndroid                            // RxAndroid
+    implementation GifDrawable                          // GIF图片加载控件
+    implementation AppBarLayoutBehavior                 // AppBarLayout回弹问题
+    implementation AndroidXViewPager2                           // ViewPager2
+    implementation RxJava                               // RxJava
+    implementation RxAndroid                            // RxAndroid
 
     implementation 'commons-io:commons-io:2.8.0'                // Apache Commons
 
@@ -168,10 +108,4 @@ dependencies {
     implementation project(':third-dkplayer:hotheart')                  // 抖音单击暂停、双击红心
 
     implementation 'com.google.firebase:firebase-analytics:17.4.1'
-
-    // 测试库
-    testImplementation TestJunit
-    testImplementation TestKotlinCoroutines
-    androidTestImplementation TestJunitExt
-    androidTestImplementation TestEspresso
 }
